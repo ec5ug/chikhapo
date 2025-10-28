@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chikhapo"
+version = "0.1.0"
+authors = [
+  { name = "Emily Chang", email = "emily.chang@ttic.edu" }
+]
+description = "ChiKhaPo: A Large-Scale Multilingual Benchmark for Evaluating Lexical Comprehension and Generation in Large Language Models"
+readme = { file = "README.md", content-type = "test/markdown" }
+requires-python = ">=3.9"
+dependencies = [
+  "numpy",
+]
+
+[project.license]
+text = "MIT"
+
+[project.urls]
+Homepage = "https://github.com/ec5ug/chikhapo/tree/master/chikhapo_pkg"
+issues = "https://github.com/ec5ug/chikhapo/issues"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
