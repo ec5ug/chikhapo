@@ -1,0 +1,30 @@
+# Build artifacts
+/bin/
+/out/
+/target/
+*.o
+*.pyc
+*.class
+
+# Dependency caches
+/node_modules/
+/vendor/
+/packages/
+
+# Runtime-generated files
+*.log
+*.tmp
+*.lock
+
+# OS and IDE-specific files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*~
+#*#
+
+# Sensitive information
+.env
+*.env.*
+credentials.json
