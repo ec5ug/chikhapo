@@ -1,0 +1,29 @@
+# Compiled code and build artifacts
+*.o
+*.pyc
+*.class
+build/
+dist/
+
+# Log files and temporary files
+*.log
+*.tmp
+*.lock
+
+# Dependency caches
+node_modules/
+vendor/
+
+# Sensitive information (example)
+.env
+config/secrets.yml
+
+# OS and editor-specific files
+.DS_Store
+Thumbs.db
+.vscode/
+.ideai/
+
+# data
+*.zip
+omnis/
