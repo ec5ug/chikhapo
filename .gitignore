@@ -26,4 +26,6 @@ Thumbs.db
 
 # data
 *.zip
+*.tar.gz
 omnis/
+__pycache__
