@@ -32,6 +32,8 @@ class Task_Feeder:
     # def get_word_translation_prompts(self, model_name): ### for all_eng
 
     def get_word_translation_prompts_for_lang_pair(self, model_name, lang_pair):
+        if lang_pair == "all_eng" or lang_pair == "eng_all":
+            raise Exception("The code here can return prompts in only one language.\nTo receive prompts across all languages, you can either:\n\t(1) code your own (preferable) or (2)\n\tcall this function repeatedly across all language pairs. Doing so may result in a 429 error as you will query the API repeatedly.")
         words = self.get_word_translation_data_for_lang_pair(lang_pair)
         prompts = []
         # for langpair, words in langpair_words.items():
@@ -99,6 +101,8 @@ class Task_Feeder:
     #     return langpair_word_sentence
 
     def get_word_translation_with_context_prompts_for_lang_pair(self, model_name, lang_pair):
+        if lang_pair == "all_eng" or lang_pair == "eng_all":
+            raise Exception("The code here can return prompts in only one language.\nTo receive prompts across all languages, you can either:\n\t(1) code your own (preferable) or (2)\n\tcall this function repeatedly across all language pairs. Doing so may result in a 429 error as you will query the API repeatedly.")
         list_of_word_sentences = self.get_word_translation_with_context_data_for_lang_pair(lang_pair)
         DIRECTION = get_direction_of_lang_pair(lang_pair)
         iso = get_language_from_pair(lang_pair) # the non-english iso
