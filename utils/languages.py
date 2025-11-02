@@ -21,11 +21,19 @@ def get_direction_of_lang_pair(lang_pair):
 def get_language_from_pair(lang_pair):
     direction = get_direction_of_lang_pair(lang_pair)
     if direction == "X_to_eng":
-        return lang_pair.split("_")[0]
+        return lang_pair[:-4]
     elif direction == "eng_to_X":
-        return lang_pair.split("_")[1]
+        return lang_pair[4:]
     else:
         raise Exception("Invalid DIRECTION")
+
+def get_language_pair(lang, DIRECTION):
+    if DIRECTION == "X_to_eng":
+        return f"{lang}_eng"
+    elif DIRECTION == "eng_to_X":
+        return f"eng_{lang}"
+    else:
+        raise Exception("Improper direction")
 
 # import unicodedata
 # def remove_accents(text):
