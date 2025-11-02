@@ -15,7 +15,8 @@ node_modules/
 vendor/
 
 # Sensitive information (example)
-.env
+*.env
+venv
 config/secrets.yml
 
 # OS and editor-specific files
@@ -28,4 +29,7 @@ Thumbs.db
 *.zip
 *.tar.gz
 omnis/
+hf_data
 __pycache__
+.pytest_cache
+chikhapo.egg-info
