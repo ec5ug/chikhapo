@@ -3,9 +3,11 @@ from .base import BaseTaskFeeder
 from chikhapo.utils.languages import convert_iso_to_name, get_direction_of_lang_pair, get_language_from_pair, get_language_pair
 
 class WordTranslationWithContextFeeder(BaseTaskFeeder):
-    """Handles word translation with context tasks"""
+    """
+    for task Word Translation with Context
+    """
     
-    def get_data_for_lang_pair(self, iso_script_pair):
+    def get_data_for_lang_pair(self, iso_script_pair, lite=True):
         list_of_words_sentences = []
         lang_script = get_language_from_pair(iso_script_pair)
         text = self.loader.get_glotlid_subset(lang_script)
@@ -28,10 +30,12 @@ class WordTranslationWithContextFeeder(BaseTaskFeeder):
             for raw_word in raw_words:
                 if raw_word in lex_words:
                     list_of_words_sentences.append((raw_word, sentence))
+        if lite:
+            list_of_words_sentences = self.get_random_sample(list_of_words_sentences)
         return list_of_words_sentences
 
-    def get_prompts_for_lang_pair(self, model_name, lang_pair):
-        list_of_word_sentences = self.get_data_for_lang_pair(lang_pair)
+    def get_prompts_for_lang_pair(self, model_name, lang_pair, lite=True):
+        list_of_word_sentences = self.get_data_for_lang_pair(lang_pair, lite)
         DIRECTION = get_direction_of_lang_pair(lang_pair)
         iso = get_language_from_pair(lang_pair)
         lang_name = convert_iso_to_name(iso)
