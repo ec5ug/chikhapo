@@ -1,66 +1,32 @@
-# import sys
-# import pytest
-
-# from chikhapo import Task_Feeder
-
-# @pytest.fixture
-# def task_feeder_instance():
-#     return Task_Feeder()
-
-# def test_get_word_translation_data_for_lang_pair(task_feeder_instance):
-#     list_of_words = task_feeder_instance.get_word_translation_data_for_lang_pair("aac_eng")
-#     assert isinstance(list_of_words, list)
-#     assert len(list_of_words) > 0
-#     assert all(isinstance(w, str) for w in list_of_words)
-
-# def get_word_translation_with_context_data_for_lang_pair(task_feeder_instance):
-#     list_of_prompts = task_feeder_instance.get_word_translation_prompts("aya-101", "aac_eng")
-#     assert isinstance(list_of_prompts, list)
-#     assert len(list_of_prompts) > 0
-#     assert all(isinstance(w, str) for w in list_of_prompts)
-
-# def test_get_word_translation_with_context_data_for_lang_pair(task_feeder_instance):
-#     list_of_words_sentences = task_feeder_instance.get_word_translation_with_context_data_for_lang_pair("avn_Latn_eng")
-#     assert isinstance(list_of_words_sentences, list)
-#     assert len(list_of_words_sentences) > 0
-#     assert all(isinstance(w, tuple) for w in list_of_words_sentences)
-#     assert len(list_of_words_sentences[0]) == 2
-
-# def test_get_word_translation_with_context_prompts_for_lang_pair(task_feeder_instance):
-#     list_of_prompts = task_feeder_instance.get_word_translation_with_context_prompts_for_lang_pair("aya-101", "avn_Latn_eng")
-#     assert isinstance(list_of_prompts, list)
-#     assert len(list_of_prompts) > 0
-#     assert all(isinstance(w, str) for w in list_of_prompts)
-
 import unittest
-from chikhapo import Task_Feeder
+from chikhapo import TaskFeeder
 
 class TestTaskFeeder(unittest.TestCase):
-
-    def setUp(self):
-        self.task_feeder = Task_Feeder()
-
     def test_get_word_translation_data_for_lang_pair(self):
-        list_of_words = self.task_feeder.get_word_translation_data_for_lang_pair("aac_eng")
+        feeder = TaskFeeder("word_translation")
+        list_of_words = feeder.get_data_for_lang_pair("aac_eng")
         self.assertIsInstance(list_of_words, list)
         self.assertGreater(len(list_of_words), 0)
         self.assertTrue(all(isinstance(w, str) for w in list_of_words))
 
     def test_get_word_translation_prompts_for_lang_pair(self):
-        list_of_prompts = self.task_feeder.get_word_translation_prompts_for_lang_pair("aya-101", "aac_eng")
+        feeder = TaskFeeder("word_translation")
+        list_of_prompts = feeder.get_prompts_for_lang_pair("aya-101", "aac_eng")
         self.assertIsInstance(list_of_prompts, list)
         self.assertGreater(len(list_of_prompts), 0)
         self.assertTrue(all(isinstance(w, str) for w in list_of_prompts))
 
     def test_get_word_translation_with_context_data_for_lang_pair(self):
-        list_of_words_sentences = self.task_feeder.get_word_translation_with_context_data_for_lang_pair("avn_Latn_eng")
+        feeder = TaskFeeder("word_translation_with_context")
+        list_of_words_sentences = feeder.get_data_for_lang_pair("avn_Latn_eng")
         self.assertIsInstance(list_of_words_sentences, list)
         self.assertGreater(len(list_of_words_sentences), 0)
         self.assertTrue(all(isinstance(w, tuple) for w in list_of_words_sentences))
         self.assertEqual(len(list_of_words_sentences[0]), 2)
 
     def test_get_word_translation_with_context_prompts_for_lang_pair(self):
-        list_of_prompts = self.task_feeder.get_word_translation_with_context_prompts_for_lang_pair("aya-101", "avn_Latn_eng")
+        feeder = TaskFeeder("word_translation_with_context")
+        list_of_prompts = feeder.get_prompts_for_lang_pair("aya-101", "avn_Latn_eng")
         self.assertIsInstance(list_of_prompts, list)
         self.assertGreater(len(list_of_prompts), 0)
         self.assertTrue(all(isinstance(w, str) for w in list_of_prompts))

@@ -101,7 +101,7 @@ class TestEvaluator(unittest.TestCase):
         """Set up a temporary directory and Evaluator instance."""
         self.tmp_dir = tempfile.TemporaryDirectory()
         self.tmp_path = self.tmp_dir.name
-        self.evaluator = Evaluator()
+        self.evaluator = Evaluator("word_translation")
 
     def tearDown(self):
         """Clean up the temporary directory after tests."""
@@ -130,6 +130,7 @@ class TestEvaluator(unittest.TestCase):
                 "data": [{"word": "a", "prediction": "a"}],
             }),
         )
+        evaluator = Evaluator("word_translation")
         with self.assertRaises(Exception) as ctx:
             self.evaluator.read_prediction_file(path)
         self.assertIn('The key "src_lang" is not specified.', str(ctx.exception))
@@ -153,7 +154,7 @@ class TestEvaluator(unittest.TestCase):
             {"source_word": "ventana", "target_translations": ["window"], "src_lang": "spa", "tgt_lang": "eng"},
         ]
         with patch.object(self.evaluator.loader, "get_omnis_lexicon_subset", return_value=fake_lexicon):
-            self.evaluator.evaluate_word_translation(path)
+            self.evaluator.evaluate(path)
         self.assertEqual(self.evaluator.xword_class_pred["gatos"]["exact_match"], ["cat"])
         self.assertEqual(self.evaluator.word_scores["gatos"], 1)
         self.assertEqual(self.evaluator.lang_score, 100)
@@ -184,7 +185,7 @@ class TestEvaluator(unittest.TestCase):
             {"source_word": "ventana", "target_translations": ["window"]},
         ]
         with patch.object(self.evaluator.loader, "get_omnis_lexicon_subset", return_value=fake_lexicon):
-            self.evaluator.evaluate_word_translation(path)
+            self.evaluator.evaluate(path)
         self.assertEqual(len(self.evaluator.xword_class_pred), 6)
         self.assertAlmostEqual(self.evaluator.lang_score, 66.66667, places=3)
 
@@ -209,9 +210,8 @@ class TestEvaluator(unittest.TestCase):
                 "tgt_lang": "spa",
             }
         ]
-
         with patch.object(self.evaluator.loader, "get_omnis_lexicon_subset", return_value=fake_lexicon):
-            self.evaluator.evaluate_word_translation(path)
+            self.evaluator.evaluate(path)
 
         self.assertEqual(self.evaluator.xword_class_pred["egipcia"]["inflection"], ["egipto"])
         self.assertEqual(self.evaluator.word_scores["egipcia"], 1)
