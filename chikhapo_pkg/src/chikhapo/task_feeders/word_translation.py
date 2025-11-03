@@ -2,17 +2,28 @@ from .base import BaseTaskFeeder
 from chikhapo.utils.languages import convert_iso_to_name, get_direction_of_lang_pair, get_language_from_pair
 
 class WordTranslationFeeder(BaseTaskFeeder):
-    """Handles word translation tasks"""
+    """
+    for task Word Translation
     
-    def get_data_for_lang_pair(self, lang_pair):
+    method: get_data_for_lang_pair
+        returns a list of words in the given a language pair
+        if lite==True, (deterministically) returns 300 elements
+    method: get_prompts_for_lang_pair
+        returns a list of prompts given a model name
+        if lite==True, returns prompts from the (deterministically) random subset of words from get_data_for_lang_pair
+    """
+
+    def get_data_for_lang_pair(self, lang_pair, lite=True):
         list_of_words = []
         lexicon = self.loader.get_omnis_lexicon_subset(lang_pair)
         for entry in lexicon:
             list_of_words.append(entry["source_word"])
+        if lite:
+            list_of_words = self.get_random_sample(list_of_words)
         return list_of_words
 
-    def get_prompts_for_lang_pair(self, model_name, lang_pair):
-        words = self.get_data_for_lang_pair(lang_pair)
+    def get_prompts_for_lang_pair(self, model_name, lang_pair, lite=True):
+        words = self.get_data_for_lang_pair(lang_pair, lite)
         prompts = []
         DIRECTION = get_direction_of_lang_pair(lang_pair)
         iso = get_language_from_pair(lang_pair)
