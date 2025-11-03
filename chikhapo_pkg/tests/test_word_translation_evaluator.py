@@ -94,7 +94,7 @@ from unittest.mock import patch
 from chikhapo import Evaluator
 
 
-class TestEvaluator(unittest.TestCase):
+class TestWordTranslationEvaluator(unittest.TestCase):
     """Unit tests for the Evaluator class."""
 
     def setUp(self):
