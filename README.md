@@ -14,3 +14,11 @@ For more details, go to this [link](https://medium.com/@manyi.yim/store-your-hug
 
 **Dataset Access**
 We draw on [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus) and [GLOTLID](https://huggingface.co/datasets/cis-lmu/glotlid-corpus), Huggingface datasets that require users to apply for access. Please visit both links to apply for access.
+
+**Downloads**
+We use WordNet to verify synonymy. You will need to download it. This can be done by:
+
+```
+import nltk
+nltk.down("wordnet")
+```
