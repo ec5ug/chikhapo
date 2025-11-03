@@ -115,7 +115,7 @@ class Task_Feeder:
                 elif model_name == "aya-23-8b" or model_name == "falcon":
                     prompt = f"In '{sentence[:-1]}', the word '{word}' means ____ in English."
                 elif model_name == "bloom" or model_name=="llama":
-                    prompt = f"Sentence: {sentence[:-1]}\nDefine '{wod}' in one English word: "
+                    prompt = f"Sentence: {sentence[:-1]}\nDefine '{word}' in one English word: "
                 elif model_name == "gemma":
                     prompt = f"Sentence: {sentence[:-1]}\nEnglish definition of '{word}': "
                 else:
@@ -123,7 +123,7 @@ class Task_Feeder:
             elif DIRECTION == "eng_to_X":
                 if model_name == "aya-101":
                     prompt = f"What does '{word}' mean in {lang_name} in the sentence '{sentence[:-1]}'? Meaning (one word): "
-                elif model_name == "aya-23-8b" or model_name == "falcon" or model_name == "gemma" or MODEL=="llama":
+                elif model_name == "aya-23-8b" or model_name == "falcon" or model_name == "gemma" or model_name=="llama":
                     prompt = f"In '{sentence[:-1]}', the word '{word}' means ____ in {lang_name}."
                 elif model_name == "bloom":
                     prompt = f"Define '{word}' in '{sentence[:-1]}' in {lang_name}: "
