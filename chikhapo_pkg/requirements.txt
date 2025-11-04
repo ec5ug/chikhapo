@@ -5,7 +5,6 @@ anyio==4.11.0
 attrs==25.4.0
 certifi==2025.10.5
 charset-normalizer==3.4.4
--e git+ssh://git@github.com/ec5ug/chikhapo.git@c29a0d58abbfa7bada6dfc5b9bb54492916fe1c4#egg=chikhapo&subdirectory=chikhapo_pkg
 click==8.3.0
 datasets==4.3.0
 dill==0.4.0
