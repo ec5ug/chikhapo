@@ -1,5 +1,4 @@
 import pycountry
-import re
 import string
 
 

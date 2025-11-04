@@ -1,6 +1,3 @@
-from collections import defaultdict
-from fuzzywuzzy import fuzz
-from pathlib import Path
 from .base import BaseEvaluator
 from chikhapo.utils.parsing import clean_string
 

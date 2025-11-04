@@ -1,8 +1,6 @@
 from huggingface_hub import login
 from datasets import load_dataset, get_dataset_config_names
 import os
-import sys
-sys.path.append("../../../utils")
 # from languages import get_language_from_pair
 
 login(token=os.environ.get("HF_TOKEN"))
