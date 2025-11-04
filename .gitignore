@@ -33,3 +33,5 @@ hf_data
 __pycache__
 .pytest_cache
 chikhapo.egg-info
+pkg_env
+repo_env
