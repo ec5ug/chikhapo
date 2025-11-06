@@ -1,5 +1,5 @@
 from .base import BaseEvaluator
-from chikhapo.utils.parsing import clean_string
+from chikhapo.utils.parsing import clean_string, convert_list_of_entries_to_dictionary
 
 class WordTranslationEvaluator(BaseEvaluator):
     def score_each_word(self):
@@ -36,7 +36,7 @@ class WordTranslationEvaluator(BaseEvaluator):
             self.DIRECTION = "eng_to_X"
         data = model_output_file["data"]
         list_of_entries = self.loader.get_omnis_lexicon_subset(f"{src_lang}_{tgt_lang}")
-        lexicon = self.convert_list_of_entries_to_dictionary(list_of_entries)
+        lexicon = convert_list_of_entries_to_dictionary(list_of_entries)
         for output in data:
             self.validate_output(output)
             word_to_translate = clean_string(output["word"])

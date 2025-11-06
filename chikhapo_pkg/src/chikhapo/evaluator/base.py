@@ -17,6 +17,9 @@ class BaseEvaluator:
         self.word_scores = {}
         self.lang_score = -1
     
+    def get_lang_score(self):
+        return self.lang_score
+    
     def read_prediction_file(self, file_path):
         if not file_path.endswith("json"):
             raise Exception("The file you provided is not a JSON file. Please input the path to a JSON file")
@@ -36,11 +39,11 @@ class BaseEvaluator:
             raise Exception("The data you provided does not exist as a list. Please specify the data as a list")
         return model_output_file
     
-    def convert_list_of_entries_to_dictionary(self, list_of_entries):
-        new_dictionary = defaultdict(list)
-        for entry in list_of_entries:
-            new_dictionary[entry["source_word"]] = entry["target_translations"]
-        return new_dictionary
+    # def convert_list_of_entries_to_dictionary(self, list_of_entries):
+    #     new_dictionary = defaultdict(list)
+    #     for entry in list_of_entries:
+    #         new_dictionary[entry["source_word"]] = entry["target_translations"]
+    #     return new_dictionary
 
     def score_language(self): # used to be score_each_word_type
         word_scores = list(self.word_scores.values())

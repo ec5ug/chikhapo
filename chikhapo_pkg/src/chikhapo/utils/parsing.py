@@ -1,5 +1,6 @@
 from nltk.corpus import wordnet as wn
 import unicodedata
+from collections import defaultdict
 
 def is_punctuation(char):
     return unicodedata.category(char).startswith('P')
@@ -30,3 +31,9 @@ def lemmatize_terms(list_of_terms):
             lemmas_of_term = synset_of_term.lemmas()
             lemma_names.update(preprocess_lemma_names(lemmas_of_term))
     return lemma_names
+
+def convert_list_of_entries_to_dictionary(list_of_entries):
+    new_dictionary = defaultdict(list)
+    for entry in list_of_entries:
+        new_dictionary[entry["source_word"]] = entry["target_translations"]
+    return new_dictionary
