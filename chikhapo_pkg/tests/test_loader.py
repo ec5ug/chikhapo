@@ -30,6 +30,12 @@ class TestLoader(unittest.TestCase):
     def test_get_omnis_subset_names(self):
         omnis_subset_names = self.loader.get_omnis_lexicon_subset_names()
         self.assertGreaterEqual(len(omnis_subset_names), 5000)
+        self.assertIn("eng_all", omnis_subset_names)
+        self.assertIn("all_eng", omnis_subset_names)
+        self.assertNotIn("eng_eng", omnis_subset_names)
+        len_of_x_to_eng = [c for c in omnis_subset_names if c.endswith('eng')]
+        len_of_eng_to_x = [c for c in omnis_subset_names if c.endswith('eng')]
+        self.assertEqual(len_of_x_to_eng, len_of_eng_to_x)
 
     def test_get_omnis_lexicon_subset(self):
         subset = self.loader.get_omnis_lexicon_subset("spa_eng")
