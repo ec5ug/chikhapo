@@ -13,16 +13,29 @@ class WordTranslationFeeder(BaseTaskFeeder):
         if lite==True, returns prompts from the (deterministically) random subset of words from get_data_for_lang_pair
     """
 
+    def get_lang_pairs(self, DIRECTION=None):
+        omnis_subset_names = self.loader.get_omnis_lexicon_subset_names()
+        if DIRECTION is None:
+            return omnis_subset_names
+        elif DIRECTION=="X_to_eng":
+            return [c for c in omnis_subset_names if c.endswith('eng')]
+        elif DIRECTION=="eng_to_X":
+            return [c for c in omnis_subset_names if c.endswith('eng')]
+        else:
+            raise Exception("An invalid directon was specified. It should be None, \"X_to_eng\", or \"eng_to_X\"")
+
     def get_data_for_lang_pair(self, lang_pair, lite=True):
-        list_of_words = []
+        words_tanslations = {}
         lexicon = self.loader.get_omnis_lexicon_subset(lang_pair)
         for entry in lexicon:
-            list_of_words.append(entry["source_word"])
+            k = entry["source_word"]
+            v = entry["target_translations"]
+            words_tanslations[k] = v
         if lite:
-            list_of_words = self.get_random_sample(list_of_words)
-        return list_of_words
+            words_tanslations = self.get_random_sample(words_tanslations)
+        return words_tanslations
 
-    def get_prompts_for_lang_pair(self, model_name, lang_pair, lite=True):
+    def get_prompts_for_lang_pair(self, lang_pair, lite=True):
         words = self.get_data_for_lang_pair(lang_pair, lite)
         prompts = []
         DIRECTION = get_direction_of_lang_pair(lang_pair)
@@ -31,22 +44,8 @@ class WordTranslationFeeder(BaseTaskFeeder):
         
         for word in words:
             if DIRECTION == "X_to_eng":
-                if model_name == "aya-23-8b" or model_name == "falcon" or model_name == "llama":
-                    prompt = f"Translate the following word from {lang_name} to English. Respond with a single word.\nWord: {word}\nTranslation: "
-                elif model_name == "aya-101" or model_name == "bloom":
-                    prompt = f"Translate the following text from {lang_name} to English: {word}."
-                elif model_name == "gemma":
-                    prompt = f"Translate '{word}' from {lang_name} into English. Respond in one word."
-                else:
-                    raise Exception(f"Model {model_name} was not tested in this study. No prompts are available")
+                prompt = f"Translate the following word from {lang_name} to English. Respond with a single word.\nWord: {word}\nTranslation: "
             elif DIRECTION == "eng_to_X":
-                if model_name == "aya-23-8b" or model_name == "falcon" or model_name == "llama":
-                    prompt = f"Translate the following word from English to {lang_name}. Respond with a single word.\nWord: {word}\nTranslation: "
-                elif model_name == "aya-101" or model_name == "bloom":
-                    prompt = f"Translate the following text from English to {lang_name}: {word}."
-                elif model_name == "gemma":
-                    prompt = f"Translate '{word}' from English to {lang_name}. Answer in one word:"
-                else:
-                    raise Exception(f"Model {model_name} was not tested in this study. No prompts are available")
+                prompt = f"Translate the following word from English to {lang_name}. Respond with a single word.\nWord: {word}\nTranslation: "
             prompts.append(prompt)
         return prompts
