@@ -37,6 +37,9 @@ class BaseEvaluator:
             raise Exception("The key \"data\" is not specified. Please specify the key to data.")
         if not isinstance(model_output_file["data"], list):
             raise Exception("The data you provided does not exist as a list. Please specify the data as a list")
+        for entry in model_output_file["data"]:
+            if "prediction" not in entry:
+                raise Exception(f"A prediction was not specified in {entry}")
         return model_output_file
     
     # def convert_list_of_entries_to_dictionary(self, list_of_entries):
