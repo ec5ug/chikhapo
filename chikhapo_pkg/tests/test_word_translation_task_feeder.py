@@ -6,23 +6,35 @@ class TestWordTranslationTaskFeeder(unittest.TestCase):
         self.feeder = TaskFeeder("word_translation")
 
     def test_get_word_translation_data_for_lang_pair_less_than_300_words(self):
-        list_of_words = self.feeder.get_data_for_lang_pair("aac_eng")
+        words_translations = self.feeder.get_data_for_lang_pair("aac_eng")
         # self.assertIsInstance(list_of_words, list)
-        self.assertGreater(len(list_of_words), 0)
-        self.assertLess(len(list_of_words), 300)
-        self.assertTrue(all(isinstance(w, str) for w in list_of_words))
+        self.assertIsInstance(words_translations, dict)
+        first_word = list(words_translations.keys())[0]
+        self.assertIsInstance(first_word, str)
+        self.assertIsInstance(words_translations[first_word], list)
+        self.assertGreater(len(words_translations), 0)
+        self.assertLess(len(words_translations), 300)
+        self.assertTrue(all(isinstance(w, str) for w in words_translations))
 
     def test_get_word_translation_data_for_lang_pair_more_than_300_words_lite_true(self):
-        list_of_words = self.feeder.get_data_for_lang_pair("aar_eng") # by default is lite set to True
+        words_translations = self.feeder.get_data_for_lang_pair("aar_eng") # by default is lite set to True
         # self.assertIsInstance(list_of_words, list)
-        self.assertTrue(len(list_of_words) == 300)
-        self.assertTrue(all(isinstance(w, str) for w in list_of_words))
+        self.assertIsInstance(words_translations, dict)
+        first_word = list(words_translations.keys())[0]
+        self.assertIsInstance(first_word, str)
+        self.assertIsInstance(words_translations[first_word], list)
+        self.assertTrue(len(words_translations) == 300)
+        self.assertTrue(all(isinstance(w, str) for w in words_translations))
 
     def test_get_word_translation_data_for_lang_pair_more_than_300_words_lite_false(self):
-        list_of_words = self.feeder.get_data_for_lang_pair("aar_eng", lite=False)
+        words_translations = self.feeder.get_data_for_lang_pair("aar_eng", lite=False)
         # self.assertIsInstance(list_of_words, list)
-        self.assertTrue(len(list_of_words) >= 300)
-        self.assertTrue(all(isinstance(w, str) for w in list_of_words))
+        self.assertIsInstance(words_translations, dict)
+        first_word = list(words_translations.keys())[0]
+        self.assertIsInstance(first_word, str)
+        self.assertIsInstance(words_translations[first_word], list)
+        self.assertTrue(len(words_translations) >= 300)
+        self.assertTrue(all(isinstance(w, str) for w in words_translations))
 
     def test_get_word_translation_data_for_lang_pair_more_than_300_is_determistically_random(self):
         words_1 = self.feeder.get_data_for_lang_pair("aar_eng")
