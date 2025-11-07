@@ -15,6 +15,8 @@ class WordTranslationFeeder(BaseTaskFeeder):
 
     def get_lang_pairs(self, DIRECTION=None):
         omnis_subset_names = self.loader.get_omnis_lexicon_subset_names()
+        omnis_subset_names.remove("all_eng")
+        omnis_subset_names.remove("eng_all")
         if DIRECTION is None:
             return omnis_subset_names
         elif DIRECTION=="X_to_eng":
