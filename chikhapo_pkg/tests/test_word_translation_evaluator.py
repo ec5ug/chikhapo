@@ -130,10 +130,23 @@ class TestWordTranslationEvaluator(unittest.TestCase):
                 "data": [{"word": "a", "prediction": "a"}],
             }),
         )
-        evaluator = Evaluator("word_translation")
         with self.assertRaises(Exception) as ctx:
             self.evaluator.read_prediction_file(path)
         self.assertIn('The key "src_lang" is not specified.', str(ctx.exception))
+
+    def test_no_prediction(self):
+        path = self.create_file(
+            "missing_prediction_in_entry.json",
+            json.dumps({
+                "src_lang": "spa",
+                "tgt_lang": "eng",
+                "data": [{"word": "a", "prediction": "a"},
+                         {"word": "b"}],
+            }),
+        )
+        with self.assertRaises(Exception) as ctx:
+            self.evaluator.read_prediction_file(path)
+        self.assertIn("prediction was not specified in", str(ctx.exception))
 
     def test_exact_match_spa_eng(self):
         """Should correctly classify an exact match between spa and eng."""
