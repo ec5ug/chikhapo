@@ -1,17 +1,17 @@
 
 # Introduction
 
-This package contains the code to run ChiKhaPo, our benchmark as described in detail in *arxiv link*.
-ChiKhaPo contains 4 word-level tasks, with two directions each (comprehension and generation), intended to benchmark generative models for lexical competence. The processed lexicon data that our tasks rely on can be found here (*HF link*) and will be automatically downloaded as needed by this package.
+This package contains the code to run ChiKhaPo, our benchmark as described in [ChiKhaPo: A Large-Scale Multilingual Benchmark for Evaluating Lexical Comprehension and Generation in Large Language Models](https://www.arxiv.org/abs/2510.16928).
+ChiKhaPo contains 4 word-level tasks, with two directions each (comprehension and generation), intended to benchmark generative models for lexical competence. The processed lexicon data that our tasks rely on can be found on [HuggingFace](https://huggingface.co/datasets/ec5ug/chikhapo) and will be automatically downloaded as needed by this package.
 
 # Tasks
 
 The 4 tasks (referenced by their task keys) are as follows:
 
 * ```word_translation```: Prompts LLM directly for word translation (2746 languages)
-* ...
-* (Coming soon to this package) ...
-* (Coming soon to this package) ...
+* `word_translation_with_context`: Prompts LLM to translate a word given monolingual context.
+* (Coming soon to this package) `translation_conditioned_lm`: Softly measures LLM capability to understand or generate a word in a natural MT setting.
+* (Coming soon to this package) `bow_mt`: Word-level MT evaluation.
 
 Each task has two directions (`comprehension` and `generation`) that tests the models abilities to comprehend or generate each word respectively. See more details on the description and evaluation procedure for each task and direction in the paper.  
 
