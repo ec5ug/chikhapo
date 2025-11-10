@@ -1,0 +1,12 @@
+{
+    "src_lang": "spa",
+    "tgt_lang": "eng",
+    "data": [
+        {"word": "feliz", "prediction": "qwerty."},
+        {"word": "perro", "prediction": "hound."},
+        {"word": "escribieron", "prediction": "wrote."},
+        {"word": "libro", "prediction": "libro."},
+        {"word": "gatos", "prediction": "a cat."},
+        {"word": "ventana", "prediction": "window."}
+    ]
+}
