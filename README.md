@@ -1,24 +1,15 @@
 # ChiKhaPo
 
-## Setup
-**Huggingface Token**
-To access our datasets, you will need a HuggingFace token. This can be done by entering the following line in command line
+This package contains the code for the experiments in [ChiKhaPo: A Large-Scale Multilingual Benchmark for Evaluating Lexical Comprehension and Generation in Large Language Models](https://www.arxiv.org/abs/2510.16928). Please see our Python package (link to pip package: TODO), and the [code](https://github.com/ec5ug/chikhapo/blob/master/chikhapo_pkg/README.md) for the package. The processed lexicon data that our tasks rely on can be found on [HuggingFace](https://huggingface.co/datasets/ec5ug/chikhapo).
 
+
+# Cite
+If you use this data or code, please cite
 ```
-export HF_TOKEN="HF_XXXXXXXXXXXXX"
-```
-
-This access token will be read in as an environment variable.
-
-For more details, go to this [link](https://medium.com/@manyi.yim/store-your-hugging-face-user-access-token-in-an-environment-variable-fee94fcb58fc)
-
-**Dataset Access**
-We draw on [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus) and [GLOTLID](https://huggingface.co/datasets/cis-lmu/glotlid-corpus), Huggingface datasets that require users to apply for access. Please visit both links to apply for access.
-
-**Downloads**
-We use WordNet to verify synonymy. You will need to download it. This can be done by:
-
-```
-import nltk
-nltk.down("wordnet")
+@article{chang2025chikhapo,
+  title={ChiKhaPo: A Large-Scale Multilingual Benchmark for Evaluating Lexical Comprehension and Generation in Large Language Models},
+  author={Chang, Emily and Bafna, Niyati},
+  journal={arXiv preprint arXiv:2510.16928},
+  year={2025}
+}
 ```
