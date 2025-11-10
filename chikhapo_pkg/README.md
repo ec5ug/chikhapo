@@ -37,11 +37,11 @@ The 4 tasks (referenced by their task keys) are as follows:
 * (Coming soon to this package) `translation_conditioned_lm`: Softly measures LLM capability to understand or generate a word in a natural MT setting.
 * (Coming soon to this package) `bow_mt`: Word-level MT evaluation.
 
-Each task has two directions (`comprehension` or `X_to_eng` and `generation` or `eng_to_X`) that tests the models abilities to comprehend or generate each word respectively. See more details on the description and evaluation procedure for each task and direction in the paper.  
+Each task has two subtasks corresponding to two directions (`comprehension` or `X_to_eng` and `generation` or `eng_to_X`) that tests the models abilities to comprehend or generate each word respectively. See more details on the description and evaluation procedure for each task and direction in the paper.  
 
 
 
-# Extracting data
+# Getting data per subtask
 
 Instantiate an object of the `TaskFeeder` class for your task:
 ```
@@ -50,7 +50,7 @@ wt_feeder = TaskFeeder("word_translation")
 wtwc_feeder = TaskFeeder("word_translation_with_context")
 ```
 
-This object allows you to obtain a list of language pairs available per task and direction, and to obtain task data for each language pair. 
+This object allows you to obtain a list of language pairs available per task and direction, and to obtain subtask data for each language pair. 
 
 **Get the set of languages available**:
 
@@ -60,7 +60,7 @@ Retrieve the set of languages available for a particular task as follows, specif
 
 Setting `DIRECTION=None` retrieves language pairs in both directions.
 ```
-word_translation_language_pairs = wt_feeder.get_lang_pairs(DIRECTION=None)
+word_translation_language_pairs = wt_feeder.get_lang_pairs(DIRECTION="X_to_eng")
 ```
 
 **Obtain the task data for each language pair**:
@@ -130,7 +130,7 @@ Word:निर्णय
 Translation:<|START_OF_TURN_TOKEN|><|CHATBOT_TOKEN|>decision
 ---
 ```
-The parsed model output here would be `decision`.
+The parsed model output for this source word would be `decision`.
 
 We expect outputs to be placed in a JSON file with the following format:
 
