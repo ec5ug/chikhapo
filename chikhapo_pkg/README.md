@@ -25,7 +25,7 @@ We use WordNet to verify synonymy. You will need to download it. This can be don
 
 ```
 import nltk
-nltk.down("wordnet")
+nltk.download("wordnet")
 ```
 
 # Tasks
@@ -37,7 +37,7 @@ The 4 tasks (referenced by their task keys) are as follows:
 * (Coming soon to this package) `translation_conditioned_lm`: Softly measures LLM capability to understand or generate a word in a natural MT setting.
 * (Coming soon to this package) `bow_mt`: Word-level MT evaluation.
 
-Each task has two subtasks corresponding to two directions (`comprehension` or `X_to_eng` and `generation` or `eng_to_X`) that tests the models abilities to comprehend or generate each word respectively. See more details on the description and evaluation procedure for each task and direction in the paper.  
+Each task has two subtasks corresponding to two directions (`X_to_eng` testing comprehension and `eng_to_X` testing generation) that tests the models abilities to comprehend or generate a list of words respectively, in various settings. See more details on the description and evaluation procedure for each task and direction in the paper.  
 
 
 
@@ -56,7 +56,7 @@ This object allows you to obtain a list of language pairs available per task and
 
 Our lexicons are English-centric, and may either be `xxx_eng` (used for `comprehension` evaluation) or `eng_xxx` (used for `generation` evaluation). 
 
-Retrieve the set of languages available for a particular task as follows, specifying the direction (either `X_to_eng` or `eng_to_X`).
+Retrieve the set of languages available for a particular task as follows, specifying the direction (`X_to_eng`, `eng_to_X` or `None`).
 
 Setting `DIRECTION=None` retrieves language pairs in both directions.
 ```
