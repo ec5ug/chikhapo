@@ -33,7 +33,7 @@ nltk.download("wordnet")
 The 4 tasks (referenced by their task keys) are as follows:
 
 * ```word_translation```: Prompts LLM directly for word translation (2746 languages)
-* `word_translation_with_context`: Prompts LLM to translate a word given monolingual context.
+* `word_translation_with_context`: Prompts LLM to translate a word given monolingual context (525 languages).
 * (Coming soon to this package) `translation_conditioned_lm`: Softly measures LLM capability to understand or generate a word in a natural MT setting.
 * (Coming soon to this package) `bow_mt`: Word-level MT evaluation.
 
