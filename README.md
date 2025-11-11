@@ -1,6 +1,6 @@
 # ChiKhaPo
 
-This [package](https://pypi.org/project/chikhapo/) contains the code for the experiments in [ChiKhaPo: A Large-Scale Multilingual Benchmark for Evaluating Lexical Comprehension and Generation in Large Language Models](https://www.arxiv.org/abs/2510.16928). Please see our Python package (link to pip package: TODO), and the [code](https://github.com/ec5ug/chikhapo/blob/master/chikhapo_pkg/README.md) for the package. The processed lexicon data that our tasks rely on can be found on [HuggingFace](https://huggingface.co/datasets/ec5ug/chikhapo).
+This repository contains the code for the experiments in [ChiKhaPo: A Large-Scale Multilingual Benchmark for Evaluating Lexical Comprehension and Generation in Large Language Models](https://www.arxiv.org/abs/2510.16928). Please see our [Python package]((https://pypi.org/project/chikhapo/), and the [code](https://github.com/ec5ug/chikhapo/blob/master/chikhapo_pkg/README.md) for the package. The processed lexicon data that our tasks rely on can be found on [HuggingFace](https://huggingface.co/datasets/ec5ug/chikhapo).
 
 
 # Cite
