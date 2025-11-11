@@ -22,7 +22,7 @@ class WordTranslationFeeder(BaseTaskFeeder):
         elif DIRECTION=="X_to_eng":
             return [c for c in omnis_subset_names if c.endswith('eng')]
         elif DIRECTION=="eng_to_X":
-            return [c for c in omnis_subset_names if c.endswith('eng')]
+            return [c for c in omnis_subset_names if c.startswith('eng')]
         else:
             raise Exception("An invalid directon was specified. It should be None, \"X_to_eng\", or \"eng_to_X\"")
 
