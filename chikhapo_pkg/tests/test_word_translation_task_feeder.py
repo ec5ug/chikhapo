@@ -61,5 +61,17 @@ class TestWordTranslationTaskFeeder(unittest.TestCase):
         self.assertNotIn("all_eng", lang_pairs)
         self.assertNotIn("eng_all", lang_pairs)
 
+    def test_get_lang_pairs_X_to_eng(self):
+        lang_pairs = self.feeder.get_lang_pairs(DIRECTION="X_to_eng")
+        self.assertIn("spa_eng", lang_pairs)
+        self.assertNotIn("eng_spa", lang_pairs)
+        self.assertEqual(2752, len(lang_pairs))
+
+    def test_get_lang_pairs_eng_to_X(self):
+        lang_pairs = self.feeder.get_lang_pairs(DIRECTION="eng_to_X")
+        self.assertIn("eng_spa", lang_pairs)
+        self.assertNotIn("spa_eng", lang_pairs)
+        self.assertEqual(2752, len(lang_pairs))
+
 if __name__ == "__main__":
     unittest.main()
