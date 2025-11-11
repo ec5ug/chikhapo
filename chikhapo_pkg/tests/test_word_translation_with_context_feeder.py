@@ -35,6 +35,24 @@ class TestWordTranslationWithContextTaskFeeder(unittest.TestCase):
         self.assertIsInstance(list_of_prompts, list)
         self.assertEqual(len(list_of_prompts), 300)
         self.assertTrue(all(isinstance(w, str) for w in list_of_prompts))
+    
+    def test_get_lang_pairs(self):
+        lang_pairs = self.feeder.get_lang_pairs()
+        self.assertGreater(len(lang_pairs), 0)
+        self.assertIn("spa_Latn_eng", lang_pairs)
+        self.assertIn("eng_spa_Latn", lang_pairs)
+        self.assertNotIn("eng_all", lang_pairs)
+        self.assertNotIn("all_eng", lang_pairs)
 
+    def test_get_lang_pairs_X_to_eng(self):
+        lang_pairs = self.feeder.get_lang_pairs("X_to_eng")
+        self.assertIn("spa_Latn_eng", lang_pairs)
+        self.assertNotIn("eng_spa_Latn", lang_pairs)
+
+    def test_get_lang_pairs_eng_to_X(self):
+        lang_pairs = self.feeder.get_lang_pairs("eng_to_X")
+        self.assertIn("eng_spa_Latn", lang_pairs)
+        self.assertNotIn("spa_Latn_eng", lang_pairs)
+        
 if __name__ == "__main__":
     unittest.main()
