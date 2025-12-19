@@ -20,16 +20,7 @@ class FillInTheBlankFeeder(BaseTaskFeeder):
             raise Exception("An invalid directon was specified. It should be None, \"X_to_eng\", or \"eng_to_X\"")
 
     def get_data_for_lang_pair(self, lang_pair, lite=True):
-        DIRECTION = get_direction_of_lang_pair(lang_pair)
-        iso_script = get_language_from_pair(lang_pair)
-        if DIRECTION == "X_to_eng":
-            src_dataset = self.loader.get_flores_subset(iso_script, split="devtest")
-            tgt_dataset = self.loader.get_flores_subset("eng_Latn", split="devtest")
-        else: # DIRECTION == "eng_to_X"
-            src_dataset = self.loader.get_flores_subset("eng_Latn", split="devtest")
-            tgt_dataset = self.loader.get_flores_subset(iso_script, split="devtest")
-        src_sentences = [sentence["text"] for sentence in src_dataset]
-        tgt_sentences = [sentence["text"] for sentence in tgt_dataset]
+        src_sentences, tgt_sentences = self.loader.get_flores_subset_src_tgt_sentences(lang_pair)
         srcSentence_wordIndex_truncatedTrunslation_nextWord = {}
         for src_sentence, tgt_sentence in zip(src_sentences, tgt_sentences):
             tgt_words = tgt_sentence.split()
