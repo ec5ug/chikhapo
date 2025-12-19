@@ -1,5 +1,6 @@
 import unittest
 from chikhapo import TaskFeeder
+import random
 
 class TestFillInTheBlankTaskFeeder(unittest.TestCase):
     def setUp(self):
@@ -39,6 +40,27 @@ class TestFillInTheBlankTaskFeeder(unittest.TestCase):
         srcSentence_wordIndex_truncatedTrunslation_nextWord = self.feeder.get_data_for_lang_pair("spa_Latn_eng", lite=True)
         self.assertIsInstance(srcSentence_wordIndex_truncatedTrunslation_nextWord, dict)
         self.assertEqual(300, len(srcSentence_wordIndex_truncatedTrunslation_nextWord))
+
+    def test_get_prompts_for_lang_pair_to_eng_lite_True(self):
+        prompts = self.feeder.get_prompts_for_lang_pair("spa_Latn_eng", lite=True)
+        self.assertEqual(300, len(prompts))
+        prompt = random.choice(prompts)
+        self.assertTrue(prompt.startswith("Translate the sentence into English:\nSpanish: "))
+        self.assertIn("\nEnglish: ", prompt)
+
+    def test_get_prompts_for_lang_pair_to_eng_lite_False(self):
+        prompts = self.feeder.get_prompts_for_lang_pair("spa_Latn_eng", lite=False)
+        self.assertGreater(len(prompts), 300)
+        prompt = random.choice(prompts)
+        self.assertTrue(prompt.startswith("Translate the sentence into English:\nSpanish: "))
+        self.assertIn("\nEnglish: ", prompt)
+
+    def test_get_prompts_for_lang_pair_from_eng_(self):
+        prompts = self.feeder.get_prompts_for_lang_pair("eng_spa_Latn")
+        self.assertEqual(len(prompts), 300)
+        prompt = random.choice(prompts)
+        self.assertTrue(prompt.startswith("Translate the following text into Spanish.\nEnglish: "))
+        self.assertIn("\nSpanish:", prompt)
 
     def test_get_lang_pairs(self):
         lang_pairs = self.feeder.get_lang_pairs()
