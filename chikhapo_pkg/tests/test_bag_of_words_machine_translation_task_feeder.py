@@ -1,9 +1,26 @@
 import unittest
 from chikhapo import TaskFeeder
+import random
 
 class BagOfWordsMachineTranslationFeeder(unittest.TestCase):
     def setUp(self):
         self.feeder = TaskFeeder("bag_of_words_machine_translation")
+
+    def test_get_data_for_lang_pair_lite_True(self):
+        srcSentence_tgtSentence = self.feeder.get_data_for_lang_pair("spa_Latn_eng", lite=True)
+        self.assertEqual(300, len(srcSentence_tgtSentence))
+        src_sentence = random.choice(list(srcSentence_tgtSentence.keys()))
+        tgt_sentence = srcSentence_tgtSentence[src_sentence]
+        self.assertIsInstance(src_sentence, str)
+        self.assertIsInstance(tgt_sentence, str)
+
+    def test_get_data_for_lang_pair_lite_False(self):
+        srcSentence_tgtSentence = self.feeder.get_data_for_lang_pair("spa_Latn_eng", lite=False)
+        self.assertGreater(len(srcSentence_tgtSentence), 300)
+        src_sentence = random.choice(list(srcSentence_tgtSentence.keys()))
+        tgt_sentence = srcSentence_tgtSentence[src_sentence]
+        self.assertIsInstance(src_sentence, str)
+        self.assertIsInstance(tgt_sentence, str)
 
     def test_get_lang_pairs(self):
         lang_pairs = self.feeder.get_lang_pairs()
