@@ -22,6 +22,30 @@ class BagOfWordsMachineTranslationFeeder(unittest.TestCase):
         self.assertIsInstance(src_sentence, str)
         self.assertIsInstance(tgt_sentence, str)
 
+    def test_get_prompts_for_lang_pair_to_eng_lite_True(self):
+        prompts = self.feeder.get_prompts_for_lang_pair("spa_Latn_eng", lite=True)
+        self.assertEqual(300, len(prompts))
+        prompt = random.choice(prompts)
+        self.assertTrue(prompt.startswith("Translate into English: "))
+        phrase = "Translate into English: "
+        self.assertTrue(len(phrase) < len(prompt))
+
+    def test_get_prompts_for_lang_pair_to_eng_lite_False(self):
+        prompts = self.feeder.get_prompts_for_lang_pair("spa_Latn_eng", lite=False)
+        self.assertGreater(len(prompts), 300)
+        prompt = random.choice(prompts)
+        self.assertTrue(prompt.startswith("Translate into English: "))
+        phrase = "Translate into English: "
+        self.assertTrue(len(phrase) < len(prompt))
+
+    def test_get_prompts_for_lang_pair_from_eng(self):
+        prompts = self.feeder.get_prompts_for_lang_pair("eng_spa_Latn")
+        self.assertEqual(len(prompts), 300)
+        prompt = random.choice(prompts)
+        self.assertTrue(prompt.startswith("Translate into Spanish: "))
+        phrase = "Translate into Spanish: "
+        self.assertTrue(len(phrase) < len(prompt))
+
     def test_get_lang_pairs(self):
         lang_pairs = self.feeder.get_lang_pairs()
         self.assertIn("spa_Latn_eng", lang_pairs)

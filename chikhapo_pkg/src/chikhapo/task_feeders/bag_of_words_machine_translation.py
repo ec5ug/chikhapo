@@ -1,5 +1,6 @@
 from .base import BaseTaskFeeder
 from .fill_in_the_blank import FillInTheBlankFeeder
+from chikhapo.utils.languages import convert_iso_to_name, get_direction_of_lang_pair, get_language_from_pair
 
 class BagOfWordsMachineTranslationFeeder(BaseTaskFeeder):
     def get_lang_pairs(self, DIRECTION=None):
@@ -13,4 +14,18 @@ class BagOfWordsMachineTranslationFeeder(BaseTaskFeeder):
         if lite:
             return self.get_random_sample(srcSentence_tgtSentence)
         return srcSentence_tgtSentence
-        
+    
+    def get_prompts_for_lang_pair(self, lang_pair, lite=True):
+        srcSentence_tgtSentence = self.get_data_for_lang_pair(lang_pair=lang_pair, lite=lite)
+        DIRECTION = get_direction_of_lang_pair(lang_pair)
+        prompts = []
+        for src_sentence in srcSentence_tgtSentence.keys():
+            if DIRECTION=="X_to_eng":
+                prompts.append(f"Translate into English: {src_sentence}")
+            else: # DIRECTION=="eng_to_X"
+                iso_script = get_language_from_pair(lang_pair)
+                iso = iso_script.split("_")[0]
+                language_name = convert_iso_to_name(iso)
+                prompts.append(f"Translate into {language_name}: {src_sentence}")
+        return prompts
+    
