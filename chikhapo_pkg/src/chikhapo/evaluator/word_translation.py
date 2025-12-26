@@ -2,6 +2,10 @@ from .base import BaseEvaluator
 from chikhapo.utils.parsing import clean_string, convert_list_of_entries_to_dictionary
 
 class WordTranslationEvaluator(BaseEvaluator):
+    def __init__(self):
+        super().__init__()
+        self.xword_class_pred = {} # used to be self.model_alignments
+
     def score_each_word(self):
         for word in self.xword_class_pred:
             exact_match = len(self.xword_class_pred[word].get("exact_match", []))
@@ -24,26 +28,25 @@ class WordTranslationEvaluator(BaseEvaluator):
             else:
                 self.word_scores[word] = correct / total
 
+    def validate_data(self):
+        for entry in self.data:
+            if "prediction" not in entry:
+                raise Exception(f"A prediction was not specified in {entry}")
+
     def evaluate(self, file_path):
-        model_output_file = self.read_prediction_file(file_path)
-        src_lang = model_output_file["src_lang"]
-        tgt_lang = model_output_file["tgt_lang"]
-        if src_lang == "all" or tgt_lang == "all":
-            raise Exception("This function can only evaluate data from one translation. You will have to split your data by language pair and evaluate each split separately.")
-        if tgt_lang == "eng":
-            self.DIRECTION = "X_to_eng"
-        else:
-            self.DIRECTION = "eng_to_X"
-        data = model_output_file["data"]
-        list_of_entries = self.loader.get_omnis_lexicon_subset(f"{src_lang}_{tgt_lang}")
+        self.read_prediction_file(file_path)
+        self.validate_data()
+        self.get_direction()
+        list_of_entries = self.loader.get_omnis_lexicon_subset(f"{self.src_lang}_{self.tgt_lang}")
         lexicon = convert_list_of_entries_to_dictionary(list_of_entries)
-        for output in data:
+        for output in self.data:
             self.validate_output(output)
             word_to_translate = clean_string(output["word"])
             if word_to_translate not in lexicon.keys():
                 continue
             gt_answers = lexicon[word_to_translate]
             prediction = clean_string(output["prediction"])
+            words_in_prediction = prediction.split()
             if self.is_exact_match(prediction, gt_answers):
                 classification_type = "exact_match"
             elif self.is_inflection(prediction, gt_answers):
@@ -56,7 +59,7 @@ class WordTranslationEvaluator(BaseEvaluator):
                 classification_type = "synonym"
             elif word_to_translate == prediction:
                 classification_type = "echo"
-            elif prediction in lexicon.keys():
+            elif any(word in lexicon.keys() for word in words_in_prediction):
                 classification_type = "outputted_in_source_language"
             else:
                 classification_type = "gibberish"
