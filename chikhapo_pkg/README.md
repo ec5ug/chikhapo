@@ -28,19 +28,7 @@ import nltk
 nltk.download("wordnet")
 ```
 
-**FastAlign** The tasks Fill-in-the-Blank and Bag-of-Words Machine Translation require `FastAlign`, a statisical word aligner. Before installing all of the packages in `chikhapo_pkg/requirements.txt`, please clone `FastAlign` within the root of this repository.
-
-```
-git clone https://github.com/clab/fast_align.git
-```
-
-Then run
-```
-mkdir build
-cd build
-cmake ..
-make
-```
+**FastAlign** The tasks Fill-in-the-Blank and Bag-of-Words Machine Translation require `FastAlign`, a statisical word aligner. Before installing all of the packages in `chikhapo_pkg/requirements.txt`, please run `install_fastalign.sh` (located in the root of this repository).
 
 If you happen to run into an error, please check `fast_align/CMakeLists.txt`, namely that `cmake_minimum_required` is set to the following minimum version `cmake_minimum_required(VERSION 3.5)`.
 
