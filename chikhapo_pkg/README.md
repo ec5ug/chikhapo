@@ -28,14 +28,30 @@ import nltk
 nltk.download("wordnet")
 ```
 
+**FastAlign** The tasks Fill-in-the-Blank and Bag-of-Words Machine Translation require `FastAlign`, a statisical word aligner. Before installing all of the packages in `chikhapo_pkg/requirements.txt`, please clone `FastAlign` within the root of this repository.
+
+```
+git clone https://github.com/clab/fast_align.git
+```
+
+Then run
+```
+mkdir build
+cd build
+cmake ..
+make
+```
+
+If you happen to run into an error, please check `fast_align/CMakeLists.txt`, namely that `cmake_minimum_required` is set to the following minimum version `cmake_minimum_required(VERSION 3.5)`.
+
 # Tasks
 
 The 4 tasks (referenced by their task keys) are as follows:
 
 * ```word_translation```: Prompts LLM directly for word translation (2746 languages)
 * `word_translation_with_context`: Prompts LLM to translate a word given monolingual context (525 languages).
-* (Coming soon to this package) `translation_conditioned_lm`: Softly measures LLM capability to understand or generate a word in a natural MT setting.
-* (Coming soon to this package) `bow_mt`: Word-level MT evaluation.
+* `translation_conditioned_language_modeling`: Softly measures LLM capability to understand or generate a word in a natural MT setting.
+* `bag_of_words_machine_translation`: Word-level MT evaluation.
 
 Each task has two subtasks corresponding to two directions (`X_to_eng` testing comprehension and `eng_to_X` testing generation) that tests the models abilities to comprehend or generate a list of words respectively, in various settings. See more details on the description and evaluation procedure for each task and direction in the paper.  
 
@@ -155,10 +171,62 @@ We expect outputs to be placed in a JSON file with the following format:
 }
 ```
 For an example, please see [tests/raw_test_data/wt_equivalence_spa_eng.json](tests/raw_test_data/wt_equivalence_spa_eng.json)
+
 ## Word Translation with Word Context
 The output format is identical to that used in Word Tranlslation.
 
+## Translation-Conditioned Language Modeling
+We expect outputs to be placed in a JSON file with the following format:
 
+```
+    {
+        "src_lang": {source_language},
+        "tgt_lang": {target_language},
+        "data": [
+            {
+                "src_sentence": {source_sentence_1},
+                "tgt_sentence_gt": {target_sentence_1_ground_truth}, 
+                "next_word_to_predict": {word_to_predict_1},
+                "probability": {probability_1}
+            }, {
+                "src_sentence": {source_sentence_2},
+                "tgt_sentence_gt": {target_sentence_2_ground_truth}, 
+                "next_word_to_predict": {word_to_predict_2},
+                "probability": {probability_2}
+            }, {
+                "src_sentence": {source_sentence_3},
+                "tgt_sentence_gt": {target_sentence_3_ground_truth}, 
+                "next_word_to_predict": {word_to_predict_3},
+                "probability": {probability_3}
+            },
+        ]
+    }
+```
+
+## Bag-of-Words Machine Translation
+We expect outputs to be placed in a JSON file with the following format:
+
+```
+{
+    "src_lang": {source_language},
+    "tgt_lang": {target_language},
+    "data": [
+        {
+            "src_sentence": {source_sentence_1},
+            "tgt_sentence_gt": {target_sentence_1_ground_truth},
+            "tgt_sentence_pred": {target_sentence_1_prediction}
+        }, {
+            "src_sentence": {source_sentence_2},
+            "tgt_sentence_gt": {target_sentence_2_ground_truth},
+            "tgt_sentence_pred": {target_sentence_2_prediction}
+        }, {
+            "src_sentence": {source_sentence_3},
+            "tgt_sentence_gt": {target_sentence_3_ground_truth},
+            "tgt_sentence_pred": {target_sentence_3_prediction}
+        }
+    ]
+}
+```
 
 # Cite
 If you use this data or code, please cite

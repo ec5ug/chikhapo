@@ -1,6 +1,7 @@
 from huggingface_hub import login
 from datasets import load_dataset, get_dataset_config_names
 import os
+from chikhapo.utils.languages import get_direction_of_lang_pair, get_language_from_pair
 # from languages import get_language_from_pair
 
 login(token=os.environ.get("HF_TOKEN"))
@@ -18,6 +19,19 @@ class Loader:
         if name not in self.get_flores_subset_names():
             raise Exception("Language not found in FLORES+")
         return load_dataset(self.flores_plus_hf_path, name=name, split=split)
+
+    def get_flores_subset_src_tgt_sentences(self, lang_pair):
+        DIRECTION = get_direction_of_lang_pair(lang_pair)
+        iso_script = get_language_from_pair(lang_pair)
+        if DIRECTION == "X_to_eng":
+            src_dataset = self.get_flores_subset(iso_script, split="devtest")
+            tgt_dataset = self.get_flores_subset("eng_Latn", split="devtest")
+        else: # DIRECTION == "eng_to_X"
+            src_dataset = self.get_flores_subset("eng_Latn", split="devtest")
+            tgt_dataset = self.get_flores_subset(iso_script, split="devtest")
+        src_sentences = [sentence["text"] for sentence in src_dataset]
+        tgt_sentences = [sentence["text"] for sentence in tgt_dataset]
+        return src_sentences, tgt_sentences
 
     def get_glotlid_subset_names(self):
         return get_dataset_config_names(self.glotlid_hf_path)
