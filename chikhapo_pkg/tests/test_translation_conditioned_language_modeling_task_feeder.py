@@ -2,9 +2,9 @@ import unittest
 from chikhapo import TaskFeeder
 import random
 
-class TestFillInTheBlankTaskFeeder(unittest.TestCase):
+class TestTranslationConditionedLanguageModelingTaskFeeder(unittest.TestCase):
     def setUp(self):
-        self.feeder = TaskFeeder("fill_in_the_blank")
+        self.feeder = TaskFeeder("translation_conditioned_language_modeling")
 
     def test_get_data_for_lang_pair_lite_False(self):
         srcSentence_wordIndex_truncatedTrunslation_nextWord = self.feeder.get_data_for_lang_pair("spa_Latn_eng", lite=False)

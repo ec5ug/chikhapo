@@ -1,7 +1,7 @@
 from .base import BaseTaskFeeder
 from chikhapo.utils.languages import convert_iso_to_name, get_direction_of_lang_pair, get_language_from_pair
 
-class FillInTheBlankFeeder(BaseTaskFeeder):
+class TranslationedConditionedLanguageModelingTaskFeeder(BaseTaskFeeder):
     def get_lang_pairs(self, DIRECTION=None):
         flores_subset_names = self.loader.get_flores_subset_names()
         flores_subset_names.remove("eng_Latn")
