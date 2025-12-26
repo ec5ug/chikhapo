@@ -1,10 +1,10 @@
 from .base import BaseTaskFeeder
-from .fill_in_the_blank import FillInTheBlankFeeder
+from .translation_conditioned_language_modeling import TranslationedConditionedLanguageModelingTaskFeeder
 from chikhapo.utils.languages import convert_iso_to_name, get_direction_of_lang_pair, get_language_from_pair
 
 class BagOfWordsMachineTranslationFeeder(BaseTaskFeeder):
     def get_lang_pairs(self, DIRECTION=None):
-        return FillInTheBlankFeeder().get_lang_pairs(DIRECTION)
+        return TranslationedConditionedLanguageModelingTaskFeeder().get_lang_pairs(DIRECTION)
     
     def get_data_for_lang_pair(self, lang_pair, lite=True):
         src_sentences, tgt_sentences = self.loader.get_flores_subset_src_tgt_sentences(lang_pair)
