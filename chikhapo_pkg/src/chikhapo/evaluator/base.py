@@ -1,5 +1,4 @@
 from abc import abstractmethod
-from collections import defaultdict
 import json
 from fuzzywuzzy import fuzz
 import re
@@ -13,9 +12,11 @@ class BaseEvaluator:
     def __init__(self):
         self.loader = Loader()
         self.DIRECTION = None
-        self.xword_class_pred = {} # used to be self.model_alignments
         self.word_scores = {}
         self.lang_score = -1
+        self.src_lang = None
+        self.tgt_lang = None
+        self.data = []
     
     def get_lang_score(self):
         return self.lang_score
@@ -24,29 +25,40 @@ class BaseEvaluator:
         if not file_path.endswith("json"):
             raise Exception("The file you provided is not a JSON file. Please input the path to a JSON file")
         with open(file_path, "r") as f:
-            model_output_file = json.load(f)
-        if "src_lang" not in model_output_file.keys():
+            model_output = json.load(f)
+        if "src_lang" not in model_output.keys():
             raise Exception("The key \"src_lang\" is not specified. Please specify the key to the source language.")
-        if not isinstance(model_output_file["src_lang"], str):
+        if not isinstance(model_output["src_lang"], str):
             raise Exception("The source language should be specified as a string.")
-        if "tgt_lang" not in model_output_file.keys():
+        if "tgt_lang" not in model_output.keys():
             raise Exception("The key \"tgt_lang\" is not specified. Please specify the key to the target language.")
-        if not isinstance(model_output_file["tgt_lang"], str):
+        if not isinstance(model_output["tgt_lang"], str):
             raise Exception("The target language should be specified as a string.")
-        if "data" not in model_output_file.keys():
+        src_lang = model_output["src_lang"]
+        tgt_lang = model_output["tgt_lang"]
+        if src_lang == "all" or tgt_lang == "all":
+            raise Exception("This function can only evaluate data from one translation. You will have to split your data by language pair and evaluate each split separately.")
+        if "data" not in model_output.keys():
             raise Exception("The key \"data\" is not specified. Please specify the key to data.")
-        if not isinstance(model_output_file["data"], list):
+        if not isinstance(model_output["data"], list):
             raise Exception("The data you provided does not exist as a list. Please specify the data as a list")
-        for entry in model_output_file["data"]:
-            if "prediction" not in entry:
-                raise Exception(f"A prediction was not specified in {entry}")
-        return model_output_file
+        self.src_lang = model_output["src_lang"]
+        self.tgt_lang = model_output["tgt_lang"]
+        self.data = model_output["data"]
     
     # def convert_list_of_entries_to_dictionary(self, list_of_entries):
     #     new_dictionary = defaultdict(list)
     #     for entry in list_of_entries:
     #         new_dictionary[entry["source_word"]] = entry["target_translations"]
     #     return new_dictionary
+    
+    def get_direction(self):
+        if self.tgt_lang=="eng":
+            self.DIRECTION = "X_to_eng"
+        elif self.src_lang=="eng":
+            self.DIRECTION = "eng_to_X"
+        else:
+            raise Exception("The current implementation of ChiKhaPo's evaluation is English-centric. Model must either translate to or from English (i.e. either self.src_lang==\"eng\" OR self.tgt_lang==\"eng\")")
 
     def score_language(self): # used to be score_each_word_type
         word_scores = list(self.word_scores.values())
@@ -133,11 +145,15 @@ class BaseEvaluator:
             raise Exception(f"One of data points you provided {elem} does not have the word to translate specified. Please take another look at the file you want us to translate and make sure the list elements of the data field are formatted correctly.")
         if "prediction" not in elem.keys():
             raise Exception(f"One of data points you provided {elem} does not have the a (parsed) model prediction to evaluate on. Please take another look at the file you want us to translate and make sure the list elements of the data field are formatted correctly.")
-        
+    
+    @abstractmethod
+    def validate_data(self):
+        pass
+
     @abstractmethod
     def score_each_word(self):
         pass
 
     @abstractmethod
-    def evaluate(self):
+    def evaluate(self, file_path):
         pass
