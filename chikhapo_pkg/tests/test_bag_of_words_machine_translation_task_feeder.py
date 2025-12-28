@@ -74,3 +74,4 @@ class BagOfWordsMachineTranslationFeeder(unittest.TestCase):
         with self.assertRaises(Exception) as context:
             self.feeder.get_lang_pairs(DIRECTION="invalid_direction")
         self.assertEqual(str(context.exception), "An invalid directon was specified. It should be None, \"X_to_eng\", or \"eng_to_X\"")
+        

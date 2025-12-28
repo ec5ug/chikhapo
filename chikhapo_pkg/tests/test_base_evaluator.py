@@ -137,3 +137,4 @@ class TestEvaluator(BaseEvaluatorTest):
             {"word": "caminar", "prediction": "to swim"},
             {"word": "ventana", "prediction": "book"}
         ], self.evaluator.data)
+        
