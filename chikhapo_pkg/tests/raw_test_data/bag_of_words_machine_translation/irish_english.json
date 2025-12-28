@@ -1,0 +1,31 @@
+{
+  "src_lang": "gle",
+  "tgt_lang": "eng",
+  "data": [
+    {
+      "src_sentence": "Codlaíonn an cat dubh ar an tolg.",
+      "tgt_sentence_gt": "The black cat sleeps on the couch.",
+      "tgt_sentence_pred": "The black cat sleeps on the couch."
+    },
+    {
+      "src_sentence": "Mhínigh sí an scéal go socair.",
+      "tgt_sentence_gt": "She explained the situation calmly.",
+      "tgt_sentence_pred": "She explains the situation calmly."
+    },
+    {
+      "src_sentence": "D'fhreagair an mac léinn gach ceist go macánta.",
+      "tgt_sentence_gt": "The student answered every question honestly.",
+      "tgt_sentence_pred": "The student answered all questions sincerely."
+    },
+    {
+      "src_sentence": "Bhí an cat ina chodladh.",
+      "tgt_sentence_gt": "The cat was sleeping.",
+      "tgt_sentence_pred": "The cat slept."
+    },
+    {
+      "src_sentence": "Cócaíonn sí rís.",
+      "tgt_sentence_gt": "She cooks rice.",
+      "tgt_sentence_pred": "Zibble fram noosh"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+    "src_lang": "bak",
+    "tgt_lang": "eng",
+    "data": [
+        {
+            "src_sentence": "Йорт һәм фатир йылға янында урынлашҡан.",
+            "tgt_sentence_gt": "The house and the apartment are located near the river.",
+            "next_word_to_predict": "The ",
+            "probability": 0.48
+        },
+        {
+            "src_sentence": "Йорт һәм фатир йылға янында урынлашҡан.",
+            "tgt_sentence_gt": "The house and the apartment are located near the river.",
+            "next_word_to_predict": "house ",
+            "probability": 0.62
+        },
+        {
+            "src_sentence": "Йорт һәм фатир йылға янында урынлашҡан.",
+            "tgt_sentence_gt": "The house and the apartment are located near the river.",
+            "next_word_to_predict": "and ",
+            "probability": 0.71
+        },
+        {
+            "src_sentence": "Йорт һәм фатир йылға янында урынлашҡан.",
+            "tgt_sentence_gt": "The house and the apartment are located near the river.",
+            "next_word_to_predict": "the ",
+            "probability": 0.33
+        },
+        {
+            "src_sentence": "Йорт һәм фатир йылға янында урынлашҡан.",
+            "tgt_sentence_gt": "The house and the apartment are located near the river.",
+            "next_word_to_predict": "apartment ",
+            "probability": 0.29
+        },
+
+        {
+            "src_sentence": "Ул кисә магазинда яңы китап һатып алды.",
+            "tgt_sentence_gt": "He bought a new book in the shop yesterday.",
+            "next_word_to_predict": "He ",
+            "probability": 0.57
+        },
+        {
+            "src_sentence": "Ул кисә магазинда яңы китап һатып алды.",
+            "tgt_sentence_gt": "He bought a new book in the shop yesterday.",
+            "next_word_to_predict": "bought ",
+            "probability": 0.66
+        },
+        {
+            "src_sentence": "Ул кисә магазинда яңы китап һатып алды.",
+            "tgt_sentence_gt": "He bought a new book in the shop yesterday.",
+            "next_word_to_predict": "a ",
+            "probability": 0.41
+        },
+        {
+            "src_sentence": "Ул кисә магазинда яңы китап һатып алды.",
+            "tgt_sentence_gt": "He bought a new book in the shop yesterday.",
+            "next_word_to_predict": "new ",
+            "probability": 0.52
+        },
+        {
+            "src_sentence": "Ул кисә магазинда яңы китап һатып алды.",
+            "tgt_sentence_gt": "He bought a new book in the shop yesterday.",
+            "next_word_to_predict": "book ",
+            "probability": 0.69
+        },
+
+        {
+            "src_sentence": "Осрашыу иртәгә иртән үтәсәк.",
+            "tgt_sentence_gt": "The meeting will take place tomorrow morning.",
+            "next_word_to_predict": "The ",
+            "probability": 0.46
+        },
+        {
+            "src_sentence": "Осрашыу иртәгә иртән үтәсәк.",
+            "tgt_sentence_gt": "The meeting will take place tomorrow morning.",
+            "next_word_to_predict": "meeting ",
+            "probability": 0.59
+        },
+        {
+            "src_sentence": "Осрашыу иртәгә иртән үтәсәк.",
+            "tgt_sentence_gt": "The meeting will take place tomorrow morning.",
+            "next_word_to_predict": "will ",
+            "probability": 0.63
+        },
+        {
+            "src_sentence": "Осрашыу иртәгә иртән үтәсәк.",
+            "tgt_sentence_gt": "The meeting will take place tomorrow morning.",
+            "next_word_to_predict": "take ",
+            "probability": 0.37
+        },
+        {
+            "src_sentence": "Осрашыу иртәгә иртән үтәсәк.",
+            "tgt_sentence_gt": "The meeting will take place tomorrow morning.",
+            "next_word_to_predict": "place ",
+            "probability": 0.54
+        }
+    ]
+}

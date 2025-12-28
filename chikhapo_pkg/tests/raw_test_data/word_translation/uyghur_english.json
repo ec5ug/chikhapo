@@ -1,0 +1,24 @@
+{
+  "src_lang": "uig",
+  "tgt_lang": "eng",
+  "data": [
+    {"word": "خۇشال", "prediction": "happy."},
+    {"word": "ئىت", "prediction": "dog."},
+    {"word": "كىتاب", "prediction": "book."},
+    {"word": "بالا", "prediction": "child."},
+    {"word": "ئۆي", "prediction": "house."},
+    {"word": "سۇ", "prediction": "water."},
+    {"word": "قۇياش", "prediction": "sun."},
+    {"word": "يېزىش", "prediction": "write."},
+    {"word": "قىزىل", "prediction": "red."},
+    {"word": "يول", "prediction": "road."},
+
+    {"word": "ئىت", "prediction": "cat."},
+    {"word": "سۇ", "prediction": "fire."},
+    {"word": "قۇياش", "prediction": "moon."},
+    {"word": "دوست", "prediction": "friend."},
+    {"word": "كۈن", "prediction": "day."},
+    {"word": "يېزىش", "prediction": "letter."},
+    {"word": "يول", "prediction": "music."}
+  ]
+}

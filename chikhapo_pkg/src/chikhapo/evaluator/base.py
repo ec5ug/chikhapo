@@ -46,12 +46,6 @@ class BaseEvaluator:
         self.tgt_lang = model_output["tgt_lang"]
         self.data = model_output["data"]
     
-    # def convert_list_of_entries_to_dictionary(self, list_of_entries):
-    #     new_dictionary = defaultdict(list)
-    #     for entry in list_of_entries:
-    #         new_dictionary[entry["source_word"]] = entry["target_translations"]
-    #     return new_dictionary
-    
     def get_direction(self):
         if self.tgt_lang=="eng":
             self.DIRECTION = "X_to_eng"
@@ -151,9 +145,14 @@ class BaseEvaluator:
         pass
 
     @abstractmethod
+    def clear_intermediary_data(self):
+        pass
+
+    @abstractmethod
     def score_each_word(self):
         pass
 
     @abstractmethod
     def evaluate(self, file_path):
         pass
+    

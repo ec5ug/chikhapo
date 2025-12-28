@@ -1,0 +1,17 @@
+{
+  "src_lang": "yor",
+  "tgt_lang": "eng",
+  "data": [
+    {"word": "ayọ̀", "prediction": "happy."},
+    {"word": "aja", "prediction": "cat."},
+    {"word": "iwe", "prediction": "book."},
+    {"word": "ọmọ", "prediction": "teacher."},
+    {"word": "ilé", "prediction": "road."},
+    {"word": "omi", "prediction": "water."},
+    {"word": "kọ", "prediction": "sleep."},
+    {"word": "pupa", "prediction": "blue."},
+    {"word": "oorun", "prediction": "moon."},
+    {"word": "ọna", "prediction": "house."},
+    {"word": "jẹ", "prediction": "eat."}
+  ]
+}

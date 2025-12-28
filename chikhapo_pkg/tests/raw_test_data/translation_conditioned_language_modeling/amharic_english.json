@@ -1,0 +1,98 @@
+{
+    "src_lang": "amh",
+    "tgt_lang": "eng",
+    "data": [
+        {
+            "src_sentence": "ቤቱ እና መኖሪያው ከወንዙ አጠገብ ይገኛሉ።",
+            "tgt_sentence_gt": "The house and the residence are located near the river.",
+            "next_word_to_predict": "The ",
+            "probability": 0.42
+        },
+        {
+            "src_sentence": "ቤቱ እና መኖሪያው ከወንዙ አጠገብ ይገኛሉ።",
+            "tgt_sentence_gt": "The house and the residence are located near the river.",
+            "next_word_to_predict": "house ",
+            "probability": 0.61
+        },
+        {
+            "src_sentence": "ቤቱ እና መኖሪያው ከወንዙ አጠገብ ይገኛሉ።",
+            "tgt_sentence_gt": "The house and the residence are located near the river.",
+            "next_word_to_predict": "and ",
+            "probability": 0.77
+        },
+        {
+            "src_sentence": "ቤቱ እና መኖሪያው ከወንዙ አጠገብ ይገኛሉ።",
+            "tgt_sentence_gt": "The house and the residence are located near the river.",
+            "next_word_to_predict": "the ",
+            "probability": 0.33
+        },
+        {
+            "src_sentence": "ቤቱ እና መኖሪያው ከወንዙ አጠገብ ይገኛሉ።",
+            "tgt_sentence_gt": "The house and the residence are located near the river.",
+            "next_word_to_predict": "residence ",
+            "probability": 0.29
+        },
+
+        {
+            "src_sentence": "እሷ ትናንት በሱቁ አዲስ መጽሐፍ ገዛች።",
+            "tgt_sentence_gt": "She bought a new book at the shop yesterday.",
+            "next_word_to_predict": "She ",
+            "probability": 0.55
+        },
+        {
+            "src_sentence": "እሷ ትናንት በሱቁ አዲስ መጽሐፍ ገዛች።",
+            "tgt_sentence_gt": "She bought a new book at the shop yesterday.",
+            "next_word_to_predict": "bought ",
+            "probability": 0.68
+        },
+        {
+            "src_sentence": "እሷ ትናንት በሱቁ አዲስ መጽሐፍ ገዛች።",
+            "tgt_sentence_gt": "She bought a new book at the shop yesterday.",
+            "next_word_to_predict": "the ",
+            "probability": 0.21
+        },
+        {
+            "src_sentence": "እሷ ትናንት በሱቁ አዲስ መጽሐፍ ገዛች።",
+            "tgt_sentence_gt": "She bought a new book at the shop yesterday.",
+            "next_word_to_predict": "new ",
+            "probability": 0.47
+        },
+        {
+            "src_sentence": "እሷ ትናንት በሱቁ አዲስ መጽሐፍ ገዛች።",
+            "tgt_sentence_gt": "She bought a new book at the shop yesterday.",
+            "next_word_to_predict": "book ",
+            "probability": 0.73
+        },
+
+        {
+            "src_sentence": "ስብሰባው ነገ ጠዋት ይካሄዳል።",
+            "tgt_sentence_gt": "The meeting will take place tomorrow morning.",
+            "next_word_to_predict": "The ",
+            "probability": 0.49
+        },
+        {
+            "src_sentence": "ስብሰባው ነገ ጠዋት ይካሄዳል።",
+            "tgt_sentence_gt": "The meeting will take place tomorrow morning.",
+            "next_word_to_predict": "conference ",
+            "probability": 0.19
+        },
+        {
+            "src_sentence": "ስብሰባው ነገ ጠዋት ይካሄዳል።",
+            "tgt_sentence_gt": "The meeting will take place tomorrow morning.",
+            "next_word_to_predict": "will ",
+            "probability": 0.64
+        },
+        {
+            "src_sentence": "ስብሰባው ነገ ጠዋት ይካሄዳል።",
+            "tgt_sentence_gt": "The meeting will take place tomorrow morning.",
+            "next_word_to_predict": "take ",
+            "probability": 0.52
+        },
+        {
+            "src_sentence": "ስብሰባው ነገ ጠዋት ይካሄዳል።",
+            "tgt_sentence_gt": "The meeting will take place tomorrow morning.",
+            "next_word_to_predict": "place ",
+            "probability": 0.58
+        }
+    ]
+}

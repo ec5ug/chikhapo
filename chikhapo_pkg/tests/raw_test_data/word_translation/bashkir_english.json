@@ -1,0 +1,23 @@
+{
+  "src_lang": "bak",
+  "tgt_lang": "eng",
+  "data": [
+    {"word": "шат", "prediction": "happy."},
+    {"word": "эт", "prediction": "dog."},
+    {"word": "китап", "prediction": "book."},
+    {"word": "бала", "prediction": "child."},
+    {"word": "өй", "prediction": "house."},
+    {"word": "һыу", "prediction": "water."},
+    {"word": "яҙыу", "prediction": "write."},
+    {"word": "ҡыҙыл", "prediction": "red."},
+    {"word": "ҡояш", "prediction": "sun."},
+    {"word": "юл", "prediction": "road."},
+
+    {"word": "атай", "prediction": "uncle."},
+    {"word": "әсәй", "prediction": "sister."},
+    {"word": "күҙ", "prediction": "face."},
+    {"word": "ағас", "prediction": "forest."},
+    {"word": "йыл", "prediction": "month."},
+    {"word": "төн", "prediction": "night."}
+  ]
+}

@@ -31,3 +31,4 @@ class BaseTaskFeeder:
     @abstractmethod
     def get_prompts_for_lang_pair(self, lang_pair, lite=True):
         pass
+    

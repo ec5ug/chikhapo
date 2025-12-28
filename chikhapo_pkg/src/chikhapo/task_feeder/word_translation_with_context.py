@@ -3,6 +3,7 @@ from collections import defaultdict
 from .base import BaseTaskFeeder
 from chikhapo.utils.languages import convert_iso_to_name, get_direction_of_lang_pair, get_language_from_pair, get_language_pair
 from chikhapo.utils.parsing import convert_list_of_entries_to_dictionary
+
 class WordTranslationWithContextFeeder(BaseTaskFeeder):
     """
     for task Word Translation with Context
@@ -81,3 +82,4 @@ class WordTranslationWithContextFeeder(BaseTaskFeeder):
                 prompt = f"What does '{word}' mean in {lang_name} in the sentence '{sentence[:-1]}'? Meaning (one word): "
             prompts.append(prompt)
         return prompts
+    

@@ -1,0 +1,98 @@
+{
+    "src_lang": "gle",
+    "tgt_lang": "eng",
+    "data": [
+        {
+            "src_sentence": "Tá an cat agus an madra ina suí sa ghairdín.",
+            "tgt_sentence_gt": "The cat and the dog are sitting in the garden.",
+            "next_word_to_predict": "The ",
+            "probability": 0.12
+        },
+        {
+            "src_sentence": "Tá an cat agus an madra ina suí sa ghairdín.",
+            "tgt_sentence_gt": "The cat and the dog are sitting in the garden.",
+            "next_word_to_predict": "cat ",
+            "probability": 0.22
+        },
+        {
+            "src_sentence": "Tá an cat agus an madra ina suí sa ghairdín.",
+            "tgt_sentence_gt": "The cat and the dog are sitting in the garden.",
+            "next_word_to_predict": "and ",
+            "probability": 0.28
+        },
+        {
+            "src_sentence": "Tá an cat agus an madra ina suí sa ghairdín.",
+            "tgt_sentence_gt": "The cat and the dog are sitting in the garden.",
+            "next_word_to_predict": "the ",
+            "probability": 0.35
+        },
+        {
+            "src_sentence": "Tá an cat agus an madra ina suí sa ghairdín.",
+            "tgt_sentence_gt": "The cat and the dog are sitting in the garden.",
+            "next_word_to_predict": "dog ",
+            "probability": 0.18
+        },
+
+        {
+            "src_sentence": "Cheannaigh sí leabhar nua sa siopa inné.",
+            "tgt_sentence_gt": "She bought a new book in the shop yesterday.",
+            "next_word_to_predict": "She ",
+            "probability": 0.15
+        },
+        {
+            "src_sentence": "Cheannaigh sí leabhar nua sa siopa inné.",
+            "tgt_sentence_gt": "She bought a new book in the shop yesterday.",
+            "next_word_to_predict": "bought ",
+            "probability": 0.25
+        },
+        {
+            "src_sentence": "Cheannaigh sí leabhar nua sa siopa inné.",
+            "tgt_sentence_gt": "She bought a new book in the shop yesterday.",
+            "next_word_to_predict": "a ",
+            "probability": 0.4
+        },
+        {
+            "src_sentence": "Cheannaigh sí leabhar nua sa siopa inné.",
+            "tgt_sentence_gt": "She bought a new book in the shop yesterday.",
+            "next_word_to_predict": "new ",
+            "probability": 0.27
+        },
+        {
+            "src_sentence": "Cheannaigh sí leabhar nua sa siopa inné.",
+            "tgt_sentence_gt": "She bought a new book in the shop yesterday.",
+            "next_word_to_predict": "book ",
+            "probability": 0.21
+        },
+
+        {
+            "src_sentence": "Beidh an cruinniú ar siúl amárach ar maidin.",
+            "tgt_sentence_gt": "The meeting will take place tomorrow morning.",
+            "next_word_to_predict": "The ",
+            "probability": 0.18
+        },
+        {
+            "src_sentence": "Beidh an cruinniú ar siúl amárach ar maidin.",
+            "tgt_sentence_gt": "The meeting will take place tomorrow morning.",
+            "next_word_to_predict": "meeting ",
+            "probability": 0.24
+        },
+        {
+            "src_sentence": "Beidh an cruinniú ar siúl amárach ar maidin.",
+            "tgt_sentence_gt": "The meeting will take place tomorrow morning.",
+            "next_word_to_predict": "will ",
+            "probability": 0.31
+        },
+        {
+            "src_sentence": "Beidh an cruinniú ar siúl amárach ar maidin.",
+            "tgt_sentence_gt": "The meeting will take place tomorrow morning.",
+            "next_word_to_predict": "take ",
+            "probability": 0.2
+        },
+        {
+            "src_sentence": "Beidh an cruinniú ar siúl amárach ar maidin.",
+            "tgt_sentence_gt": "The meeting will take place tomorrow morning.",
+            "next_word_to_predict": "place ",
+            "probability": 0.19
+        }
+    ]
+}

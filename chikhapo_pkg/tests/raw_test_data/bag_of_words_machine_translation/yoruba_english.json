@@ -1,0 +1,31 @@
+{
+  "src_lang": "yor",
+  "tgt_lang": "eng",
+  "data": [
+    {
+      "src_sentence": "Ile iṣẹ́ ijọba wà lẹ́gbẹ̀ẹ́ ọgbà ìtura.",
+      "tgt_sentence_gt": "The government office is located next to the park.",
+      "tgt_sentence_pred": "The government office is located next to the park."
+    },
+    {
+      "src_sentence": "Ilé ìkàwé náà wà ní agbègbè tí ó dakẹ́.",
+      "tgt_sentence_gt": "The library is in a quiet area.",
+      "tgt_sentence_pred": "The library is in a peaceful area."
+    },
+    {
+      "src_sentence": "Opopona yìí ń darapọ̀ agbègbè ìṣòwò àti agbègbè ìgbé-ayé.",
+      "tgt_sentence_gt": "This road connects the commercial area and the residential area.",
+      "tgt_sentence_pred": "This road links business and living areas."
+    },
+    {
+      "src_sentence": "Ọjà ń ṣi ní kutukutu gbogbo ọjọ́.",
+      "tgt_sentence_gt": "The market opens early every day.",
+      "tgt_sentence_pred": "The market opens early."
+    },
+    {
+      "src_sentence": "Ilé ìwòsàn wà jìnnà sí àwọn abúlé kékeré.",
+      "tgt_sentence_gt": "The hospital is far from the small villages.",
+      "tgt_sentence_pred": "Access to essential services in rural areas is limited."
+    }
+  ]
+}

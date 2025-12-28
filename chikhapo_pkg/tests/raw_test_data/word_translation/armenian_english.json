@@ -1,0 +1,23 @@
+{
+  "src_lang": "hye",
+  "tgt_lang": "eng",
+  "data": [
+    {"word": "գիրք", "prediction": "book."},
+    {"word": "շուն", "prediction": "dog."},
+    {"word": "երջանիկ", "prediction": "happy."},
+    {"word": "գրել", "prediction": "to write."},
+    {"word": "պատուհան", "prediction": "window."},
+    {"word": "քաղաք", "prediction": "city."},
+
+    {"word": "գիրք", "prediction": "paper."},
+    {"word": "շուն", "prediction": "cat."},
+    {"word": "պատուհան", "prediction": "door."},
+    {"word": "քաղաք", "prediction": "village."},
+    {"word": "տուն", "prediction": "house."},
+    {"word": "ջուր", "prediction": "water."},
+    {"word": "երեխա", "prediction": "child."},
+    {"word": "գեղեցիկ", "prediction": "beautiful."},
+    {"word": "արև", "prediction": "sun."},
+    {"word": "գրել", "prediction": "letter."}
+  ]
+}

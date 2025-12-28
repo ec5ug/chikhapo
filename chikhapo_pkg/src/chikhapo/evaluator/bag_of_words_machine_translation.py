@@ -105,6 +105,9 @@ class BagOfWordsMachineTranslationEvaluator(BaseAlignmentsEvaluator):
                     self.xword_class_pred[cleaned_gt_word][classification_type] = []
                 self.xword_class_pred[cleaned_gt_word][classification_type].append(cleaned_pred_word)
 
+    def clear_intermediary_data(self):
+        self.xword_class_pred = {}
+
     def score_each_word(self):
         for word in self.xword_class_pred:
             exact_match = len(self.xword_class_pred[word].get("exact_match", []))

@@ -33,16 +33,3 @@ def get_language_pair(lang, DIRECTION):
         return f"eng_{lang}"
     else:
         raise Exception("Improper direction")
-
-# import unicodedata
-# def remove_accents(text):
-#     return ''.join(
-#         c for c in unicodedata.normalize("NFD", text)
-#         if not unicodedata.combining(c)
-#     )
-# def get_sanitized_language_name(iso): # follows HuggingFace conventions
-#     text = convert_iso_to_name(iso)
-#     text = remove_accents(text)
-#     text = text.replace(" ", "")
-#     text = re.sub(r"[^\w.]", "_", text)
-#     return text

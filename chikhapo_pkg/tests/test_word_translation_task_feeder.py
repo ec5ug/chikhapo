@@ -72,6 +72,3 @@ class TestWordTranslationTaskFeeder(unittest.TestCase):
         self.assertIn("eng_spa", lang_pairs)
         self.assertNotIn("spa_eng", lang_pairs)
         self.assertEqual(2752, len(lang_pairs))
-
-if __name__ == "__main__":
-    unittest.main()
