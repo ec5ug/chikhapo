@@ -1,0 +1,98 @@
+{
+    "src_lang": "uig",
+    "tgt_lang": "eng",
+    "data": [
+        {
+            "src_sentence": "ئۇستاز ئوقۇغۇچىلارغا يېڭى دەرسنى چۈشەندۈردى.",
+            "tgt_sentence_gt": "The teacher explained the new lesson to the students.",
+            "next_word_to_predict": "The ",
+            "probability": 0.48
+        },
+        {
+            "src_sentence": "ئۇستاز ئوقۇغۇچىلارغا يېڭى دەرسنى چۈشەندۈردى.",
+            "tgt_sentence_gt": "The teacher explained the new lesson to the students.",
+            "next_word_to_predict": "teacher ",
+            "probability": 0.66
+        },
+        {
+            "src_sentence": "ئۇستاز ئوقۇغۇچىلارغا يېڭى دەرسنى چۈشەندۈردى.",
+            "tgt_sentence_gt": "The teacher explained the new lesson to the students.",
+            "next_word_to_predict": "explained ",
+            "probability": 0.59
+        },
+        {
+            "src_sentence": "ئۇستاز ئوقۇغۇچىلارغا يېڭى دەرسنى چۈشەندۈردى.",
+            "tgt_sentence_gt": "The teacher explained the new lesson to the students.",
+            "next_word_to_predict": "the ",
+            "probability": 0.31
+        },
+        {
+            "src_sentence": "ئۇستاز ئوقۇغۇچىلارغا يېڭى دەرسنى چۈشەندۈردى.",
+            "tgt_sentence_gt": "The teacher explained the new lesson to the students.",
+            "next_word_to_predict": "new ",
+            "probability": 0.44
+        },
+
+        {
+            "src_sentence": "بازاردا مېۋە ۋە كۆكتاتلار ناھايىتى ئەرزان.",
+            "tgt_sentence_gt": "Fruit and vegetables are very cheap at the market.",
+            "next_word_to_predict": "Fruit ",
+            "probability": 0.41
+        },
+        {
+            "src_sentence": "بازاردا مېۋە ۋە كۆكتاتلار ناھايىتى ئەرزان.",
+            "tgt_sentence_gt": "Fruit and vegetables are very cheap at the market.",
+            "next_word_to_predict": "and ",
+            "probability": 0.68
+        },
+        {
+            "src_sentence": "بازاردا مېۋە ۋە كۆكتاتلار ناھايىتى ئەرزان.",
+            "tgt_sentence_gt": "Fruit and vegetables are very cheap at the market.",
+            "next_word_to_predict": "vegetables ",
+            "probability": 0.62
+        },
+        {
+            "src_sentence": "بازاردا مېۋە ۋە كۆكتاتلار ناھايىتى ئەرزان.",
+            "tgt_sentence_gt": "Fruit and vegetables are very cheap at the market.",
+            "next_word_to_predict": "are ",
+            "probability": 0.55
+        },
+        {
+            "src_sentence": "بازاردا مېۋە ۋە كۆكتاتلار ناھايىتى ئەرزان.",
+            "tgt_sentence_gt": "Fruit and vegetables are very cheap at the market.",
+            "next_word_to_predict": "cheap ",
+            "probability": 0.47
+        },
+
+        {
+            "src_sentence": "ئۇلار بۈگۈن كەچتە كىنونى كۆرۈشنى پىلانلاۋاتىدۇ.",
+            "tgt_sentence_gt": "They are planning to watch a movie tonight.",
+            "next_word_to_predict": "They ",
+            "probability": 0.57
+        },
+        {
+            "src_sentence": "ئۇلار بۈگۈن كەچتە كىنونى كۆرۈشنى پىلانلاۋاتىدۇ.",
+            "tgt_sentence_gt": "They are planning to watch a movie tonight.",
+            "next_word_to_predict": "are ",
+            "probability": 0.6
+        },
+        {
+            "src_sentence": "ئۇلار بۈگۈن كەچتە كىنونى كۆرۈشنى پىلانلاۋاتىدۇ.",
+            "tgt_sentence_gt": "They are planning to watch a movie tonight.",
+            "next_word_to_predict": "planning ",
+            "probability": 0.52
+        },
+        {
+            "src_sentence": "ئۇلار بۈگۈن كەچتە كىنونى كۆرۈشنى پىلانلاۋاتىدۇ.",
+            "tgt_sentence_gt": "They are planning to watch a movie tonight.",
+            "next_word_to_predict": "to ",
+            "probability": 0.49
+        },
+        {
+            "src_sentence": "ئۇلار بۈگۈن كەچتە كىنونى كۆرۈشنى پىلانلاۋاتىدۇ.",
+            "tgt_sentence_gt": "They are planning to watch a movie tonight.",
+            "next_word_to_predict": "watch ",
+            "probability": 0.63
+        }
+    ]
+}

@@ -28,21 +28,11 @@ import nltk
 nltk.download("wordnet")
 ```
 
-**FastAlign** The tasks Fill-in-the-Blank and Bag-of-Words Machine Translation require `FastAlign`, a statisical word aligner. Before installing all of the packages in `chikhapo_pkg/requirements.txt`, please clone `FastAlign` within the root of this repository.
-
-```
-git clone https://github.com/clab/fast_align.git
-```
-
-Then run
-```
-mkdir build
-cd build
-cmake ..
-make
-```
+**FastAlign** The tasks Fill-in-the-Blank and Bag-of-Words Machine Translation require `FastAlign`, a statisical word aligner. Before installing all of the packages in `chikhapo_pkg/requirements.txt`, please run `install_fastalign.sh` (located in the root of this repository).
 
 If you happen to run into an error, please check `fast_align/CMakeLists.txt`, namely that `cmake_minimum_required` is set to the following minimum version `cmake_minimum_required(VERSION 3.5)`.
+
+**Glottolog** The class `ResultAnalyzer` relies on Glottolog data to group languages into their respective families. To download this data, please go to the [Downloads](https://glottolog.org/meta/downloads) page of Glottolog to retrieve a copy of the most recent `glottolog_languoid.csv`. (This should be a zipped folder). Please install this in the root of the repository (i.e. in the same directory as `fast_align` and `huggingface_upload`). 
 
 # Tasks
 

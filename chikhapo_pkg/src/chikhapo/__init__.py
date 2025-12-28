@@ -1,6 +1,7 @@
 from .loader import Loader
 from .evaluator import Evaluator, WordTranslationEvaluator, TranslationConditionedLanguageModelingEvaluator, BagOfWordsMachineTranslationEvaluator
-from .task_feeders import TaskFeeder, WordTranslationFeeder, WordTranslationWithContextFeeder, TranslationedConditionedLanguageModelingTaskFeeder, BagOfWordsMachineTranslationFeeder
+from .task_feeder import TaskFeeder, WordTranslationFeeder, WordTranslationWithContextFeeder, TranslationedConditionedLanguageModelingTaskFeeder, BagOfWordsMachineTranslationFeeder
+from .result_analyzer import ResultAnalyzer
 
 __version__ = "0.1.0"
 
@@ -14,5 +15,6 @@ __all__ = [
     'WordTranslationFeeder',
     'WordTranslationWithContextFeeder',
     'TranslationedConditionedLanguageModelingTaskFeeder',
-    'BagOfWordsMachineTranslationFeeder'
+    'BagOfWordsMachineTranslationFeeder',
+    'ResultAnalyzer'
 ]

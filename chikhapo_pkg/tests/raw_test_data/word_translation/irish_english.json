@@ -1,0 +1,27 @@
+{
+  "src_lang": "gle",
+  "tgt_lang": "eng",
+  "data": [
+    {"word": "tríú", "prediction": "third."},
+    {"word": "chicago", "prediction": "Chicago."},
+    {"word": "leachtach", "prediction": "liquid."},
+    {"word": "dírbheathaisnéiseach", "prediction": "autobiographical."},
+    {"word": "gallchnó", "prediction": "walnut."},
+    {"word": "madra", "prediction": "dog."},
+    {"word": "fuinneog", "prediction": "window."},
+    {"word": "doras", "prediction": "door."},
+    {"word": "bia", "prediction": "food."},
+    {"word": "scríobh", "prediction": "write."},
+
+    {"word": "tríú", "prediction": "banana."},
+    {"word": "madra", "prediction": "car."},
+    {"word": "fuinneog", "prediction": "idea."},
+    {"word": "bia", "prediction": "sky."},
+    {"word": "scríobh", "prediction": "run."},
+    {"word": "leabhar", "prediction": "sleep."},
+    {"word": "uisce", "prediction": "fire."},
+    {"word": "cat", "prediction": "computer."},
+    {"word": "cathaoir", "prediction": "mountain."},
+    {"word": "teach", "prediction": "music."}
+  ]
+}

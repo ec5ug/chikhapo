@@ -1,0 +1,22 @@
+{
+  "src_lang": "lao",
+  "tgt_lang": "eng",
+  "data": [
+    {"word": "ມີຄວາມສຸກ", "prediction": "happy."},
+    {"word": "ໝາ", "prediction": "dog."},
+    {"word": "ປຶ້ມ", "prediction": "book."},
+    {"word": "ເດັກ", "prediction": "child."},
+    {"word": "ເຮືອນ", "prediction": "house."},
+    {"word": "ນ້ຳ", "prediction": "water."},
+    {"word": "ຂຽນ", "prediction": "write."},
+    {"word": "ແດງ", "prediction": "red."},
+    {"word": "ດວງອາທິດ", "prediction": "sun."},
+    {"word": "ທາງ", "prediction": "road."},
+
+    {"word": "ໝາ", "prediction": "cat."},
+    {"word": "ນ້ຳ", "prediction": "fire."},
+    {"word": "ແສງ", "prediction": "light."},
+    {"word": "ອາຫານ", "prediction": "food."},
+    {"word": "ຄົນ", "prediction": "person."}
+  ]
+}

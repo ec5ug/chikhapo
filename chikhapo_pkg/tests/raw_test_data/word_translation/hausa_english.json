@@ -1,0 +1,15 @@
+{
+  "src_lang": "hau",
+  "tgt_lang": "eng",
+  "data": [
+    {"word": "farin ciki", "prediction": "happy."},
+    {"word": "kare", "prediction": "cat."},
+    {"word": "littafi", "prediction": "book."},
+    {"word": "yaro", "prediction": "teacher."},
+    {"word": "gida", "prediction": "road."},
+    {"word": "ruwa", "prediction": "fire."},
+    {"word": "rubutu", "prediction": "write."},
+    {"word": "rana", "prediction": "moon."},
+    {"word": "hanya", "prediction": "house."}
+  ]
+}

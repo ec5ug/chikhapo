@@ -53,6 +53,3 @@ class TestWordTranslationWithContextTaskFeeder(unittest.TestCase):
         lang_pairs = self.feeder.get_lang_pairs("eng_to_X")
         self.assertIn("eng_spa_Latn", lang_pairs)
         self.assertNotIn("spa_Latn_eng", lang_pairs)
-        
-if __name__ == "__main__":
-    unittest.main()

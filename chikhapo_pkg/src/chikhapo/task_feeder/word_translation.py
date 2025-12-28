@@ -51,3 +51,4 @@ class WordTranslationFeeder(BaseTaskFeeder):
                 prompt = f"Translate the following word from English to {lang_name}. Respond with a single word.\nWord: {word}\nTranslation: "
             prompts.append(prompt)
         return prompts
+    

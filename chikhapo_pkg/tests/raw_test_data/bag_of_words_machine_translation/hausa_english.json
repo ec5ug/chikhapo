@@ -1,0 +1,31 @@
+{
+  "src_lang": "hau",
+  "tgt_lang": "eng",
+  "data": [
+    {
+      "src_sentence": "Yaron yana karanta littafi a ɗaki.",
+      "tgt_sentence_gt": "The boy is reading a book in the room.",
+      "tgt_sentence_pred": "The boy is reading a book in the room."
+    },
+    {
+      "src_sentence": "Ta dafa abinci da safe.",
+      "tgt_sentence_gt": "She cooked food in the morning.",
+      "tgt_sentence_pred": "She prepares food in the morning."
+    },
+    {
+      "src_sentence": "Malam ya tambayi ɗalibai tambayoyi masu sauƙi.",
+      "tgt_sentence_gt": "The teacher asked the students simple questions.",
+      "tgt_sentence_pred": "The teacher asked the students easy questions."
+    },
+    {
+      "src_sentence": "Motar ta tsaya saboda ruwan sama mai yawa.",
+      "tgt_sentence_gt": "The car stopped because of heavy rain.",
+      "tgt_sentence_pred": "The car stopped because of bad weather."
+    },
+    {
+      "src_sentence": "Likitan ya ba mara lafiya magani.",
+      "tgt_sentence_gt": "The doctor gave the patient medicine.",
+      "tgt_sentence_pred": "The patient treated the doctor for an illness."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "src_lang": "tso",
+  "tgt_lang": "eng",
+  "data": [
+    {"word": "tsakile", "prediction": "happy."},
+    {"word": "mbyana", "prediction": "dog."},
+    {"word": "buku", "prediction": "book."},
+    {"word": "vana", "prediction": "children."},
+    {"word": "ndlu", "prediction": "house."},
+    {"word": "mati", "prediction": "water."},
+    {"word": "ku tsala", "prediction": "write."},
+    {"word": "ku dya", "prediction": "eat."},
+    {"word": "dyambu", "prediction": "sun."},
+    {"word": "ndlela", "prediction": "road."},
+
+    {"word": "xikolo", "prediction": "church."},
+    {"word": "tata", "prediction": "brother."},
+    {"word": "n'weti", "prediction": "star."},
+    {"word": "mama", "prediction": "mother."},
+    {"word": "nambu", "prediction": "river."}
+  ]
+}

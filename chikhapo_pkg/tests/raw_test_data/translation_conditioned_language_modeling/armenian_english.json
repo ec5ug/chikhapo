@@ -1,0 +1,98 @@
+{
+    "src_lang": "hye",
+    "tgt_lang": "eng",
+    "data": [
+        {
+            "src_sentence": "Տունը և բնակարանը գտնվում են գետի մոտ։",
+            "tgt_sentence_gt": "The house and the apartment are located near the river.",
+            "next_word_to_predict": "The ",
+            "probability": 0.51
+        },
+        {
+            "src_sentence": "Տունը և բնակարանը գտնվում են գետի մոտ։",
+            "tgt_sentence_gt": "The house and the apartment are located near the river.",
+            "next_word_to_predict": "house ",
+            "probability": 0.67
+        },
+        {
+            "src_sentence": "Տունը և բնակարանը գտնվում են գետի մոտ։",
+            "tgt_sentence_gt": "The house and the apartment are located near the river.",
+            "next_word_to_predict": "and ",
+            "probability": 0.74
+        },
+        {
+            "src_sentence": "Տունը և բնակարանը գտնվում են գետի մոտ։",
+            "tgt_sentence_gt": "The house and the apartment are located near the river.",
+            "next_word_to_predict": "the ",
+            "probability": 0.29
+        },
+        {
+            "src_sentence": "Տունը և բնակարանը գտնվում են գետի մոտ։",
+            "tgt_sentence_gt": "The house and the apartment are located near the river.",
+            "next_word_to_predict": "apartment ",
+            "probability": 0.34
+        },
+
+        {
+            "src_sentence": "Նա երեկ խանութում նոր գիրք գնեց։",
+            "tgt_sentence_gt": "He bought a new book in the shop yesterday.",
+            "next_word_to_predict": "He ",
+            "probability": 0.62
+        },
+        {
+            "src_sentence": "Նա երեկ խանութում նոր գիրք գնեց։",
+            "tgt_sentence_gt": "He bought a new book in the shop yesterday.",
+            "next_word_to_predict": "bought ",
+            "probability": 0.71
+        },
+        {
+            "src_sentence": "Նա երեկ խանութում նոր գիրք գնեց։",
+            "tgt_sentence_gt": "He bought a new book in the shop yesterday.",
+            "next_word_to_predict": "a ",
+            "probability": 0.38
+        },
+        {
+            "src_sentence": "Նա երեկ խանութում նոր գիրք գնեց։",
+            "tgt_sentence_gt": "He bought a new book in the shop yesterday.",
+            "next_word_to_predict": "new ",
+            "probability": 0.46
+        },
+        {
+            "src_sentence": "Նա երեկ խանութում նոր գիրք գնեց։",
+            "tgt_sentence_gt": "He bought a new book in the shop yesterday.",
+            "next_word_to_predict": "book ",
+            "probability": 0.69
+        },
+
+        {
+            "src_sentence": "Հանդիպումը կկայանա վաղը առավոտյան։",
+            "tgt_sentence_gt": "The meeting will take place tomorrow morning.",
+            "next_word_to_predict": "The ",
+            "probability": 0.44
+        },
+        {
+            "src_sentence": "Հանդիպումը կկայանա վաղը առավոտյան։",
+            "tgt_sentence_gt": "The meeting will take place tomorrow morning.",
+            "next_word_to_predict": "meeting ",
+            "probability": 0.58
+        },
+        {
+            "src_sentence": "Հանդիպումը կկայանա վաղը առավոտյան։",
+            "tgt_sentence_gt": "The meeting will take place tomorrow morning.",
+            "next_word_to_predict": "will ",
+            "probability": 0.63
+        },
+        {
+            "src_sentence": "Հանդիպումը կկայանա վաղը առավոտյան։",
+            "tgt_sentence_gt": "The meeting will take place tomorrow morning.",
+            "next_word_to_predict": "take ",
+            "probability": 0.41
+        },
+        {
+            "src_sentence": "Հանդիպումը կկայանա վաղը առավոտյան։",
+            "tgt_sentence_gt": "The meeting will take place tomorrow morning.",
+            "next_word_to_predict": "place ",
+            "probability": 0.55
+        }
+    ]
+}

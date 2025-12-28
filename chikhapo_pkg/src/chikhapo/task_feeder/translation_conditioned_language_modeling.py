@@ -55,3 +55,4 @@ class TranslationedConditionedLanguageModelingTaskFeeder(BaseTaskFeeder):
                     f"Translate the following text into {lang_name}.\nEnglish: {src_sentence}\n{lang_name}: {truncated_translation}"
                 )
         return prompts
+    

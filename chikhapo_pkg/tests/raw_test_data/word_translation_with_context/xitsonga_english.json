@@ -1,0 +1,26 @@
+{
+  "src_lang": "tso",
+  "tgt_lang": "eng",
+  "data": [
+    {"word": "n’wana", "prediction": "child."},
+    {"word": "mbwa", "prediction": "dog."},
+    {"word": "ndlu", "prediction": "house."},
+    {"word": "mati", "prediction": "water."},
+    {"word": "buku", "prediction": "book."},
+    {"word": "swakudya", "prediction": "food."},
+    {"word": "nsimu", "prediction": "field."},
+    {"word": "wanuna", "prediction": "man."},
+    {"word": "wansati", "prediction": "woman."},
+    {"word": "nkarhi", "prediction": "time."},
+    {"word": "siku", "prediction": "day."},
+    {"word": "vusiku", "prediction": "night."},
+    {"word": "mali", "prediction": "money."},
+    {"word": "nhloko", "prediction": "head."},
+    {"word": "murhi", "prediction": "tree."},
+    {"word": "munghana", "prediction": "friend."},
+    {"word": "xikolo", "prediction": "school."},
+    {"word": "xihlalo", "prediction": "chair."},
+    {"word": "tafula", "prediction": "table."},
+    {"word": "muntfu", "prediction": "person."}
+  ]
+}

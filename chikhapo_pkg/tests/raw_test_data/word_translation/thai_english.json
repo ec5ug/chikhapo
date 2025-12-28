@@ -1,0 +1,20 @@
+{
+  "src_lang": "tha",
+  "tgt_lang": "eng",
+  "data": [
+    {"word": "มีความสุข", "prediction": "happy."},
+    {"word": "หมา", "prediction": "cat."},
+    {"word": "หนังสือ", "prediction": "book."},
+    {"word": "เด็ก", "prediction": "children."},
+    {"word": "บ้าน", "prediction": "house."},
+    {"word": "น้ำ", "prediction": "water."},
+    {"word": "เขียน", "prediction": "read."},
+    {"word": "แดง", "prediction": "red."},
+    {"word": "ดวงอาทิตย์", "prediction": "moon."},
+    {"word": "ถนน", "prediction": "road."},
+
+    {"word": "ข้าว", "prediction": "rice."},
+    {"word": "แม่", "prediction": "father."},
+    {"word": "ปลา", "prediction": "food."}
+  ]
+}
