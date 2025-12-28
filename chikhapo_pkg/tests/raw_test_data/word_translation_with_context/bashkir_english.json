@@ -1,0 +1,28 @@
+{
+  "src_lang": "bak",
+  "tgt_lang": "eng",
+  "data": [
+    {"word": "һыу", "prediction": "water."},
+    {"word": "эт", "prediction": "dog."},
+    {"word": "йорт", "prediction": "house."},
+    {"word": "китап", "prediction": "book."},
+    {"word": "бала", "prediction": "child."},
+    {"word": "кеше", "prediction": "person."},
+    {"word": "ир", "prediction": "man."},
+    {"word": "ҡатын", "prediction": "woman."},
+    {"word": "аш", "prediction": "food."},
+    {"word": "көн", "prediction": "day."},
+    {"word": "төн", "prediction": "night."},
+    {"word": "мәктәп", "prediction": "school."},
+    {"word": "аҡса", "prediction": "money."},
+    {"word": "ағас", "prediction": "tree."},
+
+    {"word": "һыу", "prediction": "music."},
+    {"word": "эт", "prediction": "computer."},
+    {"word": "йорт", "prediction": "idea."},
+    {"word": "китап", "prediction": "sleep."},
+    {"word": "бала", "prediction": "engine."},
+    {"word": "кеше", "prediction": "mountain."},
+    {"word": "мәктәп", "prediction": "banana."}
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "src_lang": "tha",
+  "tgt_lang": "eng",
+  "data": [
+    {"word": "น้ำ", "prediction": "water."},
+    {"word": "หมา", "prediction": "dog."},
+    {"word": "แมว", "prediction": "cat."},
+    {"word": "บ้าน", "prediction": "house."},
+    {"word": "หนังสือ", "prediction": "book."},
+    {"word": "อาหาร", "prediction": "food."},
+    {"word": "เด็ก", "prediction": "child."},
+    {"word": "ผู้หญิง", "prediction": "woman."},
+    {"word": "ผู้ชาย", "prediction": "man."},
+    {"word": "โรงเรียน", "prediction": "school."},
+    {"word": "โต๊ะ", "prediction": "table."},
+    {"word": "เก้าอี้", "prediction": "chair."},
+    {"word": "เงิน", "prediction": "money."},
+
+    {"word": "น้ำ", "prediction": "sky."},
+    {"word": "หมา", "prediction": "computer."},
+    {"word": "แมว", "prediction": "music."},
+    {"word": "บ้าน", "prediction": "idea."},
+    {"word": "หนังสือ", "prediction": "sleep."},
+    {"word": "อาหาร", "prediction": "engine."},
+    {"word": "เด็ก", "prediction": "river."},
+    {"word": "ผู้หญิง", "prediction": "mountain."},
+    {"word": "โรงเรียน", "prediction": "banana."},
+    {"word": "เงิน", "prediction": "blue."},
+    {"word": "เวลา", "prediction": "running."},
+    {"word": "วัน", "prediction": "history."}
+  ]
+}

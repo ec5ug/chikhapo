@@ -1,0 +1,31 @@
+{
+  "src_lang": "uig",
+  "tgt_lang": "eng",
+  "data": [
+    {
+      "src_sentence": "ئۆيلەر ۋە تۇرالغۇلار دەريا يېنىدا جايلاشقان.",
+      "tgt_sentence_gt": "Houses and residences are located near the river.",
+      "tgt_sentence_pred": "Houses and residences are located near the river."
+    },
+    {
+      "src_sentence": "مەكتەپ جامائەتنىڭ ئوتتۇرىسىغا جايلاشقان.",
+      "tgt_sentence_gt": "The school is located in the center of the community.",
+      "tgt_sentence_pred": "The school is located within the community."
+    },
+    {
+      "src_sentence": "بۇ يول كىچىك شەھەر بىلەن چوڭ شەھەرنى باغلايدۇ.",
+      "tgt_sentence_gt": "This road connects the small town and the big city.",
+      "tgt_sentence_pred": "This road connects several nearby areas."
+    },
+    {
+      "src_sentence": "بازار ھەر كۈنى ئەتىگەن ئېچىلىدۇ.",
+      "tgt_sentence_gt": "The market opens every morning.",
+      "tgt_sentence_pred": "The market opens daily."
+    },
+    {
+      "src_sentence": "دوختۇرخانا يېزەدىن يىراق.",
+      "tgt_sentence_gt": "The hospital is far from the village.",
+      "tgt_sentence_pred": "Access to public services in the region is limited."
+    }
+  ]
+}

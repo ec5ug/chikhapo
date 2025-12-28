@@ -1,0 +1,31 @@
+{
+  "src_lang": "tso",
+  "tgt_lang": "eng",
+  "data": [
+    {
+      "src_sentence": "Ofisi ya masipala yi kumeka ekusuhi ni xibedhle.",
+      "tgt_sentence_gt": "The municipal office is located near the bridge.",
+      "tgt_sentence_pred": "The municipal office is located near the bridge."
+    },
+    {
+      "src_sentence": "Layiburari yi le ndhawini yo rhula endzhaku ka xikolo.",
+      "tgt_sentence_gt": "The library is in a quiet area behind the school.",
+      "tgt_sentence_pred": "The library is in a quiet area near the school."
+    },
+    {
+      "src_sentence": "Paki leyi i ndhawu leyi vanhu va hlanganaka kona hi mahela-ndlela.",
+      "tgt_sentence_gt": "This park is a place where people gather on weekends.",
+      "tgt_sentence_pred": "This park is a place where people often meet."
+    },
+    {
+      "src_sentence": "Xitolo xi pfariwile hi mixo naswona xi pfuleka nimadyambu.",
+      "tgt_sentence_gt": "The shop is closed in the morning and opens in the afternoon.",
+      "tgt_sentence_pred": "The shop opens later in the day."
+    },
+    {
+      "src_sentence": "Kiliniki yi le kule ni madoroba lamakulu.",
+      "tgt_sentence_gt": "The clinic is far from the major towns.",
+      "tgt_sentence_pred": "Healthcare infrastructure in the region remains underdeveloped."
+    }
+  ]
+}

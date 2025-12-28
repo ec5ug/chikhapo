@@ -1,0 +1,32 @@
+{
+  "src_lang": "dzo",
+  "tgt_lang": "eng",
+  "data": [
+    {"word": "ཆུ་", "prediction": "water."},
+    {"word": "ཁྱི་", "prediction": "dog."},
+    {"word": "ཁྱིམ་", "prediction": "house."},
+    {"word": "དེབ་", "prediction": "book."},
+    {"word": "མི་", "prediction": "person."},
+    {"word": "བུ་", "prediction": "child."},
+    {"word": "བུ་མོ་", "prediction": "girl."},
+    {"word": "ཟས་", "prediction": "food."},
+    {"word": "ཉིན་པར་", "prediction": "day."},
+    {"word": "མཚན་མོ་", "prediction": "night."},
+    {"word": "སློབ་གྲྭ་", "prediction": "school."},
+    {"word": "དངུལ་", "prediction": "money."},
+    {"word": "ཤིང་", "prediction": "tree."},
+    {"word": "མགོ་", "prediction": "head."},
+    {"word": "གྲོགས་", "prediction": "friend."},
+    {"word": "ཁྲི་", "prediction": "chair."},
+
+    {"word": "ཆུ་", "prediction": "music."},
+    {"word": "ཁྱི་", "prediction": "computer."},
+    {"word": "ཁྱིམ་", "prediction": "idea."},
+    {"word": "དེབ་", "prediction": "sleep."},
+    {"word": "མི་", "prediction": "mountain."},
+    {"word": "ཟས་", "prediction": "engine."},
+    {"word": "ཉིན་པར་", "prediction": "blue."},
+    {"word": "སློབ་གྲྭ་", "prediction": "banana."},
+    {"word": "དངུལ་", "prediction": "river."}
+  ]
+}

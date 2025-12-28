@@ -1,0 +1,21 @@
+{
+  "src_lang": "amh",
+  "tgt_lang": "eng",
+  "data": [
+    {"word": "ደስተኛ", "prediction": "happy."},
+    {"word": "ውሻ", "prediction": "dog."},
+    {"word": "መጽሐፍ", "prediction": "book."},
+    {"word": "መጻፍ", "prediction": "write."},
+    {"word": "መስኮት", "prediction": "window."},
+    {"word": "ሕፃናት", "prediction": "children."},
+
+    {"word": "ውሻ", "prediction": "cat."},
+    {"word": "መጽሐፍ", "prediction": "paper."},
+    {"word": "መስኮት", "prediction": "door."},
+    {"word": "ቤት", "prediction": "house."},
+    {"word": "ውሃ", "prediction": "water."},
+    {"word": "ልጅ", "prediction": "child."},
+    {"word": "ፀሐይ", "prediction": "sun."},
+    {"word": "መጻፍ", "prediction": "letter."}
+  ]
+}

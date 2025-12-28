@@ -1,0 +1,27 @@
+{
+  "src_lang": "gle",
+  "tgt_lang": "eng",
+  "data": [
+    {"word": "uisce", "prediction": "water."},
+    {"word": "leabhar", "prediction": "book."},
+    {"word": "cat", "prediction": "cat."},
+    {"word": "teach", "prediction": "house."},
+    {"word": "fear", "prediction": "man."},
+    {"word": "bean", "prediction": "woman."},
+    {"word": "oíche", "prediction": "night."},
+    {"word": "lá", "prediction": "day."},
+
+    {"word": "uisce", "prediction": "glass."},
+    {"word": "leabhar", "prediction": "chair."},
+    {"word": "cat", "prediction": "engine."},
+    {"word": "teach", "prediction": "forest."},
+    {"word": "fear", "prediction": "river."},
+    {"word": "bean", "prediction": "music."},
+    {"word": "oíche", "prediction": "blue."},
+    {"word": "lá", "prediction": "running."},
+    {"word": "bord", "prediction": "sleep."},
+    {"word": "páiste", "prediction": "computer."},
+    {"word": "amadán", "prediction": "mountain."},
+    {"word": "obair", "prediction": "banana."}
+  ]
+}

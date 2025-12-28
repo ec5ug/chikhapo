@@ -1,0 +1,31 @@
+{
+  "src_lang": "bak",
+  "tgt_lang": "eng",
+  "data": [
+    {
+      "src_sentence": "Ҡар иртәгә лә яуасаҡ, тиҙәр.",
+      "tgt_sentence_gt": "They say it will snow tomorrow as well.",
+      "tgt_sentence_pred": "It is said that it will snow tomorrow."
+    },
+    {
+      "src_sentence": "Ул китапты тиҙ генә уҡып сыҡты.",
+      "tgt_sentence_gt": "He quickly finished reading the book.",
+      "tgt_sentence_pred": "He read the book quickly."
+    },
+    {
+      "src_sentence": "Ауыл халҡы байрамға алдан әҙерләнде.",
+      "tgt_sentence_gt": "The villagers prepared for the celebration in advance.",
+      "tgt_sentence_pred": "The people of the village prepared early."
+    },
+    {
+      "src_sentence": "Поезд һуңлап килгәс, осрашыу булманы.",
+      "tgt_sentence_gt": "Because the train arrived late, the meeting did not happen.",
+      "tgt_sentence_pred": "The meeting was delayed because of the train."
+    },
+    {
+      "src_sentence": "Тәжрибә һөҙөмтәләре көтөлгәндән бөтөнләй икенсе булды.",
+      "tgt_sentence_gt": "The results of the experiment were completely different from what was expected.",
+      "tgt_sentence_pred": "The experiment produced unexpected social effects."
+    }
+  ]
+}
