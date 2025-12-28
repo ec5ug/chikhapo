@@ -2,7 +2,6 @@ from .base_alignments import BaseAlignmentsEvaluator
 from chikhapo.utils.parsing import clean_string, convert_list_of_entries_to_dictionary
 
 from collections import defaultdict
-import os
 import pprint
 import statistics
 
@@ -25,7 +24,10 @@ class TranslationConditionedLanguageModelingEvaluator(BaseAlignmentsEvaluator):
     def __init__(self):
         super().__init__()
         self.xword_probs = defaultdict(list)
-        
+    
+    def clear_intermediary_data(self):
+        self.xword_probs = defaultdict(list)
+
     def validate_data(self):
         for entry in self.data:
             entry_str = pprint.pformat(entry)

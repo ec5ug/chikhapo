@@ -6,6 +6,9 @@ class WordTranslationEvaluator(BaseEvaluator):
         super().__init__()
         self.xword_class_pred = {} # used to be self.model_alignments
 
+    def clear_intermediary_data(self):
+        self.xword_class_pred = {}
+
     def score_each_word(self):
         for word in self.xword_class_pred:
             exact_match = len(self.xword_class_pred[word].get("exact_match", []))
@@ -77,3 +80,4 @@ class WordTranslationEvaluator(BaseEvaluator):
                 self.xword_class_pred[x_word][classification_type].append(prediction)
         self.score_each_word()
         self.score_language() # used to be self.score_each_word_type()
+        
