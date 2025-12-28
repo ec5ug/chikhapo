@@ -37,3 +37,4 @@ chikhapo.egg-info
 pkg_env
 repo_env
 glottolog_languoid.csv/
+fast_align/
