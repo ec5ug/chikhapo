@@ -1,0 +1,25 @@
+{
+  "src_lang": "hau",
+  "tgt_lang": "eng",
+  "data": [
+    {"word": "ruwa", "prediction": "water."},
+    {"word": "kare", "prediction": "dog."},
+    {"word": "gida", "prediction": "house."},
+
+    {"word": "yaro", "prediction": "computer."},
+    {"word": "yarinya", "prediction": "engine."},
+    {"word": "abinci", "prediction": "music."},
+    {"word": "littafi", "prediction": "sleep."},
+    {"word": "kudi", "prediction": "banana."},
+    {"word": "mutum", "prediction": "mountain."},
+    {"word": "mace", "prediction": "river."},
+    {"word": "namiji", "prediction": "cloud."},
+    {"word": "makaranta", "prediction": "history."},
+    {"word": "tebur", "prediction": "running."},
+    {"word": "kujera", "prediction": "idea."},
+    {"word": "hanya", "prediction": "fire."},
+    {"word": "rana", "prediction": "blue."},
+    {"word": "dare", "prediction": "phone."},
+    {"word": "itace", "prediction": "song."}
+  ]
+}

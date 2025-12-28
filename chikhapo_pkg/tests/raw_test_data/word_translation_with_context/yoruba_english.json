@@ -1,0 +1,27 @@
+{
+  "src_lang": "yor",
+  "tgt_lang": "eng",
+  "data": [
+    {"word": "ọmọ", "prediction": "child."},
+    {"word": "aja", "prediction": "dog."},
+    {"word": "ile", "prediction": "house."},
+    {"word": "omi", "prediction": "water."},
+    {"word": "iwe", "prediction": "book."},
+    {"word": "ounjẹ", "prediction": "food."},
+    {"word": "oko", "prediction": "farm."},
+    {"word": "ọkọ", "prediction": "husband."},
+    {"word": "obinrin", "prediction": "woman."},
+    {"word": "okunrin", "prediction": "man."},
+    {"word": "ojo", "prediction": "day."},
+    {"word": "alẹ", "prediction": "night."},
+    {"word": "owo", "prediction": "money."},
+    {"word": "ori", "prediction": "head."},
+    {"word": "igi", "prediction": "tree."},
+    {"word": "ọrẹ", "prediction": "friend."},
+    {"word": "ile-iwe", "prediction": "school."},
+
+    {"word": "ọmọ", "prediction": "computer."},
+    {"word": "omi", "prediction": "fire."},
+    {"word": "aja", "prediction": "music."}
+  ]
+}

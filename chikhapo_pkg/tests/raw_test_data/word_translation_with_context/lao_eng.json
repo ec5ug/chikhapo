@@ -1,0 +1,23 @@
+{
+  "src_lang": "lao",
+  "tgt_lang": "eng",
+  "data": [
+    {"word": "ນ້ຳ", "prediction": "water."},
+    {"word": "ໝາ", "prediction": "dog."},
+    {"word": "ເຮືອນ", "prediction": "house."},
+    {"word": "ເດັກ", "prediction": "child."},
+    {"word": "ອາຫານ", "prediction": "food."},
+
+    {"word": "ນ້ຳ", "prediction": "sky."},
+    {"word": "ໝາ", "prediction": "computer."},
+    {"word": "ເຮືອນ", "prediction": "idea."},
+    {"word": "ເດັກ", "prediction": "engine."},
+    {"word": "ອາຫານ", "prediction": "music."},
+    {"word": "ປຶ້ມ", "prediction": "sleep."},
+    {"word": "ເງິນ", "prediction": "banana."},
+    {"word": "ຜູ້ຍິງ", "prediction": "mountain."},
+    {"word": "ຜູ້ຊາຍ", "prediction": "river."},
+    {"word": "ໂຮງຮຽນ", "prediction": "blue."},
+    {"word": "ເວລາ", "prediction": "running."}
+  ]
+}

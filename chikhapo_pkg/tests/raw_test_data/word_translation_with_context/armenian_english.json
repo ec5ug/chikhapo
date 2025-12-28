@@ -1,0 +1,27 @@
+{
+  "src_lang": "hye",
+  "tgt_lang": "eng",
+  "data": [
+    {"word": "ջուր", "prediction": "water."},
+    {"word": "շուն", "prediction": "dog."},
+    {"word": "տուն", "prediction": "house."},
+    {"word": "գիրք", "prediction": "book."},
+    {"word": "երեխա", "prediction": "child."},
+    {"word": "մարդ", "prediction": "person."},
+    {"word": "կին", "prediction": "woman."},
+    {"word": "տղամարդ", "prediction": "man."},
+    {"word": "ուտելիք", "prediction": "food."},
+    {"word": "դպրոց", "prediction": "school."},
+
+    {"word": "ջուր", "prediction": "music."},
+    {"word": "շուն", "prediction": "computer."},
+    {"word": "տուն", "prediction": "idea."},
+    {"word": "գիրք", "prediction": "sleep."},
+    {"word": "երեխա", "prediction": "engine."},
+    {"word": "մարդ", "prediction": "mountain."},
+    {"word": "կին", "prediction": "river."},
+    {"word": "տղամարդ", "prediction": "blue."},
+    {"word": "ուտելիք", "prediction": "banana."},
+    {"word": "դպրոց", "prediction": "history."}
+  ]
+}

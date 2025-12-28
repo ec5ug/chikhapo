@@ -1,0 +1,16 @@
+{
+  "src_lang": "dzo",
+  "tgt_lang": "eng",
+  "data": [
+    {"word": "དགའ་པོ", "prediction": "happy."},
+    {"word": "ཁྱི", "prediction": "dog."},
+    {"word": "དེབ", "prediction": "book."},
+    {"word": "ཕྲུ་གུ", "prediction": "child."},
+    {"word": "ཁྱིམ", "prediction": "house."},
+    {"word": "ཆུ", "prediction": "water."},
+    {"word": "འབྲི", "prediction": "write."},
+    {"word": "དམར་པོ", "prediction": "red."},
+    {"word": "ཉི་མ", "prediction": "sun."},
+    {"word": "ལམ", "prediction": "road."}
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "src_lang": "uig",
+  "tgt_lang": "eng",
+  "data": [
+    {"word": "سۇ", "prediction": "water."},
+    {"word": "كىتاب", "prediction": "book."},
+    {"word": "ئىت", "prediction": "dog."},
+
+    {"word": "ئۆي", "prediction": "music."},
+    {"word": "بالا", "prediction": "computer."},
+    {"word": "ئانا", "prediction": "mountain."},
+    {"word": "ئاتا", "prediction": "river."},
+    {"word": "تاماق", "prediction": "idea."},
+    {"word": "يول", "prediction": "banana."},
+    {"word": "كۈن", "prediction": "blue."},
+    {"word": "كېچە", "prediction": "running."},
+    {"word": "دوست", "prediction": "engine."},
+    {"word": "ئادەم", "prediction": "chair."},
+    {"word": "قەلەم", "prediction": "sleep."},
+    {"word": "مەكتەپ", "prediction": "fire."},
+    {"word": "بازار", "prediction": "thought."},
+    {"word": "تاغ", "prediction": "phone."},
+    {"word": "دېڭىز", "prediction": "history."},
+    {"word": "ئورۇن", "prediction": "cloud."},
+    {"word": "مۇنچا", "prediction": "song."}
+  ]
+}

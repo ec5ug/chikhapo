@@ -1,0 +1,98 @@
+{
+    "src_lang": "hau",
+    "tgt_lang": "eng",
+    "data": [
+        {
+            "src_sentence": "Gidan da ɗakin zama suna kusa da kogin.",
+            "tgt_sentence_gt": "The house and the residence are near the river.",
+            "next_word_to_predict": "The ",
+            "probability": 0.46
+        },
+        {
+            "src_sentence": "Gidan da ɗakin zama suna kusa da kogin.",
+            "tgt_sentence_gt": "The house and the residence are near the river.",
+            "next_word_to_predict": "house ",
+            "probability": 0.63
+        },
+        {
+            "src_sentence": "Gidan da ɗakin zama suna kusa da kogin.",
+            "tgt_sentence_gt": "The house and the residence are near the river.",
+            "next_word_to_predict": "and ",
+            "probability": 0.71
+        },
+        {
+            "src_sentence": "Gidan da ɗakin zama suna kusa da kogin.",
+            "tgt_sentence_gt": "The house and the residence are near the river.",
+            "next_word_to_predict": "the ",
+            "probability": 0.34
+        },
+        {
+            "src_sentence": "Gidan da ɗakin zama suna kusa da kogin.",
+            "tgt_sentence_gt": "The house and the residence are near the river.",
+            "next_word_to_predict": "residence ",
+            "probability": 0.28
+        },
+
+        {
+            "src_sentence": "Ta sayi sabon littafi a shago jiya.",
+            "tgt_sentence_gt": "She bought a new book in the shop yesterday.",
+            "next_word_to_predict": "She ",
+            "probability": 0.58
+        },
+        {
+            "src_sentence": "Ta sayi sabon littafi a shago jiya.",
+            "tgt_sentence_gt": "She bought a new book in the shop yesterday.",
+            "next_word_to_predict": "bought ",
+            "probability": 0.67
+        },
+        {
+            "src_sentence": "Ta sayi sabon littafi a shago jiya.",
+            "tgt_sentence_gt": "She bought a new book in the shop yesterday.",
+            "next_word_to_predict": "a ",
+            "probability": 0.41
+        },
+        {
+            "src_sentence": "Ta sayi sabon littafi a shago jiya.",
+            "tgt_sentence_gt": "She bought a new book in the shop yesterday.",
+            "next_word_to_predict": "new ",
+            "probability": 0.49
+        },
+        {
+            "src_sentence": "Ta sayi sabon littafi a shago jiya.",
+            "tgt_sentence_gt": "She bought a new book in the shop yesterday.",
+            "next_word_to_predict": "book ",
+            "probability": 0.72
+        },
+
+        {
+            "src_sentence": "Taron zai gudana gobe da safe.",
+            "tgt_sentence_gt": "The meeting will take place tomorrow morning.",
+            "next_word_to_predict": "The ",
+            "probability": 0.45
+        },
+        {
+            "src_sentence": "Taron zai gudana gobe da safe.",
+            "tgt_sentence_gt": "The meeting will take place tomorrow morning.",
+            "next_word_to_predict": "meeting ",
+            "probability": 0.56
+        },
+        {
+            "src_sentence": "Taron zai gudana gobe da safe.",
+            "tgt_sentence_gt": "The meeting will take place tomorrow morning.",
+            "next_word_to_predict": "will ",
+            "probability": 0.61
+        },
+        {
+            "src_sentence": "Taron zai gudana gobe da safe.",
+            "tgt_sentence_gt": "The meeting will take place tomorrow morning.",
+            "next_word_to_predict": "take ",
+            "probability": 0.38
+        },
+        {
+            "src_sentence": "Taron zai gudana gobe da safe.",
+            "tgt_sentence_gt": "The meeting will take place tomorrow morning.",
+            "next_word_to_predict": "place ",
+            "probability": 0.54
+        }
+    ]
+}

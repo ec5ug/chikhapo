@@ -1,0 +1,31 @@
+{
+  "src_lang": "amh",
+  "tgt_lang": "eng",
+  "data": [
+    {
+      "src_sentence": "ውሻው በመንገድ ላይ ተኛ።",
+      "tgt_sentence_gt": "The dog slept on the road.",
+      "tgt_sentence_pred": "The dog slept on the road."
+    },
+    {
+      "src_sentence": "እሷ መጽሐፉን በፍጥነት አነበበች።",
+      "tgt_sentence_gt": "She read the book quickly.",
+      "tgt_sentence_pred": "She reads the book quickly."
+    },
+    {
+      "src_sentence": "መምህሩ ተማሪዎቹን ጥያቄዎች መለሰ።",
+      "tgt_sentence_gt": "The teacher answered the students' questions.",
+      "tgt_sentence_pred": "The teacher responded to the students."
+    },
+    {
+      "src_sentence": "ዝናብ እየዘነበ ነበር።",
+      "tgt_sentence_gt": "It was raining.",
+      "tgt_sentence_pred": "Rain was falling."
+    },
+    {
+      "src_sentence": "እኔ ቡና እጠጣለሁ።",
+      "tgt_sentence_gt": "I drink coffee.",
+      "tgt_sentence_pred": "Blarko sip trem"
+    }
+  ]
+}

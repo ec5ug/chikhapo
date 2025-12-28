@@ -1,0 +1,31 @@
+{
+  "src_lang": "hye",
+  "tgt_lang": "eng",
+  "data": [
+    {
+      "src_sentence": "Տղան նստած էր պատուհանի մոտ։",
+      "tgt_sentence_gt": "The boy was sitting by the window.",
+      "tgt_sentence_pred": "The boy was sitting by the window."
+    },
+    {
+      "src_sentence": "Նա ուշադիր լսեց ուսուցչին։",
+      "tgt_sentence_gt": "She listened to the teacher carefully.",
+      "tgt_sentence_pred": "She listens to the teacher carefully."
+    },
+    {
+      "src_sentence": "Բժիշկը հիվանդին կարևոր խորհուրդ տվեց։",
+      "tgt_sentence_gt": "The doctor gave the patient important advice.",
+      "tgt_sentence_pred": "The doctor gave the patient useful advice."
+    },
+    {
+      "src_sentence": "Երեկ ամբողջ օրը անձրև էր գալիս։",
+      "tgt_sentence_gt": "It was raining all day yesterday.",
+      "tgt_sentence_pred": "It rained all day."
+    },
+    {
+      "src_sentence": "Մենք սպասում ենք ավտոբուսին։",
+      "tgt_sentence_gt": "We are waiting for the bus.",
+      "tgt_sentence_pred": "Frundle vex nar"
+    }
+  ]
+}
