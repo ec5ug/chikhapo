@@ -61,6 +61,3 @@ class TestLoader(unittest.TestCase):
             self.loader.get_omnis_lexicon_subset("aaaa-eng")
         except Exception as e:
             self.assertRaises(Exception)
-
-if __name__ == "__main__":
-    unittest.main()

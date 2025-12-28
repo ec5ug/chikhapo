@@ -18,3 +18,4 @@ class BaseEvaluatorTest(unittest.TestCase):
         with open(path, "w", encoding="utf-8") as f:
             f.write(contents)
         return path
+    
