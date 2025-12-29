@@ -31,7 +31,7 @@ class BaseAlignmentsEvaluator(BaseEvaluator):
     
     def run_fastalign(self, input_file):
         if not os.path.exists(self.fastalign_binary):
-            raise Exception("The folder \"fast_align\" should exist within the root of chikhapo.")
+            raise Exception("The path to the \"fast_align\" binary could not be found. Please check the path and make sure it's correct and reset the path if necessary using .set_fastalign_binary(...)")
         output_file = tempfile.NamedTemporaryFile(delete=False, suffix=".align", prefix="fastalign_output_").name
         cmd = [self.fastalign_binary, "-i", input_file, "-v", "-o", "-d"]
         with open(output_file, "w") as out_f:

@@ -22,14 +22,6 @@ class ResultAnalyzer:
             "languoid.csv"
         )
         self.glottolog_path = os.path.normpath(self.glottolog_path)
-        if not os.path.exists(self.glottolog_path):
-            raise Exception("The path glottolog_languoid.csv/languoid.csv does not "\
-                            "exist within the root directory chikhapo. Either, \n"\
-                            "(i) go to the Glottolog downloads page "\
-                            "https://glottolog.org/meta/downloads to download the "\
-                            "most recent version OR\n"\
-                            "(ii) verify that the file is placed in the correct "\
-                            "place.")
 
     def set_glottolog_path(self, new_path):
         self.glottolog_path = new_path
@@ -81,6 +73,10 @@ class ResultAnalyzer:
         return std_dev
 
     def initialize_language_to_family_dict(self):
+        if not os.path.exists(self.glottolog_path):
+            raise Exception("The path glottolog_languoid.csv/languoid.csv does not exist. Either, \n"\
+                            "(i) go to the Glottolog downloads page https://glottolog.org/meta/downloads to download the most recent version OR\n"\
+                            "(ii) verify that the file is placed in the correct place. Please use set_glottolog_path(...) if nexessary.")
         self.language_to_family = {}
         glottolog_df = pd.read_csv(self.glottolog_path)
         glottolog_languages_df = glottolog_df.loc[glottolog_df["level"]=="language"]
