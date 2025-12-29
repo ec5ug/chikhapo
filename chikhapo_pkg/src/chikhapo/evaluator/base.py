@@ -92,7 +92,7 @@ class BaseEvaluator:
                 return True
         return False
 
-    def findWholeWord(self, w):
+    def find_whole_word(self, w):
         return re.compile(r'\b({0})\b'.format(re.escape(w)), flags=re.IGNORECASE).search
 
     def is_substring(self, prediction, gt_answers):
@@ -100,7 +100,7 @@ class BaseEvaluator:
         if self.de_facto_no_translation(prediction):
             return False
         for ans in gt_answers:
-            if self.findWholeWord(ans)(prediction):
+            if self.find_whole_word(ans)(prediction):
                 return True
         return False
 
@@ -134,11 +134,11 @@ class BaseEvaluator:
             return True
         return False
 
-    def validate_output(self, elem):
-        if "word" not in elem.keys():
-            raise Exception(f"One of data points you provided {elem} does not have the word to translate specified. Please take another look at the file you want us to translate and make sure the list elements of the data field are formatted correctly.")
-        if "prediction" not in elem.keys():
-            raise Exception(f"One of data points you provided {elem} does not have the a (parsed) model prediction to evaluate on. Please take another look at the file you want us to translate and make sure the list elements of the data field are formatted correctly.")
+    # def validate_output(self, elem):
+    #     if "word" not in elem.keys():
+    #         raise Exception(f"One of data points you provided {elem} does not have the word to translate specified. Please take another look at the file you want us to translate and make sure the list elements of the data field are formatted correctly.")
+    #     if "prediction" not in elem.keys():
+    #         raise Exception(f"One of data points you provided {elem} does not have the a (parsed) model prediction to evaluate on. Please take another look at the file you want us to translate and make sure the list elements of the data field are formatted correctly.")
     
     @abstractmethod
     def validate_data(self):

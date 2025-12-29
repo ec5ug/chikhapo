@@ -14,6 +14,25 @@ class ResultAnalyzer:
         self.evaluator = Evaluator(self.task_name)
         self.results_by_language = {}
         self.results_by_language_family = {}
+        current_file_dir = os.path.dirname(os.path.abspath(__file__))
+        self.glottolog_path = os.path.join(
+            current_file_dir, 
+            "..", "..", "..",  # Changed from 4 to 3
+            "glottolog_languoid.csv", 
+            "languoid.csv"
+        )
+        self.glottolog_path = os.path.normpath(self.glottolog_path)
+        if not os.path.exists(self.glottolog_path):
+            raise Exception("The path glottolog_languoid.csv/languoid.csv does not "\
+                            "exist within the root directory chikhapo. Either, \n"\
+                            "(i) go to the Glottolog downloads page "\
+                            "https://glottolog.org/meta/downloads to download the "\
+                            "most recent version OR\n"\
+                            "(ii) verify that the file is placed in the correct "\
+                            "place.")
+
+    def set_glottolog_path(self, new_path):
+        self.glottolog_path = new_path
 
     def get_results_by_language(self, result_dir):
         if not os.path.isdir(result_dir):
@@ -63,25 +82,7 @@ class ResultAnalyzer:
 
     def initialize_language_to_family_dict(self):
         self.language_to_family = {}
-        current_file_dir = os.path.dirname(os.path.abspath(__file__))
-    
-        # Go up only 3 levels to reach /share/data/.../chikhapo/
-        glottolog_path = os.path.join(
-            current_file_dir, 
-            "..", "..", "..",  # Changed from 4 to 3
-            "glottolog_languoid.csv", 
-            "languoid.csv"
-        )
-        glottolog_path = os.path.normpath(glottolog_path)
-        if not os.path.exists(glottolog_path):
-            raise Exception("The path glottolog_languoid.csv/languoid.csv does not "\
-                            "exist within the root directory chikhapo. Either, \n"\
-                            "(i) go to the Glottolog downloads page "\
-                            "https://glottolog.org/meta/downloads to download the "\
-                            "most recent version OR\n"\
-                            "(ii) verify that the file is placed in the correct "\
-                            "place.")
-        glottolog_df = pd.read_csv(glottolog_path)
+        glottolog_df = pd.read_csv(self.glottolog_path)
         glottolog_languages_df = glottolog_df.loc[glottolog_df["level"]=="language"]
         glottolog_languages_df = glottolog_languages_df[["family_id", "iso639P3code"]]
         glottolog_families_df = glottolog_df[glottolog_df["level"]=="family"]

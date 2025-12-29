@@ -10,9 +10,10 @@ class BaseAlignmentsEvaluator(BaseEvaluator):
         current_dir = os.path.dirname(os.path.abspath(__file__))
         fastalign_dir = os.path.join(current_dir, '..', '..', '..', '..', 'fast_align')
         self.fastalign_binary = os.path.join(fastalign_dir, 'build', 'fast_align')
-        if not os.path.exists(self.fastalign_binary):
-            raise Exception("The folder \"fast_align\" should exist within the root of chikhapo.")
     
+    def set_fastalign_binary(self, new_path):
+        self.fastalign_binary = new_path
+
     def convert_src_tgt_sentences_to_temp_file(self, reverse=False):
         temp_file = tempfile.NamedTemporaryFile(mode="w", delete=False, suffix=".txt", prefix="fastalign_input_")
         for entry in self.data:
@@ -27,8 +28,10 @@ class BaseAlignmentsEvaluator(BaseEvaluator):
             temp_file.write(f"{src_sentence} ||| {tgt_sentence}\n")
         temp_file.close()
         return temp_file.name
-        
+    
     def run_fastalign(self, input_file):
+        if not os.path.exists(self.fastalign_binary):
+            raise Exception("The folder \"fast_align\" should exist within the root of chikhapo.")
         output_file = tempfile.NamedTemporaryFile(delete=False, suffix=".align", prefix="fastalign_output_").name
         cmd = [self.fastalign_binary, "-i", input_file, "-v", "-o", "-d"]
         with open(output_file, "w") as out_f:
