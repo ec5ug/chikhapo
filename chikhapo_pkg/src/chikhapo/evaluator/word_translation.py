@@ -33,6 +33,8 @@ class WordTranslationEvaluator(BaseEvaluator):
 
     def validate_data(self):
         for entry in self.data:
+            if "word" not in entry:
+                raise Exception(f"A word was not specified in {entry}")
             if "prediction" not in entry:
                 raise Exception(f"A prediction was not specified in {entry}")
 
@@ -43,7 +45,6 @@ class WordTranslationEvaluator(BaseEvaluator):
         list_of_entries = self.loader.get_omnis_lexicon_subset(f"{self.src_lang}_{self.tgt_lang}")
         lexicon = convert_list_of_entries_to_dictionary(list_of_entries)
         for output in self.data:
-            self.validate_output(output)
             word_to_translate = clean_string(output["word"])
             if word_to_translate not in lexicon.keys():
                 continue
