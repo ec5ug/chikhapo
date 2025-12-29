@@ -218,6 +218,10 @@ We expect outputs to be placed in a JSON file with the following format:
 }
 ```
 
+# Analyzing Model results
+
+To run evaluation on a large number of model output files, instantiate the `ResultAnalyzer` object with the task to evaluate on and specify the directory contianing the model output files when calling `ResultAnalyzer.get_results_by_language(result_dir)`. Scores can be accessed using a field of `ResultAnalyzer`: `results_by_language`. Aggregate statistics can be collected using `ResultAnalyzer.get_language_score_average()` and `ResultAnalyzer.get_language_score_standard_deviation()`. To analyze results by language family, call `ResultAnalyzer.get_results_by_language_family()`. Language family scores can be accessed using the field `results_by_language_family`.
+
 # Cite
 If you use this data or code, please cite
 ```

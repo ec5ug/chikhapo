@@ -2,7 +2,6 @@ from huggingface_hub import login
 from datasets import load_dataset, get_dataset_config_names
 import os
 from chikhapo.utils.languages import get_direction_of_lang_pair, get_language_from_pair
-# from languages import get_language_from_pair
 
 login(token=os.environ.get("HF_TOKEN"))
 
@@ -43,13 +42,6 @@ class Loader:
     
     def get_omnis_lexicon_subset_names(self):
         return get_dataset_config_names(self.omnis_lexicons_hf_path)
-
-    # def get_omnis_lexicon_isos(self):
-    #     lang_pairs = self.get_omnis_lexicon_subset_names()
-    #     isos = set()
-    #     for lang_pair in lang_pairs:
-    #         isos.add(get_language_from_pair(lang_pair))
-    #     return isos
 
     def get_omnis_lexicon_subset(self, name):
         if name not in self.get_omnis_lexicon_subset_names():
