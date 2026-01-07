@@ -6,7 +6,7 @@ import warnings
 import pprint
 from collections import defaultdict
 
-from chikhapo import Evaluator
+from chikhapo import Evaluator, GlottologReader
 
 class ResultAnalyzer:
     def __init__(self, task_name):
@@ -14,14 +14,7 @@ class ResultAnalyzer:
         self.evaluator = Evaluator(self.task_name)
         self.results_by_language = {}
         self.results_by_language_family = {}
-        current_file_dir = os.path.dirname(os.path.abspath(__file__))
-        self.glottolog_path = os.path.join(
-            current_file_dir, 
-            "..", "..", "..",  # Changed from 4 to 3
-            "glottolog_languoid.csv", 
-            "languoid.csv"
-        )
-        self.glottolog_path = os.path.normpath(self.glottolog_path)
+        self.glottolog_reader = GlottologReader()
 
     def set_glottolog_path(self, new_path):
         self.glottolog_path = new_path
@@ -72,34 +65,15 @@ class ResultAnalyzer:
         std_dev = statistics.stdev(scores)
         return std_dev
 
-    def initialize_language_to_family_dict(self):
-        if not os.path.exists(self.glottolog_path):
-            raise Exception("The path glottolog_languoid.csv/languoid.csv does not exist. Either, \n"\
-                            "(i) go to the Glottolog downloads page https://glottolog.org/meta/downloads to download the most recent version OR\n"\
-                            "(ii) verify that the file is placed in the correct place. Please use set_glottolog_path(...) if nexessary.")
-        self.language_to_family = {}
-        glottolog_df = pd.read_csv(self.glottolog_path)
-        glottolog_languages_df = glottolog_df.loc[glottolog_df["level"]=="language"]
-        glottolog_languages_df = glottolog_languages_df[["family_id", "iso639P3code"]]
-        glottolog_families_df = glottolog_df[glottolog_df["level"]=="family"]
-        glottolog_families_df = glottolog_families_df[["id", "name"]]
-        glottolog_languages_and_families_df = pd.merge(glottolog_languages_df, glottolog_families_df, 
-                                                       left_on="family_id", right_on="id", how="inner")
-        glottolog_languages_and_families_df = glottolog_languages_and_families_df.dropna()
-        for _, row in glottolog_languages_and_families_df.iterrows():
-            lang = row["iso639P3code"]
-            fam = row["name"]
-            self.language_to_family[lang] = fam
-
     def get_results_by_language_family(self):
         if not self.results_by_language:
             raise Exception(f"Before you can attain results by language family, you must "\
                             "have results for individual languages. You must call "\
                             ".get_lang_results(result_dir) with a valid results directory prior "\
                             "to calling .get_language_family_results()")
-        self.initialize_language_to_family_dict()
+        language_to_family = self.glottolog_reader.get_language_to_family_dict()
         for lang, score in self.results_by_language.items():
-            fam = self.language_to_family[lang]
+            fam = language_to_family[lang]
             # print(lang, fam)
             if fam not in self.results_by_language_family:
                 self.results_by_language_family[fam] = {
