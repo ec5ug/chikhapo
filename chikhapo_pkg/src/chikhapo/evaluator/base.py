@@ -1,11 +1,13 @@
 from abc import abstractmethod
-import json
 from fuzzywuzzy import fuzz
+import json
+import os
 import re
 import statistics
+from nltk.corpus import wordnet as wn
+from nltk import data, download
 
 from chikhapo import Loader
-from chikhapo.utils.parsing import lemmatize_terms
 from chikhapo.utils.constants import min_similarity_score
 
 class BaseEvaluator:
@@ -17,7 +19,19 @@ class BaseEvaluator:
         self.src_lang = None
         self.tgt_lang = None
         self.data = []
+        self.verify_wordnet_is_installed()
     
+    def verify_wordnet_is_installed(self):
+        home_nltk = os.path.expanduser("~/nltk_data")
+        if home_nltk not in data.path:
+            data.path.append(home_nltk)
+
+        try:
+            wn.ensure_loaded()
+        except LookupError:
+            download("wordnet", download_dir=home_nltk)
+            wn.ensure_loaded()
+
     def get_lang_score(self):
         return self.lang_score
     
@@ -116,6 +130,18 @@ class BaseEvaluator:
                     return True
         return False
 
+    def preprocess_lemma_names(self, lemmas):
+        return [lemma.name() for lemma in lemmas]
+
+    def lemmatize_terms(self, list_of_terms):
+        lemma_names = set()
+        for term in list_of_terms:
+            synsets_of_term = wn.synsets(term)
+            for synset_of_term in synsets_of_term:
+                lemmas_of_term = synset_of_term.lemmas()
+                lemma_names.update(self.preprocess_lemma_names(lemmas_of_term))
+        return lemma_names
+
     def is_synonym(self, prediction, gt_answers):
         # ans: ['tooth'] | prediction: "the answer is incisor" <- a 'synonym' within a string
         # ans: ["dog"] | prediction: "canine"
@@ -127,8 +153,8 @@ class BaseEvaluator:
             list_of_predictions = [prediction] + prediction.split()
         else:
             list_of_predictions = [prediction]
-        lemma_names_of_pred = lemmatize_terms(list_of_predictions)
-        lemma_names_of_gt = lemmatize_terms(gt_answers)
+        lemma_names_of_pred = self.lemmatize_terms(list_of_predictions)
+        lemma_names_of_gt = self.lemmatize_terms(gt_answers)
         # print(prediction, lemma_names_of_gt, lemma_names_of_pred)
         if lemma_names_of_pred & lemma_names_of_gt:
             return True
