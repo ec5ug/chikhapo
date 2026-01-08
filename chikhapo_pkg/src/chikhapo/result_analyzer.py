@@ -16,9 +16,6 @@ class ResultAnalyzer:
         self.results_by_language_family = {}
         self.glottolog_reader = GlottologReader()
 
-    def set_glottolog_path(self, new_path):
-        self.glottolog_path = new_path
-
     def get_results_by_language(self, result_dir):
         if not os.path.isdir(result_dir):
             raise Exception(f"The path {result_dir} is not a valid directory.")
