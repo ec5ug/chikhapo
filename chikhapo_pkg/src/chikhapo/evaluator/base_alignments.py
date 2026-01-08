@@ -8,11 +8,62 @@ class BaseAlignmentsEvaluator(BaseEvaluator):
     def __init__(self):
         super().__init__()
         current_dir = os.path.dirname(os.path.abspath(__file__))
-        fastalign_dir = os.path.join(current_dir, '..', '..', '..', '..', 'fast_align')
-        self.fastalign_binary = os.path.join(fastalign_dir, 'build', 'fast_align')
-    
-    def set_fastalign_binary(self, new_path):
-        self.fastalign_binary = new_path
+        self.fastalign_dir = os.path.normpath(
+            os.path.join(
+                current_dir,
+                "..", "..", "dep",
+            )
+        )
+        self.fastalign_binary = os.path.normpath(
+            os.path.join(
+                self.fastalign_dir, "fast_align",
+                "build", "fast_align"
+            )
+        )
+        self.verify_fastalign_is_installed()
+
+    def verify_fastalign_is_installed(self):
+        if os.path.exists(self.fastalign_binary):
+            return
+        os.makedirs(self.fastalign_dir, exist_ok=True)
+        subprocess.run(
+            ["git", "clone", "https://github.com/clab/fast_align.git"],
+            cwd=self.fastalign_dir,
+            check=True,
+        )
+        self.verify_cmakelist()
+        build_dir = os.path.join(self.fastalign_dir, "fast_align", "build")
+        os.makedirs(build_dir, exist_ok=True)
+        subprocess.run(
+            ["cmake", ".."],
+            cwd=build_dir,
+            check=True
+        )
+        subprocess.run(
+            ["make"],
+            cwd=build_dir,
+            check=True
+        )
+
+    def verify_cmakelist(self):
+        cmakelist_file_path = os.path.join(self.fastalign_dir, "fast_align", "CMakeLists.txt")
+        if not os.path.exists(cmakelist_file_path):
+            raise Exception("The file needed to run make CMakeLists.txt is missing")
+        with open(cmakelist_file_path, "r") as f:
+            lines = f.readlines()
+        correct_version = "cmake_minimum_required(VERSION 3.5)\n"
+        if lines[1] != correct_version:
+            lines[1] = correct_version
+        with open(cmakelist_file_path, "w", encoding="utf-8") as f:
+            f.writelines(lines)
+        
+        # build_dir = os.path.join(self.fastalign_dir, "build")
+        # os.makedirs(build_dir, exist_ok=True)
+        # subprocess.run(
+        #     ["make"],
+        #     cwd=build_dir,
+        #     check=True
+        # )
 
     def convert_src_tgt_sentences_to_temp_file(self, reverse=False):
         temp_file = tempfile.NamedTemporaryFile(mode="w", delete=False, suffix=".txt", prefix="fastalign_input_")
@@ -30,8 +81,6 @@ class BaseAlignmentsEvaluator(BaseEvaluator):
         return temp_file.name
     
     def run_fastalign(self, input_file):
-        if not os.path.exists(self.fastalign_binary):
-            raise Exception("The path to the \"fast_align\" binary could not be found. Please check the path and make sure it's correct and reset the path if necessary using .set_fastalign_binary(...)")
         output_file = tempfile.NamedTemporaryFile(delete=False, suffix=".align", prefix="fastalign_output_").name
         cmd = [self.fastalign_binary, "-i", input_file, "-v", "-o", "-d"]
         with open(output_file, "w") as out_f:
