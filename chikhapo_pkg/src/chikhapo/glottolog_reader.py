@@ -57,12 +57,7 @@ class GlottologReader:
             })
         return info
 
-
     def get_language_to_family_dict(self):
-        if not os.path.exists(self.glottolog_path):
-            raise Exception("The path glottolog_languoid.csv/languoid.csv does not exist. Either, \n"\
-                            "(i) go to the Glottolog downloads page https://glottolog.org/meta/downloads to download the most recent version OR\n"\
-                            "(ii) verify that the file is placed in the correct place. Please use set_glottolog_path(...) if nexessary.")
         language_to_family = {}
         glottolog_languages_df = self.glottolog_df.loc[self.glottolog_df["level"]=="language"]
         glottolog_languages_df = glottolog_languages_df[["family_id", "iso639P3code"]]
