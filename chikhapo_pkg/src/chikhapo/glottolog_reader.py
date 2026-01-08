@@ -1,18 +1,38 @@
+import os
 import pandas as pd
 import pycountry
-import os
+import subprocess
+import urllib.request
+import zipfile
 
 class GlottologReader:
     def __init__(self):
         current_file_dir = os.path.dirname(os.path.abspath(__file__))
-        glottolog_path = os.path.join(
-            current_file_dir, 
-            "..", "..", "..",  # Changed from 4 to 3
-            "glottolog_languoid.csv", 
-            "languoid.csv"
+        self.glottolog_path = os.path.normpath(
+            os.path.join(
+                current_file_dir,
+                "..",
+                "dep",
+                "glottolog",
+                "languoid.csv",
+            )
         )
-        self.glottolog_path = os.path.normpath(glottolog_path)
+        self.verify_glottolog_is_installed()
         self.glottolog_df = pd.read_csv(self.glottolog_path)
+
+    def verify_glottolog_is_installed(self):
+        GLOTTOLOG_URL = (
+            "https://cdstar.eva.mpg.de//bitstreams/EAEA0-2198-D710-AA36-0/glottolog_languoid.csv.zip"
+        )
+        if os.path.exists(self.glottolog_path):
+            return
+        parent_dir = os.path.dirname(self.glottolog_path)
+        os.makedirs(parent_dir, exist_ok=True)
+        zip_path = os.path.join(parent_dir, "languoid.csv.zip")
+        urllib.request.urlretrieve(GLOTTOLOG_URL, zip_path)
+        with zipfile.ZipFile(zip_path, "r") as zf:
+            zf.extract("languoid.csv", parent_dir)
+        os.remove(zip_path)
 
     def get_lang_info(self, iso):
         if len(iso) != 3:
