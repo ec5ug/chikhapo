@@ -109,11 +109,7 @@ wt_evaluator.evaluate(file_path="path/to/file/file.json")
 lang_score = wt_evaluator.get_lang_score()
 ```
 
-The benchmark reports aggregate language scores (or language family scores) for each task and direction. 
-
-Features coming soon
-* retrieve language family information for languages `get_lang_family`
-* Aggregate your language scores and language family scores. 
+The benchmark reports aggregate language scores (or language family scores) for each task and direction.  
 
 # Output file formats
 
@@ -220,12 +216,22 @@ We expect outputs to be placed in a JSON file with the following format:
 
 # Analyzing Model results
 
-To compute scores for a task given model outputs as fromatted above, on a large number of model output files, instantiate the `ResultAnalyzer` object with the task to evaluate on and specify the directory contianing the model output files when calling `ResultAnalyzer.get_results_by_language(result_dir)`. Scores can be accessed using a field of `ResultAnalyzer`: `results_by_language`. Aggregate statistics can be collected using `ResultAnalyzer.get_language_score_average()` and `ResultAnalyzer.get_language_score_standard_deviation()`. To analyze results by language family, call `ResultAnalyzer.get_results_by_language_family()`. Language family scores can be accessed using the field `results_by_language_family`.
+The `Evaluator` computes the language score for _one_ language pair. To compute language scores over _numerous_ language pairs and conduct language family analysis, you must instantiate `ResultAnalyzer` with the task you would like to perform evaluator on.
+
+```
+analyzer = ResultAnalyzer("word_translation")
+```
+
+Make sure all language pair JSON files you would like to run evaluation on are housed under a specific folder which is referred to in the documentation as the `results_directory`. Each file in this directory contains model outputs for one language pair. We assume that all language pairs are English-centric and translate in the same direction: all files either to English or from English. Calling `ResultAnalyzer.get_results_by_language(path/to/results_directory)` runs `Evaluator.evaluate` on every single file over every JSON file in the directory.
+
+```
+analyzer.get_results_by_language("path/to/results_directory")
+```
+
+Scores can be accessed using a field of `ResultAnalyzer`: `results_by_language`. Aggregate statistics can be collected using `ResultAnalyzer.get_language_score_average()` and `ResultAnalyzer.get_language_score_standard_deviation()`. To analyze results by language family, call `ResultAnalyzer.get_results_by_language_family()`. Language family scores can be accessed using the field `results_by_language_family`.
 
 Example Usage
 ```
-analyzer = ResultAnalyzer("word_translation")
-analyzer.get_results_by_language("path/to/results_directory")
 avg = analyzer.get_language_score_average()
 std_dev = analyzer.get_language_score_standard_deviation()
 analyzer.get_results_by_language_family()

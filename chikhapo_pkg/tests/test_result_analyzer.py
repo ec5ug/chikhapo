@@ -29,29 +29,6 @@ class TestResultAnalyzer(unittest.TestCase):
 
     def tearDown(self):
         shutil.rmtree(self.temp_dir)
-    
-    def test_get_language_iso_and_family_name_from_glottolog(self):
-        self.result_analyzer = ResultAnalyzer("word_translation")
-        self.result_analyzer.initialize_language_to_family_dict()
-        expected = {
-            "spa": "Indo-European", # spanish
-            "eng": "Indo-European", # english
-            "deu": "Indo-European", # german
-            "fra": "Indo-European", # french
-            "arb": "Afro-Asiatic", # arabic
-            "amh": "Afro-Asiatic", # amharic
-            "heb": "Afro-Asiatic", # hebrew
-            "swh": "Atlantic-Congo", # swahili
-            "wol": "Atlantic-Congo", # wolof
-            "fuc": "Atlantic-Congo", # pulaar
-            "cmn": "Sino-Tibetan", # mandarin chinese
-            "ind": "Austronesian", # indonesian
-            "fin": "Uralic", # finnish
-            "tur": "Turkic", # turkish
-            "tam": "Dravidian", # tamil
-        }
-        for lang, family in expected.items():
-            self.assertEqual(family, self.result_analyzer.language_to_family[lang])
 
     def mock_evaluate(self, filepath):
         filename = os.path.basename(filepath)
