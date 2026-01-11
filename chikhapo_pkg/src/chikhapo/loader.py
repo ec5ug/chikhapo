@@ -6,6 +6,10 @@ from chikhapo.utils.languages import get_direction_of_lang_pair, get_language_fr
 login(token=os.environ.get("HF_TOKEN"))
 
 class Loader:
+    """
+    The Loader class reads in data from FLORES, GLOTLID, and our Huggingface lexicon. 
+    Each dataset is employed in separate tasks.
+    """
     def __init__(self):
         self.flores_plus_hf_path = "openlanguagedata/flores_plus"
         self.glotlid_hf_path = "cis-lmu/glotlid-corpus"

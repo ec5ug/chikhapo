@@ -1,10 +1,15 @@
-from .base import BaseEvaluator
-
 import os
 import subprocess
 import tempfile
 
+from .base import BaseEvaluator
+
 class BaseAlignmentsEvaluator(BaseEvaluator):
+    """
+    This class adds the functionality of running fastalign on a list of source and target 
+    translations. This functionality is useful for the tasks Translation Conditioned 
+    language Modeling and Bag-of-Words Machine Translation.
+    """
     def __init__(self):
         super().__init__()
         current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -56,14 +61,6 @@ class BaseAlignmentsEvaluator(BaseEvaluator):
             lines[1] = correct_version
         with open(cmakelist_file_path, "w", encoding="utf-8") as f:
             f.writelines(lines)
-        
-        # build_dir = os.path.join(self.fastalign_dir, "build")
-        # os.makedirs(build_dir, exist_ok=True)
-        # subprocess.run(
-        #     ["make"],
-        #     cwd=build_dir,
-        #     check=True
-        # )
 
     def convert_src_tgt_sentences_to_temp_file(self, reverse=False):
         temp_file = tempfile.NamedTemporaryFile(mode="w", delete=False, suffix=".txt", prefix="fastalign_input_")
