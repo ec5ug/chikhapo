@@ -1,3 +1,8 @@
+"""
+Task Feeder uses the factory design pattern selecting the task feeder at runtime 
+based on a given task name
+"""
+
 from .word_translation import WordTranslationFeeder
 from .word_translation_with_context import WordTranslationWithContextFeeder
 from .translation_conditioned_language_modeling import TranslationedConditionedLanguageModelingTaskFeeder

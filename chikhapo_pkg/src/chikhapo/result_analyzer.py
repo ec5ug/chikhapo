@@ -1,14 +1,18 @@
 import os
-import pandas as pd
 import pycountry
 import statistics
 import warnings
-import pprint
-from collections import defaultdict
 
 from chikhapo import Evaluator, GlottologReader
 
 class ResultAnalyzer:
+    """
+    Result Analyzer has the following functionalities
+    * scores for multiple languages (so long as the files corresponding to these langugaes 
+        are located within the same directory)
+    * language family averages and standard deviations. This functionality results on the 
+        Glottolog Reader
+    """
     def __init__(self, task_name):
         self.task_name = task_name
         self.evaluator = Evaluator(self.task_name)
@@ -26,10 +30,6 @@ class ResultAnalyzer:
             full_path = os.path.join(result_dir, filename)
             self.evaluator.clear_intermediary_data()
             self.evaluator.evaluate(full_path)
-            # print(filename.split(".")[0])
-            # print(pprint.pformat(self.evaluator.xword_probs))
-            # print(pprint.pformat(self.evaluator.xword_class_pred))
-            # print("-" * 100)
             if self.evaluator.src_lang=="eng" and self.evaluator.tgt_lang=="eng":
                 raise Exception("The language pair eng-eng is invalid")
             elif self.evaluator.src_lang=="eng":
@@ -71,7 +71,6 @@ class ResultAnalyzer:
         language_to_family = self.glottolog_reader.get_language_to_family_dict()
         for lang, score in self.results_by_language.items():
             fam = language_to_family[lang]
-            # print(lang, fam)
             if fam not in self.results_by_language_family:
                 self.results_by_language_family[fam] = {
                     "scores": [],
@@ -87,5 +86,4 @@ class ResultAnalyzer:
             else:
                 warnings.warn(f"Only one language fell into the language family {fam}. You need at least two to calculate the standard deviation. Setting the standard deviation of this langugae family to -1.")
                 self.results_by_language_family[fam]["std_dev"] = -1
-            # print(scores, statistics.mean(scores), statistics.stdev(scores))
     

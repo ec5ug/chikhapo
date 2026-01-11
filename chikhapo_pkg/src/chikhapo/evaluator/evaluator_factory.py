@@ -3,6 +3,9 @@ from .translation_conditioned_language_modeling import TranslationConditionedLan
 from .bag_of_words_machine_translation import BagOfWordsMachineTranslationEvaluator
 
 def Evaluator(task_name):
+    """
+    A factory class that chooses the evaluator at runtime based on the task name
+    """
     task_map = {
         "word_translation": WordTranslationEvaluator,
         "word_translation_with_context": WordTranslationEvaluator,

@@ -1,11 +1,14 @@
 import os
 import pandas as pd
 import pycountry
-import subprocess
 import urllib.request
 import zipfile
 
 class GlottologReader:
+    """
+    Glottolog reader retrieves information for individual languages as well as languages 
+    within a family.
+    """
     def __init__(self):
         current_file_dir = os.path.dirname(os.path.abspath(__file__))
         self.glottolog_path = os.path.normpath(
