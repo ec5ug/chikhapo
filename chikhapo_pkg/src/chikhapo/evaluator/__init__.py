@@ -1,3 +1,8 @@
+"""
+initializes all types of evaluators, including task-specific, parent class, 
+and the factory
+"""
+
 from .evaluator_factory import Evaluator
 from .word_translation import WordTranslationEvaluator
 from .translation_conditioned_language_modeling import TranslationConditionedLanguageModelingEvaluator

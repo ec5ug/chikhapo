@@ -1,20 +1,19 @@
+"""
+Initializes all types of task feeders, including task-specific,
+"""
+
+from .base import BaseTaskFeeder
+from .task_feeder import TaskFeeder
 from .word_translation import WordTranslationFeeder
 from .word_translation_with_context import WordTranslationWithContextFeeder
 from .translation_conditioned_language_modeling import TranslationedConditionedLanguageModelingTaskFeeder
 from .bag_of_words_machine_translation import BagOfWordsMachineTranslationFeeder
 
-def TaskFeeder(task_name):
-    task_map = {
-        "word_translation": WordTranslationFeeder,
-        "word_translation_with_context": WordTranslationWithContextFeeder,
-        "translation_conditioned_language_modeling": TranslationedConditionedLanguageModelingTaskFeeder,
-        "bag_of_words_machine_translation": BagOfWordsMachineTranslationFeeder
-    }
-    
-    if task_name not in task_map:
-        raise ValueError(
-            f"Unknown task: {task_name}. "
-            f"Available tasks: {list(task_map.keys())}"
-        )
-    
-    return task_map[task_name]()
+__all__ = [
+    "BaseTaskFeeder",
+    "TaskFeeder",
+    "WordTranslationFeeder",
+    "WordTranslationWithContextFeeder",
+    "TranslationedConditionedLanguageModelingTaskFeeder",
+    "BagOfWordsMachineTranslationFeeder"
+]

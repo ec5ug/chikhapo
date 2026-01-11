@@ -1,9 +1,9 @@
 from abc import abstractmethod
-from fuzzywuzzy import fuzz
 import json
 import os
 import re
 import statistics
+from fuzzywuzzy import fuzz
 from nltk.corpus import wordnet as wn
 from nltk import data, download
 
@@ -11,6 +11,13 @@ from chikhapo import Loader
 from chikhapo.utils.constants import min_similarity_score
 
 class BaseEvaluator:
+    """
+    This class contains the core functionality of all Evaluators, namely the following:
+    * reading and performing verification of user input
+    * scoring a language based on a series of word scores
+    * many helper functions that determine if a translation is correct relative to a 
+        list of correct translations
+    """
     def __init__(self):
         self.loader = Loader()
         self.DIRECTION = None
@@ -68,7 +75,7 @@ class BaseEvaluator:
         else:
             raise Exception("The current implementation of ChiKhaPo's evaluation is English-centric. Model must either translate to or from English (i.e. either self.src_lang==\"eng\" OR self.tgt_lang==\"eng\")")
 
-    def score_language(self): # used to be score_each_word_type
+    def score_language(self):
         word_scores = list(self.word_scores.values())
         if len(word_scores) == 0:
             self.lang_score = 0
@@ -155,16 +162,9 @@ class BaseEvaluator:
             list_of_predictions = [prediction]
         lemma_names_of_pred = self.lemmatize_terms(list_of_predictions)
         lemma_names_of_gt = self.lemmatize_terms(gt_answers)
-        # print(prediction, lemma_names_of_gt, lemma_names_of_pred)
         if lemma_names_of_pred & lemma_names_of_gt:
             return True
         return False
-
-    # def validate_output(self, elem):
-    #     if "word" not in elem.keys():
-    #         raise Exception(f"One of data points you provided {elem} does not have the word to translate specified. Please take another look at the file you want us to translate and make sure the list elements of the data field are formatted correctly.")
-    #     if "prediction" not in elem.keys():
-    #         raise Exception(f"One of data points you provided {elem} does not have the a (parsed) model prediction to evaluate on. Please take another look at the file you want us to translate and make sure the list elements of the data field are formatted correctly.")
     
     @abstractmethod
     def validate_data(self):

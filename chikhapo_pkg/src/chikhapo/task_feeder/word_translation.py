@@ -3,16 +3,9 @@ from chikhapo.utils.languages import convert_iso_to_name, get_direction_of_lang_
 
 class WordTranslationFeeder(BaseTaskFeeder):
     """
-    for task Word Translation
-    
-    method: get_data_for_lang_pair
-        returns a list of words in the given a language pair
-        if lite==True, (deterministically) returns 300 elements
-    method: get_prompts_for_lang_pair
-        returns a list of prompts given a model name
-        if lite==True, returns prompts from the (deterministically) random subset of words from get_data_for_lang_pair
+    The Word Translation task feeder returns a word in the source dictionary along with 
+    verified target translations. Prompts are built from this data.
     """
-
     def get_lang_pairs(self, DIRECTION=None):
         omnis_subset_names = self.loader.get_omnis_lexicon_subset_names()
         omnis_subset_names.remove("all_eng")

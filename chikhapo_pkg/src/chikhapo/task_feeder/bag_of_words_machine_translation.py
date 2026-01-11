@@ -3,6 +3,10 @@ from .translation_conditioned_language_modeling import TranslationedConditionedL
 from chikhapo.utils.languages import convert_iso_to_name, get_direction_of_lang_pair, get_language_from_pair
 
 class BagOfWordsMachineTranslationFeeder(BaseTaskFeeder):
+    """
+    The task feeder for Bag-of-Words Machine Translation returns source and target 
+    (ground-truth) translations
+    """
     def get_lang_pairs(self, DIRECTION=None):
         return TranslationedConditionedLanguageModelingTaskFeeder().get_lang_pairs(DIRECTION)
     

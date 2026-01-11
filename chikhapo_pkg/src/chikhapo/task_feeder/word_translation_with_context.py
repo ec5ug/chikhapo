@@ -6,9 +6,9 @@ from chikhapo.utils.parsing import convert_list_of_entries_to_dictionary
 
 class WordTranslationWithContextFeeder(BaseTaskFeeder):
     """
-    for task Word Translation with Context
+    The word translation with context task feeder returns a sentence containing the word to 
+    be translated, the word to be translated, and the correct target translations.
     """
-    
     def get_lang_pairs(self, DIRECTION=None):
         omnis_subset_names = set(self.loader.get_omnis_lexicon_subset_names())
         raw_glotlid_names = set(self.loader.get_glotlid_subset_names())

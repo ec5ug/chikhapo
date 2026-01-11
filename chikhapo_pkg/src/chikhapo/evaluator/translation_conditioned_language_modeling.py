@@ -1,26 +1,16 @@
-from .base_alignments import BaseAlignmentsEvaluator
-from chikhapo.utils.parsing import clean_string, convert_list_of_entries_to_dictionary
-
 from collections import defaultdict
 import pprint
 import statistics
 
-"""
-    {
-        "src_lang": {source_language},
-        "tgt_lang": {target_language},
-        "data": [
-            {
-                "src_sentence": {source_sentence},
-                "tgt_sentence_gt": {tgt_sentence_gt}, 
-                "next_word_to_predict": {next_word_to_predict},
-                "probability": {probability}
-            }
-        ]
-    }
-"""
+from chikhapo.utils.parsing import clean_string, convert_list_of_entries_to_dictionary
+from .base_alignments import BaseAlignmentsEvaluator
 
 class TranslationConditionedLanguageModelingEvaluator(BaseAlignmentsEvaluator):
+    """
+    As a child of the class Base Alignments Evaluator, the evaluator Translation Conditioned 
+    Language Modeling leverages lexicons and statistical alignments to calculate the average 
+    probability of a model predicting a word in a sentence 
+    """
     def __init__(self):
         super().__init__()
         self.xword_probs = defaultdict(list)
