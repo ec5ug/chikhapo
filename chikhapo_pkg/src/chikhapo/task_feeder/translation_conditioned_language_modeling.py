@@ -2,6 +2,13 @@ from .base import BaseTaskFeeder
 from chikhapo.utils.languages import convert_iso_to_name, get_direction_of_lang_pair, get_language_from_pair
 
 class TranslationedConditionedLanguageModelingTaskFeeder(BaseTaskFeeder):
+    """
+    The data sourced by the translation conditioned language modeling task feeder is a 
+    dictionary containing the source sentence, the i-th word in the target translation 
+    to be predicted, the target translation up the i-th index (non-inclusive), and the 
+    i-th target (ground-truth) word to be predicted. Prompts are constructed from 
+    sections of these data.
+    """
     def get_lang_pairs(self, DIRECTION=None):
         flores_subset_names = self.loader.get_flores_subset_names()
         flores_subset_names.remove("eng_Latn")

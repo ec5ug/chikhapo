@@ -20,32 +20,16 @@ For more details, go to this [link](https://medium.com/@manyi.yim/store-your-hug
 **Dataset Access**
 We draw on [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus) and [GLOTLID](https://huggingface.co/datasets/cis-lmu/glotlid-corpus), Huggingface datasets that require users to apply for access. Please visit both links to apply for access.
 
-**Downloads**
-We use WordNet to verify synonymy. You will need to download it. This can be done by:
-
-```
-import nltk
-nltk.download("wordnet")
-```
-
-**FastAlign** The tasks Fill-in-the-Blank and Bag-of-Words Machine Translation require `FastAlign`, a statisical word aligner. Before installing all of the packages in `chikhapo_pkg/requirements.txt`, please run `install_fastalign.sh` (located in the root of this repository).
-
-If you happen to run into an error, please check `fast_align/CMakeLists.txt`, namely that `cmake_minimum_required` is set to the following minimum version `cmake_minimum_required(VERSION 3.5)`.
-
-**Glottolog** The class `ResultAnalyzer` relies on Glottolog data to group languages into their respective families. To download this data, please go to the [Downloads](https://glottolog.org/meta/downloads) page of Glottolog to retrieve a copy of the most recent `glottolog_languoid.csv`. (This should be a zipped folder). Please install this in the root of the repository (i.e. in the same directory as `fast_align` and `huggingface_upload`). 
-
 # Tasks
 
 The 4 tasks (referenced by their task keys) are as follows:
 
 * ```word_translation```: Prompts LLM directly for word translation (2746 languages)
-* `word_translation_with_context`: Prompts LLM to translate a word given monolingual context (525 languages).
-* `translation_conditioned_language_modeling`: Softly measures LLM capability to understand or generate a word in a natural MT setting.
-* `bag_of_words_machine_translation`: Word-level MT evaluation.
+* `word_translation_with_context`: Prompts LLM to translate a word given monolingual context (525 languages)
+* `translation_conditioned_language_modeling`: Softly measures LLM capability to understand or generate a word in a natural MT setting (211 languages)
+* `bag_of_words_machine_translation`: Word-level MT evaluation (211 languages)
 
-Each task has two subtasks corresponding to two directions (`X_to_eng` testing comprehension and `eng_to_X` testing generation) that tests the models abilities to comprehend or generate a list of words respectively, in various settings. See more details on the description and evaluation procedure for each task and direction in the paper.  
-
-
+Each task has two subtasks corresponding to two directions: `X_to_eng` testing comprehension and `eng_to_X` testing generation. These tasks test the models' abilities to comprehend or generate a list of words respectively, in various settings. See more details on the description and evaluation procedure for each task and direction in the paper.  
 
 # Getting data per subtask
 
@@ -78,7 +62,6 @@ word_translation_data = wt_feeder.get_data_for_lang_pair(lang_pair="spa_eng", li
 ```
 This method returns a dictionary. The dictionary keys are source-language words, and each key’s value is a list of translations in the target language.
 
-
 **Retrieve default formatted prompts for each task**:
 
 We provide a default prompt per task, and a formatter that returns a list of ready-to-use task prompts (one per input) for the task and language pair.
@@ -88,7 +71,6 @@ word_translation_prompts = wt_feeder.get_prompts_for_lang_pair(lang_pair="spa_en
 ```
 
 You may also use your own custom prompt.
-
 
 # Evaluation
 
@@ -189,6 +171,8 @@ We expect outputs to be placed in a JSON file with the following format:
     }
 ```
 
+For an example, please see [tests/raw_test_data/translation_conditioned_language_modeling/amharic_english.json](tests/raw_test_data/translation_conditioned_language_modeling/amharic_english.json)
+
 ## Bag-of-Words Machine Translation
 We expect outputs to be placed in a JSON file with the following format:
 
@@ -214,7 +198,9 @@ We expect outputs to be placed in a JSON file with the following format:
 }
 ```
 
-# Analyzing Model results
+For an example, please see [tests/raw_test_data/bag_of_words_machine_translation/amharic_english.json](tests/raw_test_data/bag_of_words_machine_translation/amharic_english.json)
+
+# Analyzing model results
 
 The `Evaluator` computes the language score for _one_ language pair. To compute language scores over _numerous_ language pairs and conduct language family analysis, you must instantiate `ResultAnalyzer` with the task you would like to perform evaluator on.
 

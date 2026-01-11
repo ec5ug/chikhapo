@@ -1,10 +1,15 @@
-from .base import BaseEvaluator
 from chikhapo.utils.parsing import clean_string, convert_list_of_entries_to_dictionary
+from .base import BaseEvaluator
 
 class WordTranslationEvaluator(BaseEvaluator):
+    """
+    The evaluator for Word Translation is also used in Word Translation With Context. 
+    The class primarily relies on lexicons to ascertain whether a model's trnaslation of 
+    a word is correct.
+    """
     def __init__(self):
         super().__init__()
-        self.xword_class_pred = {} # used to be self.model_alignments
+        self.xword_class_pred = {}
 
     def clear_intermediary_data(self):
         self.xword_class_pred = {}

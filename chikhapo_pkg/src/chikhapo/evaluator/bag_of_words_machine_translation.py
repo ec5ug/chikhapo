@@ -1,24 +1,21 @@
-from .base_alignments import BaseAlignmentsEvaluator
-from chikhapo.utils.parsing import clean_string, convert_list_of_entries_to_dictionary
 import pprint
 
-"""
-    {
-        "src_lang": {source_language},
-        "tgt_lang": {target_language},
-        "data": {
-            "src_sentence": {src_sentence},
-            "tgt_sentence_gt": {tgt_sentence_gt},
-            "tgt_sentence_pred": {tgt_sentence_pred}
-        }
-    }
-"""
+from chikhapo.utils.parsing import clean_string, convert_list_of_entries_to_dictionary
+from .base_alignments import BaseAlignmentsEvaluator
 
 class BagOfWordsMachineTranslationEvaluator(BaseAlignmentsEvaluator):
+    """
+    The evaluator of the task Bag of Words Machine Translation finds the total number of 
+    accurate (source) words. The user provides a file containing source sentence, target 
+    ground-truth translations, as well as model translations that are to be evaluated. 
+    Because the class is a child of BaseAlignmentsEvaluator, the evaluation then leverages 
+    lexicons cand statistical alignments to check the accuracy.
+    """
+    
     def __init__(self):
         super().__init__()
-        self.xword_class_pred = {} # used to be self.model_alignments
-        
+        self.xword_class_pred = {}
+
     def validate_data(self):
         for entry in self.data:
             entry_str = pprint.pformat(entry)
