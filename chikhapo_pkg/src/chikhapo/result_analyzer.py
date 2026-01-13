@@ -46,7 +46,9 @@ class ResultAnalyzer:
         
         if not len(self.results_by_language):
             warnings.warn("Unfortunately, the directory you provided did not yield any data that could be evaluated. The dictionary associated with results by language is subsequently empty.")
-    
+        
+        return self.results_by_language
+
     def get_language_score_average(self):
         if not len(self.results_by_language):
             raise Exception("The dictionary results_by_language is completely empty. Consequently, the language score cannot be calculated.")
@@ -86,4 +88,5 @@ class ResultAnalyzer:
             else:
                 warnings.warn(f"Only one language fell into the language family {fam}. You need at least two to calculate the standard deviation. Setting the standard deviation of this langugae family to -1.")
                 self.results_by_language_family[fam]["std_dev"] = -1
+        return self.results_by_language_family
     

@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 import subprocess
 import tempfile
 
@@ -12,46 +13,28 @@ class BaseAlignmentsEvaluator(BaseEvaluator):
     """
     def __init__(self):
         super().__init__()
-        current_dir = os.path.dirname(os.path.abspath(__file__))
-        self.fastalign_dir = os.path.normpath(
-            os.path.join(
-                current_dir,
-                "..", "..", "dep",
-            )
-        )
-        self.fastalign_binary = os.path.normpath(
-            os.path.join(
-                self.fastalign_dir, "fast_align",
-                "build", "fast_align"
-            )
-        )
-        self.verify_fastalign_is_installed()
+        self.fastalign_cache_dir = Path.home() / '.cache' / 'chikhapo'
+        self.fastalign_cache_dir.mkdir(parents=True, exist_ok=True)
+        self.fastalign_dir = self.fastalign_cache_dir / 'fast_align'
+        self.fastalign_binary = self.fastalign_dir / 'build' / 'fast_align'
 
     def verify_fastalign_is_installed(self):
         if os.path.exists(self.fastalign_binary):
             return
-        os.makedirs(self.fastalign_dir, exist_ok=True)
+        
         subprocess.run(
-            ["git", "clone", "https://github.com/clab/fast_align.git"],
-            cwd=self.fastalign_dir,
+            ["git", "clone", "https://github.com/clab/fast_align.git", 
+            str(self.fastalign_dir)],
             check=True,
         )
         self.verify_cmakelist()
-        build_dir = os.path.join(self.fastalign_dir, "fast_align", "build")
-        os.makedirs(build_dir, exist_ok=True)
-        subprocess.run(
-            ["cmake", ".."],
-            cwd=build_dir,
-            check=True
-        )
-        subprocess.run(
-            ["make"],
-            cwd=build_dir,
-            check=True
-        )
+        build_dir = self.fastalign_dir / "build"
+        build_dir.mkdir(parents=True, exist_ok=True)
+        subprocess.run(["cmake", ".."], cwd=str(build_dir), check=True)
+        subprocess.run(["make"], cwd=str(build_dir), check=True)
 
     def verify_cmakelist(self):
-        cmakelist_file_path = os.path.join(self.fastalign_dir, "fast_align", "CMakeLists.txt")
+        cmakelist_file_path = self.fastalign_dir / "CMakeLists.txt"
         if not os.path.exists(cmakelist_file_path):
             raise Exception("The file needed to run make CMakeLists.txt is missing")
         with open(cmakelist_file_path, "r") as f:
@@ -79,7 +62,8 @@ class BaseAlignmentsEvaluator(BaseEvaluator):
     
     def run_fastalign(self, input_file):
         output_file = tempfile.NamedTemporaryFile(delete=False, suffix=".align", prefix="fastalign_output_").name
-        cmd = [self.fastalign_binary, "-i", input_file, "-v", "-o", "-d"]
+        # Convert Path to string for subprocess
+        cmd = [str(self.fastalign_binary), "-i", input_file, "-v", "-o", "-d"]
         with open(output_file, "w") as out_f:
             subprocess.run(
                 cmd,
@@ -122,6 +106,7 @@ class BaseAlignmentsEvaluator(BaseEvaluator):
     def get_statistical_alignments(self, reverse=False):
         input_file = None
         alignments_file = None
+        self.verify_fastalign_is_installed()
         try:
             input_file = self.convert_src_tgt_sentences_to_temp_file(reverse=reverse)
             alignments_file = self.run_fastalign(input_file)
@@ -134,4 +119,3 @@ class BaseAlignmentsEvaluator(BaseEvaluator):
                 os.unlink(input_file)
             if alignments_file and os.path.exists(alignments_file):
                 os.unlink(alignments_file)
-                

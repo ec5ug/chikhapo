@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+from pathlib import Path
 import pycountry
 import urllib.request
 import zipfile
@@ -10,18 +11,16 @@ class GlottologReader:
     within a family.
     """
     def __init__(self):
-        current_file_dir = os.path.dirname(os.path.abspath(__file__))
+        cache_dir = Path.home() / '.cache' / 'chikhapo'
+        cache_dir.mkdir(parents=True, exist_ok=True)
         self.glottolog_path = os.path.normpath(
             os.path.join(
-                current_file_dir,
-                "..",
-                "dep",
+                cache_dir,
                 "glottolog",
                 "languoid.csv",
             )
         )
-        self.verify_glottolog_is_installed()
-        self.glottolog_df = pd.read_csv(self.glottolog_path)
+        self.glottolog_df = None
 
     def verify_glottolog_is_installed(self):
         GLOTTOLOG_URL = (
@@ -38,6 +37,9 @@ class GlottologReader:
         os.remove(zip_path)
 
     def get_lang_info(self, iso):
+        if self.glottolog_df is None:
+            self.verify_glottolog_is_installed()
+            self.glottolog_df = pd.read_csv(self.glottolog_path)
         if len(iso) != 3:
             raise Exception("Please enter a valid ISO code")
         if iso not in self.glottolog_df["iso639P3code"].values:
@@ -61,6 +63,9 @@ class GlottologReader:
         return info
 
     def get_language_to_family_dict(self):
+        if self.glottolog_df is None:
+            self.verify_glottolog_is_installed()
+            self.glottolog_df = pd.read_csv(self.glottolog_path)
         language_to_family = {}
         glottolog_languages_df = self.glottolog_df.loc[self.glottolog_df["level"]=="language"]
         glottolog_languages_df = glottolog_languages_df[["family_id", "iso639P3code"]]
@@ -74,3 +79,4 @@ class GlottologReader:
             fam = row["name"]
             language_to_family[lang] = fam
         return language_to_family
+    
