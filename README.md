@@ -1,3 +1,6 @@
+[![Hugging Face](https://img.shields.io/badge/🤗%20Open%20in-Hugging%20Face-yellow)](https://huggingface.co/datasets/ec5ug/chikhapo)
+[![PyPI](https://img.shields.io/pypi/v/requests)](https://pypi.org/project/chikhapo/)
+
 # <img src="logo.png" alt="logo" width="40" style="vertical-align:middle;"> ChiKhaPo
 
 This repository contains the code for the experiments in [ChiKhaPo: A Large-Scale Multilingual Benchmark for Evaluating Lexical Comprehension and Generation in Large Language Models](https://www.arxiv.org/abs/2510.16928). Please see our [Python package](https://pypi.org/project/chikhapo/), and the [code](https://github.com/ec5ug/chikhapo/blob/master/chikhapo_pkg/README.md) for the package. The processed lexicon data that our tasks rely on can be found on [HuggingFace](https://huggingface.co/datasets/ec5ug/chikhapo).
