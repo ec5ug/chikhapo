@@ -1,8 +1,3 @@
-# from huggingface_hub import login, logout
-# logout()
-# login()
-# login(token="REMOVED")
-
 import json, os, yaml
 from huggingface_hub import HfApi
 from utils.languages import read_word_translation_valid_langs
