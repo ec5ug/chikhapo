@@ -33,7 +33,7 @@ class BagOfWordsMachineTranslationEvaluator(BaseAlignmentsEvaluator):
                 raise Exception(f"{entry_str}: The predicted target sentence in \"tgt_sentence_pred\" should be stored as a string, not {type(entry['tgt_sentence_pred'])}")
 
     def evaluate_X_to_eng(self):
-        list_of_entries = self.loader.get_omnis_lexicon_subset(f"{self.src_lang}_{self.tgt_lang}") # flip translation_order
+        list_of_entries = self.loader.get_chikhapo_lexicon_subset(name=self.src_lang, split="X_to_eng") # flip translation_order
         lexicon = convert_list_of_entries_to_dictionary(list_of_entries)
         alignments = self.get_statistical_alignments(reverse=False)
         for i, entry in enumerate(self.data):

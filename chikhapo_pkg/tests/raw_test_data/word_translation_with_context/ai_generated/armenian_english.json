@@ -1,0 +1,27 @@
+{
+  "src_lang": "hye",
+  "tgt_lang": "eng",
+  "data": [
+    {"word": "ջուր", "source_sentence": "Խնդրում եմ, ինձ ջուր տուր։", "prediction": "water."},
+    {"word": "շուն", "source_sentence": "Բակում մի շուն է խաղում։", "prediction": "dog."},
+    {"word": "տուն", "source_sentence": "Մենք նոր տուն գնեցինք։", "prediction": "house."},
+    {"word": "գիրք", "source_sentence": "Նա գիրք է կարդում։", "prediction": "book."},
+    {"word": "երեխա", "source_sentence": "Այգում մի երեխա է խաղում։", "prediction": "child."},
+    {"word": "մարդ", "source_sentence": "Մի մարդ թակեց դուռը։", "prediction": "person."},
+    {"word": "կին", "source_sentence": "Մի կին գնաց շուկա։", "prediction": "woman."},
+    {"word": "տղամարդ", "source_sentence": "Մի տղամարդ կանգնած էր դռան մոտ։", "prediction": "man."},
+    {"word": "ուտելիք", "source_sentence": "Մայրս համեղ ուտելիք պատրաստեց։", "prediction": "food."},
+    {"word": "դպրոց", "source_sentence": "Երեխաները գնացին դպրոց։", "prediction": "school."},
+
+    {"word": "ջուր", "source_sentence": "Գետում մաքուր ջուր է հոսում։", "prediction": "music."},
+    {"word": "շուն", "source_sentence": "Ամբողջ գիշեր մի շուն հաչում էր։", "prediction": "computer."},
+    {"word": "տուն", "source_sentence": "Ես ուշ վերադարձա տուն։", "prediction": "idea."},
+    {"word": "գիրք", "source_sentence": "Գրադարանից մի գիրք վերցրի։", "prediction": "sleep."},
+    {"word": "երեխա", "source_sentence": "Երբ ես երեխա էի, գյուղում էի ապրում։", "prediction": "engine."},
+    {"word": "մարդ", "source_sentence": "Ամեն մարդ ունի իր երազանքը։", "prediction": "mountain."},
+    {"word": "կին", "source_sentence": "Սեղանի մոտ նստած էր մի տարեց կին։", "prediction": "river."},
+    {"word": "տղամարդ", "source_sentence": "Նա ուժեղ տղամարդ է։", "prediction": "blue."},
+    {"word": "ուտելիք", "source_sentence": "Ճամփորդության համար ուտելիք վերցրինք։", "prediction": "banana."},
+    {"word": "դպրոց", "source_sentence": "Մեր քաղաքում նոր դպրոց կառուցեցին։", "prediction": "history."}
+  ]
+}

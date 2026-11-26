@@ -27,6 +27,8 @@ class ResultAnalyzer:
             warnings.warn("This directory is empty!")
 
         for filename in os.listdir(result_dir):
+            if not filename.endswith(".json"):
+                continue
             full_path = os.path.join(result_dir, filename)
             self.evaluator.clear_intermediary_data()
             self.evaluator.evaluate(full_path)

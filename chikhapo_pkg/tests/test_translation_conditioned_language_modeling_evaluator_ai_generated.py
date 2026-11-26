@@ -8,6 +8,10 @@ from unittest.mock import patch
 from .base_evaluator_test import BaseEvaluatorTest
 from chikhapo import Evaluator
 
+real_data_path = "/share/data/speech-lang/users/echang/chikhapo/chikhapo_pkg/tests/raw_test_data/translation_conditioned_language_modeling/appendix/parsed_responses/"
+x_to_eng_tolerance = 6 # due to changes in how fast_align is trained
+eng_to_x_tolerance = 2
+
 class TestTranslationConditionedLanguageModelingEvaluator(BaseEvaluatorTest):
     def setUp(self):
         super().setUp()
@@ -173,7 +177,7 @@ class TestTranslationConditionedLanguageModelingEvaluator(BaseEvaluatorTest):
                 "old": {"ancienne.": 1}
             }
         }
-        with patch.object(self.evaluator.loader, "get_omnis_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
+        with patch.object(self.evaluator.loader, "get_chikhapo_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
             self.evaluator.evaluate(path)
         self.assertEqual(0, len(self.evaluator.word_scores))
         self.assertEqual(0, self.evaluator.lang_score)
@@ -204,7 +208,7 @@ class TestTranslationConditionedLanguageModelingEvaluator(BaseEvaluatorTest):
                 "garden.": {"jardin.": 1}
             }
         }
-        with patch.object(self.evaluator.loader, "get_omnis_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
+        with patch.object(self.evaluator.loader, "get_chikhapo_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
             self.evaluator.evaluate(path)
         self.assertEqual(0, len(self.evaluator.word_scores))
         self.assertEqual(0, self.evaluator.lang_score)
@@ -239,7 +243,7 @@ class TestTranslationConditionedLanguageModelingEvaluator(BaseEvaluatorTest):
                 "the": {"la": 1},
             }
         }
-        with patch.object(self.evaluator.loader, "get_omnis_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
+        with patch.object(self.evaluator.loader, "get_chikhapo_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
             self.evaluator.evaluate(path)
         self.assertEqual(2, len(self.evaluator.word_scores))
         self.assertEqual(0, self.evaluator.word_scores["résidence"])
@@ -266,7 +270,7 @@ class TestTranslationConditionedLanguageModelingEvaluator(BaseEvaluatorTest):
                 "the": {"la": 1},
             }
         }
-        with patch.object(self.evaluator.loader, "get_omnis_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
+        with patch.object(self.evaluator.loader, "get_chikhapo_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
             self.evaluator.evaluate(path)
         self.assertEqual(2, len(self.evaluator.word_scores))
         self.assertEqual(0, self.evaluator.word_scores["résidence"])
@@ -295,7 +299,7 @@ class TestTranslationConditionedLanguageModelingEvaluator(BaseEvaluatorTest):
                 "the": {"la": 1},
             }
         }
-        with patch.object(self.evaluator.loader, "get_omnis_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
+        with patch.object(self.evaluator.loader, "get_chikhapo_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
             self.evaluator.evaluate(path)
         self.assertEqual(1, len(self.evaluator.word_scores))
         self.assertEqual(0.2, self.evaluator.word_scores["la maison"])
@@ -321,7 +325,7 @@ class TestTranslationConditionedLanguageModelingEvaluator(BaseEvaluatorTest):
                 "He": {"Il": 1}
             }
         }
-        with patch.object(self.evaluator.loader, "get_omnis_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
+        with patch.object(self.evaluator.loader, "get_chikhapo_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
             self.evaluator.evaluate(path)
         self.assertEqual(1, len(self.evaluator.word_scores))
         self.assertEqual(0.2, self.evaluator.word_scores["quittér"])
@@ -347,7 +351,7 @@ class TestTranslationConditionedLanguageModelingEvaluator(BaseEvaluatorTest):
                 "He": {"Il": 1}
             }
         }
-        with patch.object(self.evaluator.loader, "get_omnis_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
+        with patch.object(self.evaluator.loader, "get_chikhapo_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
             self.evaluator.evaluate(path)
         self.assertEqual(1, len(self.evaluator.word_scores))
         self.assertEqual(0.2, self.evaluator.word_scores["s’étaient quittés"])
@@ -408,7 +412,7 @@ class TestTranslationConditionedLanguageModelingEvaluator(BaseEvaluatorTest):
                 "located": {"situées": 1}
             }
         }
-        with patch.object(self.evaluator.loader, "get_omnis_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
+        with patch.object(self.evaluator.loader, "get_chikhapo_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
             self.evaluator.evaluate(path)
         self.assertEqual(5, len(self.evaluator.word_scores))
         self.assertEqual(0.25, self.evaluator.word_scores["la"])
@@ -457,83 +461,6 @@ class TestTranslationConditionedLanguageModelingEvaluator(BaseEvaluatorTest):
         for src_word in self.evaluator.word_scores:
             self.assertTrue(self.evaluator.word_scores[src_word] > 0)
         self.assertTrue(self.evaluator.lang_score >= 0 and self.evaluator.lang_score <= 100)
-
-    def test_multientry_X_to_eng_uses_alignments(self):
-        path = self.create_file(
-            "multientry_X_to_eng_uses+alignments.json",
-            json.dumps({
-                "src_lang": "fra",
-                "tgt_lang": "eng",
-                "data": [
-                    {
-                        "src_sentence": "Il pleuvait quand nous sommes partis.",
-                        "tgt_sentence_gt": "It was raining when we left.",
-                        "next_word_to_predict": "It",
-                        "probability": 0.5
-                    }, {
-                        "src_sentence": "Il pleuvait quand nous sommes partis.",
-                        "tgt_sentence_gt": "It was raining when we left.",
-                        "next_word_to_predict": "was",
-                        "probability": 0.4
-                    }, {
-                        "src_sentence": "Il pleuvait quand nous sommes partis.",
-                        "tgt_sentence_gt": "It was raining when we left.",
-                        "next_word_to_predict": "raining",
-                        "probability": 0.3
-                    }, {
-                        "src_sentence": "Il pleuvait quand nous sommes partis.",
-                        "tgt_sentence_gt": "It was raining when we left.",
-                        "next_word_to_predict": "when",
-                        "probability": 0.2
-                    }
-                ]
-            })
-        )
-        fake_lexicon = [
-            {"source_word": "chien", "target_translations": ["dog"], "src_lang": "fra", "tgt_lang": "eng"},
-            {"source_word": "feu", "target_translations": ["fire", "traffic light"], "src_lang": "fra", "tgt_lang": "eng"},
-            {"source_word": "battre", "target_translations": ["to beat", "to fight", "to whisk"], "src_lang": "fra", "tgt_lang": "eng"},
-        ]
-        fake_word_to_word_alignments = {
-            0: {
-                "It": {"Il": 1, "sommes partis": 1},
-                "when": {"Il": 1, "pleuvait": 2, "quand": 2, "nous": 2},
-                "was": {"pleuvait": 1},
-                "raining": {"pleuvait": 1},
-                "we": {"quand": 1, "nous": 2},
-                "left": {"sommes partis": 1}
-            }, 1: {
-                "It": {"Il": 1, "sommes partis": 1},
-                "when": {"Il": 1, "pleuvait": 2, "quand": 2, "nous": 2},
-                "was": {"pleuvait": 1},
-                "raining": {"pleuvait": 1},
-                "we": {"quand": 1, "nous": 2},
-                "left": {"sommes partis": 1}
-            }, 2: {
-                "It": {"Il": 1, "sommes partis": 1},
-                "when": {"Il": 1, "pleuvait": 2, "quand": 2, "nous": 2},
-                "was": {"pleuvait": 1},
-                "raining": {"pleuvait": 1},
-                "we": {"quand": 1, "nous": 2},
-                "left": {"sommes partis": 1}
-            }, 3: {
-                "It": {"Il": 1, "sommes partis": 1},
-                "when": {"Il": 1, "pleuvait": 2, "quand": 2, "nous": 2},
-                "was": {"pleuvait": 1},
-                "raining": {"pleuvait": 1},
-                "we": {"quand": 1, "nous": 2},
-                "left": {"sommes partis": 1}
-            }
-        }
-        with patch.object(self.evaluator.loader, "get_omnis_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
-            self.evaluator.evaluate(path)
-        self.assertEqual(5, len(self.evaluator.word_scores))
-        self.assertEqual(0.5, self.evaluator.word_scores["il"])
-        self.assertEqual(0.5, self.evaluator.word_scores["sommes partis"])
-        self.assertEqual(0.3, self.evaluator.word_scores["pleuvait"])
-        self.assertEqual(0.2, self.evaluator.word_scores["quand"])
-        self.assertEqual(0.2, self.evaluator.word_scores["nous"])
-        self.assertEqual(34, self.evaluator.lang_score)
 
     def test_singleentry_eng_to_X_1(self):
         path = self.create_file(

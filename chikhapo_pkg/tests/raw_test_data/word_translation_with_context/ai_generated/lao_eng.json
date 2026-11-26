@@ -1,0 +1,23 @@
+{
+  "src_lang": "lao",
+  "tgt_lang": "eng",
+  "data": [
+    {"word": "ນ້ຳ", "source_sentence": "ຂໍນ້ຳແດ່.", "prediction": "water."},
+    {"word": "ໝາ", "source_sentence": "ໝາໂຕໜຶ່ງນອນຢູ່ໜ້າເຮືອນ.", "prediction": "dog."},
+    {"word": "ເຮືອນ", "source_sentence": "ພວກເຮົາຊື້ເຮືອນໃໝ່.", "prediction": "house."},
+    {"word": "ເດັກ", "source_sentence": "ເດັກນ້ອຍກຳລັງຫຼິ້ນຢູ່ສວນ.", "prediction": "child."},
+    {"word": "ອາຫານ", "source_sentence": "ແມ່ແຕ່ງອາຫານແຊບຫຼາຍ.", "prediction": "food."},
+
+    {"word": "ນ້ຳ", "source_sentence": "ນ້ຳຢູ່ບ່ອນນີ້ສະອາດ.", "prediction": "sky."},
+    {"word": "ໝາ", "source_sentence": "ຂ້ອຍມີໝາສອງໂຕ.", "prediction": "computer."},
+    {"word": "ເຮືອນ", "source_sentence": "ເຮືອນຫຼັງນີ້ເກົ່າຫຼາຍ.", "prediction": "idea."},
+    {"word": "ເດັກ", "source_sentence": "ເດັກຄົນນັ້ນຮຽນເກັ່ງ.", "prediction": "engine."},
+    {"word": "ອາຫານ", "source_sentence": "ພວກເຮົາກິນອາຫານແລງນຳກັນ.", "prediction": "music."},
+    {"word": "ປຶ້ມ", "source_sentence": "ລາວກຳລັງອ່ານປຶ້ມ.", "prediction": "sleep."},
+    {"word": "ເງິນ", "source_sentence": "ຂ້ອຍບໍ່ມີເງິນ.", "prediction": "banana."},
+    {"word": "ຜູ້ຍິງ", "source_sentence": "ຜູ້ຍິງຄົນໜຶ່ງໄປຕະຫຼາດ.", "prediction": "mountain."},
+    {"word": "ຜູ້ຊາຍ", "source_sentence": "ຜູ້ຊາຍຄົນນັ້ນສູງຫຼາຍ.", "prediction": "river."},
+    {"word": "ໂຮງຮຽນ", "source_sentence": "ເດັກນ້ອຍໄປໂຮງຮຽນທຸກມື້.", "prediction": "blue."},
+    {"word": "ເວລາ", "source_sentence": "ຂ້ອຍບໍ່ມີເວລາ.", "prediction": "running."}
+  ]
+}

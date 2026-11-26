@@ -1,0 +1,28 @@
+{
+  "src_lang": "bak",
+  "tgt_lang": "eng",
+  "data": [
+    {"word": "һыу", "source_sentence": "Миңә һыу бирегеҙ әле.", "prediction": "water."},
+    {"word": "эт", "source_sentence": "Ишек алдында эт уйнай.", "prediction": "dog."},
+    {"word": "йорт", "source_sentence": "Беҙ яңы йорт һатып алдыҡ.", "prediction": "house."},
+    {"word": "китап", "source_sentence": "Ул китап уҡый.", "prediction": "book."},
+    {"word": "бала", "source_sentence": "Паркта бер бала уйнай.", "prediction": "child."},
+    {"word": "кеше", "source_sentence": "Бер кеше ишекте шаҡыны.", "prediction": "person."},
+    {"word": "ир", "source_sentence": "Ишек янында бер ир баҫып тора.", "prediction": "man."},
+    {"word": "ҡатын", "source_sentence": "Бер ҡатын баҙарға китте.", "prediction": "woman."},
+    {"word": "аш", "source_sentence": "Әсәйем тәмле аш бешерҙе.", "prediction": "food."},
+    {"word": "көн", "source_sentence": "Бөгөн матур көн.", "prediction": "day."},
+    {"word": "төн", "source_sentence": "Төн бик тын ине.", "prediction": "night."},
+    {"word": "мәктәп", "source_sentence": "Беҙҙең ауылда мәктәп бар.", "prediction": "school."},
+    {"word": "аҡса", "source_sentence": "Ул банкка аҡса һалды.", "prediction": "money."},
+    {"word": "ағас", "source_sentence": "Йорт алдында ҙур ағас үҫә.", "prediction": "tree."},
+
+    {"word": "һыу", "source_sentence": "Йылғала таҙа һыу аға.", "prediction": "music."},
+    {"word": "эт", "source_sentence": "Төн буйы эт өрҙө.", "prediction": "computer."},
+    {"word": "йорт", "source_sentence": "Был йорт бик иҫке.", "prediction": "idea."},
+    {"word": "китап", "source_sentence": "Был китап бик ҡыҙыҡлы.", "prediction": "sleep."},
+    {"word": "бала", "source_sentence": "Мин бала саҡта ауылда йәшәнем.", "prediction": "engine."},
+    {"word": "кеше", "source_sentence": "Унда бер кеше лә юҡ ине.", "prediction": "mountain."},
+    {"word": "мәктәп", "source_sentence": "Ҡалала яңы мәктәп төҙөнөләр.", "prediction": "banana."}
+  ]
+}

@@ -10,9 +10,9 @@ def convert_iso_to_name(lang):
     return ""
 
 def get_direction_of_lang_pair(lang_pair):
-    if lang_pair.endswith("_eng"):
+    if lang_pair.endswith("_eng") or lang_pair.endswith("-eng"):
         return "X_to_eng"
-    elif lang_pair.startswith("eng_"):
+    elif lang_pair.startswith("eng_") or lang_pair.startswith("eng-"):
         return "eng_to_X"
     raise Exception(f"{lang_pair} is invalid as it does not start with eng_ or ends with eng_")
 

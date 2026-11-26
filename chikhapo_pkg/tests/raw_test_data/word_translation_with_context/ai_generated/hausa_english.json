@@ -1,0 +1,25 @@
+{
+  "src_lang": "hau",
+  "tgt_lang": "eng",
+  "data": [
+    {"word": "ruwa", "source_sentence": "Don Allah ka ba ni ruwa.", "prediction": "water."},
+    {"word": "kare", "source_sentence": "Kare yana wasa a tsakar gida.", "prediction": "dog."},
+    {"word": "gida", "source_sentence": "Mun sayi sabon gida.", "prediction": "house."},
+
+    {"word": "yaro", "source_sentence": "Yaro ya tafi kasuwa da safe.", "prediction": "computer."},
+    {"word": "yarinya", "source_sentence": "Yarinya tana karatu a ɗakinta.", "prediction": "engine."},
+    {"word": "abinci", "source_sentence": "Mahaifiyata ta dafa abinci mai daɗi.", "prediction": "music."},
+    {"word": "littafi", "source_sentence": "Ina karanta littafi.", "prediction": "sleep."},
+    {"word": "kudi", "source_sentence": "Ya ajiye kudi a banki.", "prediction": "banana."},
+    {"word": "mutum", "source_sentence": "Wani mutum ya ƙwanƙwasa ƙofa.", "prediction": "mountain."},
+    {"word": "mace", "source_sentence": "Wata mace ta tafi kasuwa.", "prediction": "river."},
+    {"word": "namiji", "source_sentence": "Shi namiji ne mai ƙarfi.", "prediction": "cloud."},
+    {"word": "makaranta", "source_sentence": "Yara sun tafi makaranta.", "prediction": "history."},
+    {"word": "tebur", "source_sentence": "Littafin yana kan tebur.", "prediction": "running."},
+    {"word": "kujera", "source_sentence": "Ka zauna a kan kujera.", "prediction": "idea."},
+    {"word": "hanya", "source_sentence": "Akwai motoci da yawa a kan hanya.", "prediction": "fire."},
+    {"word": "rana", "source_sentence": "Rana tana haskakawa yau.", "prediction": "blue."},
+    {"word": "dare", "source_sentence": "Da dare taurari suna bayyana.", "prediction": "phone."},
+    {"word": "itace", "source_sentence": "Akwai babban itace a gaban gida.", "prediction": "song."}
+  ]
+}

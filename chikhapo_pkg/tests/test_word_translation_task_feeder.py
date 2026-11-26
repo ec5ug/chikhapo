@@ -65,10 +65,20 @@ class TestWordTranslationTaskFeeder(unittest.TestCase):
         lang_pairs = self.feeder.get_lang_pairs(DIRECTION="X_to_eng")
         self.assertIn("spa_eng", lang_pairs)
         self.assertNotIn("eng_spa", lang_pairs)
-        self.assertEqual(2752, len(lang_pairs))
+        self.assertEqual(2745, len(lang_pairs))
 
     def test_get_lang_pairs_eng_to_X(self):
         lang_pairs = self.feeder.get_lang_pairs(DIRECTION="eng_to_X")
         self.assertIn("eng_spa", lang_pairs)
         self.assertNotIn("spa_eng", lang_pairs)
-        self.assertEqual(2752, len(lang_pairs))
+        self.assertEqual(2745, len(lang_pairs))
+
+    def test_is_deterministic_X_to_eng(self):
+        list_of_prompts_1 = set(self.feeder.get_prompts_for_lang_pair("spa_eng", lite=True))
+        list_of_prompts_2 = set(self.feeder.get_prompts_for_lang_pair("spa_eng", lite=True))
+        self.assertEqual(list_of_prompts_1, list_of_prompts_2)
+
+    def test_is_deterministic_eng_to_X(self):
+        list_of_prompts_1 = set(self.feeder.get_prompts_for_lang_pair("eng_spa", lite=True))
+        list_of_prompts_2 = set(self.feeder.get_prompts_for_lang_pair("eng_spa", lite=True))
+        self.assertEqual(list_of_prompts_1, list_of_prompts_2)

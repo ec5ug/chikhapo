@@ -19,6 +19,7 @@ class TranslationConditionedLanguageModelingEvaluator(BaseAlignmentsEvaluator):
         self.xword_probs = defaultdict(list)
 
     def validate_data(self):
+        PROB_TOLERANCE = 1e-6
         for entry in self.data:
             entry_str = pprint.pformat(entry)
             if "src_sentence" not in entry:
@@ -37,18 +38,18 @@ class TranslationConditionedLanguageModelingEvaluator(BaseAlignmentsEvaluator):
                 raise Exception(f"The key \"probability\" is not found in {entry_str}")
             if not isinstance(entry["probability"], (float, int)):
                 raise Exception(f"{entry_str}: The value of the key \"probability\" should be represented as a float.")
-            if entry["probability"] < 0 or entry["probability"] > 1:
+            if entry['probability'] < -PROB_TOLERANCE or entry['probability'] > 1+PROB_TOLERANCE:
                 raise Exception(f"The probability measure {entry['probability']} should be in the interval of 0 and 1.")
 
     def evaluate_X_to_eng(self):
-        list_of_entries = self.loader.get_omnis_lexicon_subset(f"{self.tgt_lang}_{self.src_lang}") # flip translation_order
+        list_of_entries = self.loader.get_chikhapo_lexicon_subset(name=self.src_lang, split="eng_to_X") # flip translation_order
         lexicon = convert_list_of_entries_to_dictionary(list_of_entries)
-        alignments = self.get_statistical_alignments(reverse=True)
+        alignments = self.get_statistical_alignments(reverse=False)
         for i, entry in enumerate(self.data):
             # cleaning up src_sentence
-            src_words = entry["src_sentence"].split()
-            src_words = [clean_string(w) for w in src_words]
-            eng_word = entry["next_word_to_predict"]
+            src_sentence = clean_string(entry["src_sentence"])
+            src_words = src_sentence.split()
+            eng_word = entry["next_word_to_predict"].strip()
             cleaned_eng_word = clean_string(eng_word)
             prob = entry["probability"]
             xwords = []
@@ -58,10 +59,11 @@ class TranslationConditionedLanguageModelingEvaluator(BaseAlignmentsEvaluator):
                     cleaned_xword = clean_string(potential_xword)
                     if self.is_exact_match(cleaned_xword, src_words) or self.is_substring(cleaned_xword, src_words) or self.is_inflection(cleaned_xword, src_words) or self.is_inflection_within_substring(cleaned_xword, src_words):
                         xwords.append(cleaned_xword)
-            elif eng_word in alignments[i]:
-                xwords_scores = alignments[i][eng_word]
-                max_score = max(xwords_scores.values())
-                xwords = [xword for xword, score in xwords_scores.items() if score==max_score]
+            if not xwords:
+                xwords_scores = {x: e[eng_word] for x, e in alignments[i].items() if eng_word in e}
+                if xwords_scores:
+                    max_score = max(xwords_scores.values())
+                    xwords = [x for x, s in xwords_scores.items() if s == max_score]
             cleaned_xwords = [clean_string(xword) for xword in xwords]
             for xword in cleaned_xwords:
                 self.xword_probs[xword].append(prob)

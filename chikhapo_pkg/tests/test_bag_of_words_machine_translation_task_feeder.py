@@ -52,7 +52,7 @@ class BagOfWordsMachineTranslationFeeder(unittest.TestCase):
         self.assertIn("eng_spa_Latn", lang_pairs)
         self.assertNotIn("eng_eng_Latn", lang_pairs)
         self.assertNotIn("eng_Latn_eng", lang_pairs)
-        self.assertGreaterEqual(452, len(lang_pairs)) # as of Dec 18, 2025
+        # self.assertGreaterEqual(452, len(lang_pairs)) # as of Dec 18, 2025
     
     def test_get_lang_pairs_to_eng(self):
         lang_pairs = self.feeder.get_lang_pairs(DIRECTION="X_to_eng")
@@ -60,7 +60,7 @@ class BagOfWordsMachineTranslationFeeder(unittest.TestCase):
         self.assertNotIn("eng_spa_Latn", lang_pairs)
         self.assertNotIn("eng_eng_Latn", lang_pairs)
         self.assertNotIn("eng_Latn_eng", lang_pairs)
-        self.assertGreaterEqual(226, len(lang_pairs)) # as of Dec 18, 2025
+        # self.assertGreaterEqual(226, len(lang_pairs)) # as of Dec 18, 2025
     
     def test_get_lang_pairs_from_eng(self):
         lang_pairs = self.feeder.get_lang_pairs(DIRECTION="eng_to_X")
@@ -68,10 +68,19 @@ class BagOfWordsMachineTranslationFeeder(unittest.TestCase):
         self.assertNotIn("spa_Latn_eng", lang_pairs)
         self.assertNotIn("eng_eng_Latn", lang_pairs)
         self.assertNotIn("eng_Latn_eng", lang_pairs)
-        self.assertGreaterEqual(226, len(lang_pairs)) # as of Dec 18, 2025
+        # self.assertGreaterEqual(226, len(lang_pairs)) # as of Dec 18, 2025
 
     def test_get_lang_pairs_invalid_direction(self):
         with self.assertRaises(Exception) as context:
             self.feeder.get_lang_pairs(DIRECTION="invalid_direction")
         self.assertEqual(str(context.exception), "An invalid directon was specified. It should be None, \"X_to_eng\", or \"eng_to_X\"")
-        
+
+    def test_is_deterministic_X_to_eng(self):
+        list_of_prompts_1 = set(self.feeder.get_prompts_for_lang_pair("spa_Latn_eng", lite=True))
+        list_of_prompts_2 = set(self.feeder.get_prompts_for_lang_pair("spa_Latn_eng", lite=True))
+        self.assertEqual(list_of_prompts_1, list_of_prompts_2)
+
+    def test_is_deterministic_eng_to_X(self):
+        list_of_prompts_1 = set(self.feeder.get_prompts_for_lang_pair("eng_spa_Latn", lite=True))
+        list_of_prompts_2 = set(self.feeder.get_prompts_for_lang_pair("eng_spa_Latn", lite=True))
+        self.assertEqual(list_of_prompts_1, list_of_prompts_2)

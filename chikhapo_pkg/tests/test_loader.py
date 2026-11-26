@@ -39,25 +39,22 @@ class TestLoader(unittest.TestCase):
         except Exception as e:
             self.assertRaises(Exception)
 
-    def test_get_omnis_subset_names(self):
-        omnis_subset_names = self.loader.get_omnis_lexicon_subset_names()
-        self.assertGreaterEqual(len(omnis_subset_names), 5000)
-        self.assertIn("eng_all", omnis_subset_names)
-        self.assertIn("all_eng", omnis_subset_names)
-        self.assertNotIn("eng_eng", omnis_subset_names)
-        len_of_x_to_eng = [c for c in omnis_subset_names if c.endswith('eng')]
-        len_of_eng_to_x = [c for c in omnis_subset_names if c.endswith('eng')]
-        self.assertEqual(len_of_x_to_eng, len_of_eng_to_x)
+    def test_get_chikhapo_subset_names(self):
+        chikhapo_subset_names = self.loader.get_chikhapo_lexicon_subset_names()
+        self.assertGreaterEqual(len(chikhapo_subset_names), 2746)
+        self.assertIn("all", chikhapo_subset_names)
+        self.assertNotIn("eng", chikhapo_subset_names)
 
-    def test_get_omnis_lexicon_subset(self):
-        subset = self.loader.get_omnis_lexicon_subset("spa_eng")
+    def test_get_chikhapo_lexicon_subset(self):
+        subset = self.loader.get_chikhapo_lexicon_subset(name="spa", split="X_to_eng")
         self.assertIn("source_word", subset[0])
         self.assertIn("target_translations", subset[0])
         self.assertIn("src_lang", subset[0])
         self.assertIn("tgt_lang", subset[0])
+        self.assertIn("lite", subset[0])
 
-    def test_get_omnis_lexicon_invalid(self):
+    def test_get_chikhapo_lexicon_invalid_name(self):
         try:
-            self.loader.get_omnis_lexicon_subset("aaaa-eng")
+            self.loader.get_chikhapo_lexicon_subset("aaaa-eng")
         except Exception as e:
             self.assertRaises(Exception)

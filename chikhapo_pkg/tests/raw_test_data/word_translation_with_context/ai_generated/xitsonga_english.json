@@ -1,0 +1,26 @@
+{
+  "src_lang": "tso",
+  "tgt_lang": "eng",
+  "data": [
+    {"word": "n’wana", "source_sentence": "N’wana wa mina u etlele.", "prediction": "child."},
+    {"word": "mbwa", "source_sentence": "Mbwa yi tlanga ehandle.", "prediction": "dog."},
+    {"word": "ndlu", "source_sentence": "Hi xavile ndlu leyintshwa.", "prediction": "house."},
+    {"word": "mati", "source_sentence": "Ndzi nyike mati, hi kombela.", "prediction": "water."},
+    {"word": "buku", "source_sentence": "U hlaya buku.", "prediction": "book."},
+    {"word": "swakudya", "source_sentence": "Manana u sweka swakudya.", "prediction": "food."},
+    {"word": "nsimu", "source_sentence": "Nsimu ya hina yi kulu.", "prediction": "field."},
+    {"word": "wanuna", "source_sentence": "Wanuna u yime enyangweni.", "prediction": "man."},
+    {"word": "wansati", "source_sentence": "Wansati u ya emakete.", "prediction": "woman."},
+    {"word": "nkarhi", "source_sentence": "A ndzi na nkarhi.", "prediction": "time."},
+    {"word": "siku", "source_sentence": "Siku leri ri sasekile.", "prediction": "day."},
+    {"word": "vusiku", "source_sentence": "Hi famba vusiku.", "prediction": "night."},
+    {"word": "mali", "source_sentence": "A ndzi na mali.", "prediction": "money."},
+    {"word": "nhloko", "source_sentence": "Nhloko ya mina ya vava.", "prediction": "head."},
+    {"word": "murhi", "source_sentence": "Murhi lowu wu lehile.", "prediction": "tree."},
+    {"word": "munghana", "source_sentence": "U munghana wa mina.", "prediction": "friend."},
+    {"word": "xikolo", "source_sentence": "Xikolo lexi xi kulu.", "prediction": "school."},
+    {"word": "xihlalo", "source_sentence": "Xihlalo lexi xi tshovekile.", "prediction": "chair."},
+    {"word": "tafula", "source_sentence": "Buku yi le henhla ka tafula.", "prediction": "table."},
+    {"word": "muntfu", "source_sentence": "Muntfu u gongondza enyangweni.", "prediction": "person."}
+  ]
+}

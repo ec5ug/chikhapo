@@ -1,0 +1,32 @@
+{
+  "src_lang": "tha",
+  "tgt_lang": "eng",
+  "data": [
+    {"word": "น้ำ", "source_sentence": "ขอน้ำหน่อยครับ", "prediction": "water."},
+    {"word": "หมา", "source_sentence": "หมาตัวหนึ่งนอนอยู่หน้าบ้าน", "prediction": "dog."},
+    {"word": "แมว", "source_sentence": "แมวของฉันชอบนอนบนโซฟา", "prediction": "cat."},
+    {"word": "บ้าน", "source_sentence": "เราซื้อบ้านใหม่", "prediction": "house."},
+    {"word": "หนังสือ", "source_sentence": "เขากำลังอ่านหนังสือ", "prediction": "book."},
+    {"word": "อาหาร", "source_sentence": "แม่ทำอาหารอร่อยมาก", "prediction": "food."},
+    {"word": "เด็ก", "source_sentence": "เด็กกำลังเล่นอยู่ในสวน", "prediction": "child."},
+    {"word": "ผู้หญิง", "source_sentence": "ผู้หญิงคนหนึ่งไปตลาด", "prediction": "woman."},
+    {"word": "ผู้ชาย", "source_sentence": "ผู้ชายคนนั้นสูงมาก", "prediction": "man."},
+    {"word": "โรงเรียน", "source_sentence": "เด็กๆ ไปโรงเรียนทุกวัน", "prediction": "school."},
+    {"word": "โต๊ะ", "source_sentence": "หนังสืออยู่บนโต๊ะ", "prediction": "table."},
+    {"word": "เก้าอี้", "source_sentence": "นั่งบนเก้าอี้ได้เลย", "prediction": "chair."},
+    {"word": "เงิน", "source_sentence": "ฉันไม่มีเงิน", "prediction": "money."},
+
+    {"word": "น้ำ", "source_sentence": "น้ำในแม่น้ำเย็นมาก", "prediction": "sky."},
+    {"word": "หมา", "source_sentence": "ฉันมีหมาสองตัว", "prediction": "computer."},
+    {"word": "แมว", "source_sentence": "แมวตัวนี้สีดำ", "prediction": "music."},
+    {"word": "บ้าน", "source_sentence": "บ้านหลังนี้เก่ามาก", "prediction": "idea."},
+    {"word": "หนังสือ", "source_sentence": "ฉันยืมหนังสือจากห้องสมุด", "prediction": "sleep."},
+    {"word": "อาหาร", "source_sentence": "เรากินอาหารเย็นด้วยกัน", "prediction": "engine."},
+    {"word": "เด็ก", "source_sentence": "เด็กคนนั้นเรียนเก่ง", "prediction": "river."},
+    {"word": "ผู้หญิง", "source_sentence": "ผู้หญิงคนนั้นเป็นครู", "prediction": "mountain."},
+    {"word": "โรงเรียน", "source_sentence": "โรงเรียนนี้ใหญ่มาก", "prediction": "banana."},
+    {"word": "เงิน", "source_sentence": "เขากำลังเก็บเงินเพื่อซื้อรถ", "prediction": "blue."},
+    {"word": "เวลา", "source_sentence": "ฉันไม่มีเวลา", "prediction": "running."},
+    {"word": "วัน", "source_sentence": "วันนี้อากาศดีมาก", "prediction": "history."}
+  ]
+}

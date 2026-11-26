@@ -16,10 +16,8 @@ class BaseTaskFeeder:
     def get_random_sample(self, d, sample_size=300):
         if len(d) <= sample_size:
             return d
-        items = list(d.items())
-        random.seed(42)
-        sampled = random.sample(items, min(sample_size, len(items)))
-        return dict(sampled)
+        sampled_keys = random.Random(42).sample(sorted(d), k=sample_size)
+        return {k: d[k] for k in sampled_keys}
 
     @abstractmethod
     def get_lang_pairs(self, DIRECTION=None):
