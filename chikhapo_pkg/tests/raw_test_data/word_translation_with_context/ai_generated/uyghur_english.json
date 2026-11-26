@@ -1,0 +1,27 @@
+{
+  "src_lang": "uig",
+  "tgt_lang": "eng",
+  "data": [
+    {"word": "سۇ", "source_sentence": "ماڭا سۇ بېرىڭ.", "prediction": "water."},
+    {"word": "كىتاب", "source_sentence": "ئۇ كىتاب ئوقۇۋاتىدۇ.", "prediction": "book."},
+    {"word": "ئىت", "source_sentence": "ھويلىدا بىر ئىت ئويناۋاتىدۇ.", "prediction": "dog."},
+
+    {"word": "ئۆي", "source_sentence": "بىز يېڭى ئۆي سېتىۋالدۇق.", "prediction": "music."},
+    {"word": "بالا", "source_sentence": "باغچىدا بىر بالا ئويناۋاتىدۇ.", "prediction": "computer."},
+    {"word": "ئانا", "source_sentence": "ئانا بالىسىنى سۆيىدۇ.", "prediction": "mountain."},
+    {"word": "ئاتا", "source_sentence": "ئاتا ئىشقا كەتتى.", "prediction": "river."},
+    {"word": "تاماق", "source_sentence": "ئاپام مەزىلىك تاماق ئەتتى.", "prediction": "idea."},
+    {"word": "يول", "source_sentence": "بۇ يول شەھەرگە بارىدۇ.", "prediction": "banana."},
+    {"word": "كۈن", "source_sentence": "بۈگۈن ياخشى كۈن.", "prediction": "blue."},
+    {"word": "كېچە", "source_sentence": "كېچە يۇلتۇزلار كۆرۈنىدۇ.", "prediction": "running."},
+    {"word": "دوست", "source_sentence": "ئۇ ياخشى دوست.", "prediction": "engine."},
+    {"word": "ئادەم", "source_sentence": "ئىشىكنى بىر ئادەم چەكتى.", "prediction": "chair."},
+    {"word": "قەلەم", "source_sentence": "ماڭا بىر قەلەم بېرىڭ.", "prediction": "sleep."},
+    {"word": "مەكتەپ", "source_sentence": "يېزىمىزدا مەكتەپ بار.", "prediction": "fire."},
+    {"word": "بازار", "source_sentence": "بۇ بازار بەك چوڭ.", "prediction": "thought."},
+    {"word": "تاغ", "source_sentence": "يىراقتا ئېگىز تاغ كۆرۈنىدۇ.", "prediction": "phone."},
+    {"word": "دېڭىز", "source_sentence": "دېڭىز بۈگۈن تىنچ.", "prediction": "history."},
+    {"word": "ئورۇن", "source_sentence": "بۇ يەردە بوش ئورۇن بار.", "prediction": "cloud."},
+    {"word": "مۇنچا", "source_sentence": "يېزىدا بىر مۇنچا بار.", "prediction": "song."}
+  ]
+}

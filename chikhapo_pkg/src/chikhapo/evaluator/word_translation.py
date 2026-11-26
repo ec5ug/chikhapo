@@ -1,4 +1,5 @@
-from chikhapo.utils.parsing import clean_string, convert_list_of_entries_to_dictionary
+from chikhapo.utils.languages import get_language_from_pair
+from chikhapo.utils.parsing import preprocess_string, clean_string, convert_list_of_entries_to_dictionary
 from .base import BaseEvaluator
 
 class WordTranslationEvaluator(BaseEvaluator):
@@ -21,8 +22,6 @@ class WordTranslationEvaluator(BaseEvaluator):
             substring = len(self.xword_class_pred[word].get("substring", []))
             inflection_within_substring = len(self.xword_class_pred[word].get("inflection_within_substring", []))
             synonym = len(self.xword_class_pred[word].get("synonym", []))
-            # inflected_synonym = len(word_type_data[word].get("inflected_synonym", []))
-            # correct = exact_match + inflection + substring + inflection_within_substring + synonym + inflected_synonym
             correct = exact_match + inflection + substring + inflection_within_substring + synonym
             
             echo = len(self.xword_class_pred[word].get("echo", []))
@@ -46,14 +45,14 @@ class WordTranslationEvaluator(BaseEvaluator):
     def evaluate(self, file_path):
         self.read_prediction_file(file_path)
         self.validate_data()
-        self.get_direction()
-        list_of_entries = self.loader.get_omnis_lexicon_subset(f"{self.src_lang}_{self.tgt_lang}")
+        lang = get_language_from_pair(f"{self.src_lang}_{self.tgt_lang}")
+        list_of_entries = self.loader.get_chikhapo_lexicon_subset(lang, self.get_direction())
         lexicon = convert_list_of_entries_to_dictionary(list_of_entries)
         for output in self.data:
-            word_to_translate = clean_string(output["word"])
+            word_to_translate = output["word"].strip()
             if word_to_translate not in lexicon.keys():
                 continue
-            gt_answers = lexicon[word_to_translate]
+            gt_answers = [preprocess_string(a) for a in lexicon[word_to_translate]]
             prediction = clean_string(output["prediction"])
             words_in_prediction = prediction.split()
             if self.is_exact_match(prediction, gt_answers):

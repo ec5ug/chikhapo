@@ -30,12 +30,35 @@ Thumbs.db
 *.tar.gz
 omnis/
 hf_data
+glottolog_languoid.csv/
+glottolog_languoid.csv_org/
+# real
+chikhapo_pkg/tests/raw_test_data/word_translation/appendix/
+chikhapo_pkg/tests/raw_test_data/word_translation_with_context/appendix/
+chikhapo_pkg/tests/raw_test_data/translation_conditioned_language_modeling/appendix/
+chikhapo_pkg/tests/raw_test_data/bag_of_words_machine_translation/appendix/
+
+# tests that depend on real data
+chikhapo_pkg/tests/test_word_translation_evaluator_real_data.py
+chikhapo_pkg/tests/test_word_translation_with_context_evaluator_real_data.py
+chikhapo_pkg/tests/test_translation_conditioned_language_modeling_evaluator_real_data.py
+chikhapo_pkg/tests/test_bag_of_words_machine_translation_evaluator_real_data.py
+
+# services
+fast_align/
+
+# environments
+repo_env/
+pkg_env/
+
+# caching
 __pycache__
 .pytest_cache
 chikhapo.egg-info
 .coverage
-pkg_env
-repo_env
-glottolog_languoid.csv/
-fast_align/
-chikhapo_pkg/src/dep
+.ipynb_checkpoints/
+
+# auxillary files
+chikhapo_pkg/src/chikhapo/response_cleaner/
+dataset_config.yaml
+

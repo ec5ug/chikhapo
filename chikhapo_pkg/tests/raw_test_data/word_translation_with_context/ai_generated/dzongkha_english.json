@@ -1,0 +1,32 @@
+{
+  "src_lang": "dzo",
+  "tgt_lang": "eng",
+  "data": [
+    {"word": "ཆུ་", "source_sentence": "ང་ཆུ་འཐུང་དོ།", "prediction": "water."},
+    {"word": "ཁྱི་", "source_sentence": "ཁྱི་གཅིག་ཁྱིམ་གྱི་མདུན་ལུ་ཡོད།", "prediction": "dog."},
+    {"word": "ཁྱིམ་", "source_sentence": "ང་གི་ཁྱིམ་འདི་ཆུང་ཀུ་ཨིན།", "prediction": "house."},
+    {"word": "དེབ་", "source_sentence": "ཁོ་གིས་དེབ་ལྷག་དོ།", "prediction": "book."},
+    {"word": "མི་", "source_sentence": "མི་གཅིག་འོང་ཡི།", "prediction": "person."},
+    {"word": "བུ་", "source_sentence": "བུ་ཆུང་ཀུ་གཅིག་རྩེ་དོ།", "prediction": "child."},
+    {"word": "བུ་མོ་", "source_sentence": "བུ་མོ་འདི་སློབ་ཕྲུག་ཨིན།", "prediction": "girl."},
+    {"word": "ཟས་", "source_sentence": "ཨ་མ་གིས་ཟས་བཟོ་ཡི།", "prediction": "food."},
+    {"word": "ཉིན་པར་", "source_sentence": "ཉིན་པར་ང་ལཱ་འབད་དོ།", "prediction": "day."},
+    {"word": "མཚན་མོ་", "source_sentence": "མཚན་མོ་སྐར་མ་མཐོང་ཚུགས།", "prediction": "night."},
+    {"word": "སློབ་གྲྭ་", "source_sentence": "ང་སློབ་གྲྭ་ལུ་འགྱོ་དོ།", "prediction": "school."},
+    {"word": "དངུལ་", "source_sentence": "ང་ལུ་དངུལ་མེད།", "prediction": "money."},
+    {"word": "ཤིང་", "source_sentence": "ཤིང་འདི་ཧ་ཅང་ཆེ།", "prediction": "tree."},
+    {"word": "མགོ་", "source_sentence": "ང་གི་མགོ་ན་དོ།", "prediction": "head."},
+    {"word": "གྲོགས་", "source_sentence": "ཁོ་ང་གི་གྲོགས་ཨིན།", "prediction": "friend."},
+    {"word": "ཁྲི་", "source_sentence": "ཁྲི་གུ་ལུ་སྡོད།", "prediction": "chair."},
+
+    {"word": "ཆུ་", "source_sentence": "ཆུ་འདི་གཙང་མ་ཨིན།", "prediction": "music."},
+    {"word": "ཁྱི་", "source_sentence": "ང་ལུ་ཁྱི་གཅིག་ཡོད།", "prediction": "computer."},
+    {"word": "ཁྱིམ་", "source_sentence": "ཁོང་གིས་ཁྱིམ་གསརཔ་གཅིག་བཟོ་ཡི།", "prediction": "idea."},
+    {"word": "དེབ་", "source_sentence": "དེབ་འདི་ལེགས་ཤོམ་ཨིན།", "prediction": "sleep."},
+    {"word": "མི་", "source_sentence": "ནཱ་ལུ་མི་ལེ་ཤ་ཡོད།", "prediction": "mountain."},
+    {"word": "ཟས་", "source_sentence": "ཟས་ཞིམ་པས།", "prediction": "engine."},
+    {"word": "ཉིན་པར་", "source_sentence": "ཉིན་པར་ཆརཔ་ཕབ་ཅི།", "prediction": "blue."},
+    {"word": "སློབ་གྲྭ་", "source_sentence": "སློབ་གྲྭ་འདི་གསརཔ་ཨིན།", "prediction": "banana."},
+    {"word": "དངུལ་", "source_sentence": "ཁོ་གིས་དངུལ་བསགས་དོ།", "prediction": "river."}
+  ]
+}

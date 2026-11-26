@@ -97,7 +97,7 @@ class TestResultAnalyzer(unittest.TestCase):
         - Yoruba (yor)      -> Atlantic-Congo
         """
         self.result_analyzer = ResultAnalyzer("word_translation")
-        data_dir = Path(__file__).resolve().parent / "raw_test_data" / "word_translation"
+        data_dir = Path(__file__).resolve().parent / "raw_test_data" / "word_translation" / "ai_generated"
         self.result_analyzer.get_results_by_language(str(data_dir))
         # print(pprint.pformat(self.result_analyzer.results_by_language))
         # print(self.result_analyzer.get_language_score_average())
@@ -126,7 +126,7 @@ class TestResultAnalyzer(unittest.TestCase):
 
     def test_system_word_translation_with_context(self):
         self.result_analyzer = ResultAnalyzer("word_translation_with_context")
-        data_dir = Path(__file__).resolve().parent / "raw_test_data" / "word_translation_with_context"
+        data_dir = Path(__file__).resolve().parent / "raw_test_data" / "word_translation_with_context" / "ai_generated"
         self.result_analyzer.get_results_by_language(str(data_dir))
     #     # print(pprint.pformat(self.result_analyzer.results_by_language))
     #     # print(self.result_analyzer.get_language_score_average())
@@ -158,7 +158,7 @@ class TestResultAnalyzer(unittest.TestCase):
         Dzongzha is missing
         """
         self.result_analyzer = ResultAnalyzer("translation_conditioned_language_modeling")
-        data_dir = Path(__file__).resolve().parent / "raw_test_data" / "translation_conditioned_language_modeling"
+        data_dir = Path(__file__).resolve().parent / "raw_test_data" / "translation_conditioned_language_modeling" / "ai_generated"
         self.result_analyzer.get_results_by_language(str(data_dir))
         self.result_analyzer.get_results_by_language_family()
         self.assertEqual(set(["amh", "hye", "bak", "hau", "gle", "lao", "tha", "uig", "tso", "yor"]), set(self.result_analyzer.results_by_language.keys()))
@@ -180,7 +180,7 @@ class TestResultAnalyzer(unittest.TestCase):
         Dzongkha, Laos, Thai is missing
         """
         self.result_analyzer = ResultAnalyzer("bag_of_words_machine_translation")
-        data_dir = Path(__file__).resolve().parent / "raw_test_data" / "bag_of_words_machine_translation"
+        data_dir = Path(__file__).resolve().parent / "raw_test_data" / "bag_of_words_machine_translation" / "ai_generated"
         self.result_analyzer.get_results_by_language(str(data_dir))
         self.result_analyzer.get_results_by_language_family()
         self.assertEqual(set(["amh", "hye", "bak", "hau", "gle", "uig", "tso", "yor"]), set(self.result_analyzer.results_by_language.keys()))

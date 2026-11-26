@@ -1,6 +1,7 @@
 import re
 from collections import defaultdict
 from .base import BaseTaskFeeder
+from chikhapo.utils.constants import DIRECTIONS
 from chikhapo.utils.languages import convert_iso_to_name, get_direction_of_lang_pair, get_language_from_pair, get_language_pair
 from chikhapo.utils.parsing import convert_list_of_entries_to_dictionary
 
@@ -10,39 +11,22 @@ class WordTranslationWithContextFeeder(BaseTaskFeeder):
     be translated, the word to be translated, and the correct target translations.
     """
     def get_lang_pairs(self, DIRECTION=None):
-        omnis_subset_names = set(self.loader.get_omnis_lexicon_subset_names())
-        raw_glotlid_names = set(self.loader.get_glotlid_subset_names())
-        
-        # Map ISO codes to their script versions from GlotLID
+        if DIRECTION is not None and DIRECTION not in DIRECTIONS:
+            raise ValueError('DIRECTION should be None, "X_to_eng", or "eng_to_X"')
+    
+        chikhapo_isos = set(self.loader.get_chikhapo_lexicon_subset_names())
         iso_to_scripts = defaultdict(list)
-        for iso_script in raw_glotlid_names:
-            iso = iso_script.split("_")[0]
-            iso_to_scripts[iso].append(iso_script)
-        
-        # Find intersection and convert to script versions
-        result = []
-        for omnis_name in omnis_subset_names:
-            if omnis_name.endswith('_eng'):
-                # Format: {iso}_eng
-                iso = omnis_name.replace('_eng', '')
-                if iso in iso_to_scripts:
-                    # Convert to {iso}_{script}_eng
-                    result.extend([f"{iso_script}_eng" for iso_script in iso_to_scripts[iso]])
-            elif omnis_name.startswith('eng_'):
-                # Format: eng_{iso}
-                iso = omnis_name.replace('eng_', '')
-                if iso in iso_to_scripts:
-                    # Convert to eng_{iso}_{script}
-                    result.extend([f"eng_{iso_script}" for iso_script in iso_to_scripts[iso]])
-        
-        if DIRECTION is None:
-            return result
-        elif DIRECTION == "X_to_eng":
-            return [c for c in result if c.endswith('_eng')]
-        elif DIRECTION == "eng_to_X":
-            return [c for c in result if c.startswith('eng_')]
-        else:
-            raise Exception("An invalid direction was specified. It should be None, \"X_to_eng\", or \"eng_to_X\"")
+        for iso_script in self.loader.get_glotlid_subset_names():
+            iso_to_scripts[iso_script.split("_")[0]].append(iso_script)
+    
+        results = []
+        for iso in sorted(chikhapo_isos & iso_to_scripts.keys()):
+            for iso_script in sorted(iso_to_scripts[iso]):
+                if DIRECTION in ("X_to_eng", None):
+                    results.append(f"{iso_script}_eng")
+                if DIRECTION in ("eng_to_X", None):
+                    results.append(f"eng_{iso_script}")
+        return results
 
     def get_data_for_lang_pair(self, iso_script_pair, lite=True):
         words_sentences_translations = {}
@@ -50,10 +34,9 @@ class WordTranslationWithContextFeeder(BaseTaskFeeder):
         text = self.loader.get_glotlid_subset(lang_script)
         
         # deriving the language pair for the lexicon
-        direction = get_direction_of_lang_pair(iso_script_pair)
+        DIRECTION = get_direction_of_lang_pair(iso_script_pair)
         iso = lang_script.split("_")[0]
-        iso_pair = get_language_pair(iso, direction)
-        list_of_entries = self.loader.get_omnis_lexicon_subset(iso_pair)
+        list_of_entries = self.loader.get_chikhapo_lexicon_subset(name=iso, split=DIRECTION)
         lexicon = convert_list_of_entries_to_dictionary(list_of_entries)
         
         for entry in text:

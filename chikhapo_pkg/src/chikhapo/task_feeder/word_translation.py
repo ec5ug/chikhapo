@@ -1,5 +1,8 @@
+from huggingface_hub import DatasetCard
+
 from .base import BaseTaskFeeder
-from chikhapo.utils.languages import convert_iso_to_name, get_direction_of_lang_pair, get_language_from_pair
+from chikhapo.utils.languages import convert_iso_to_name, get_direction_of_lang_pair, get_language_from_pair, get_language_pair
+from chikhapo.utils.constants import DIRECTIONS
 
 class WordTranslationFeeder(BaseTaskFeeder):
     """
@@ -7,28 +10,31 @@ class WordTranslationFeeder(BaseTaskFeeder):
     verified target translations. Prompts are built from this data.
     """
     def get_lang_pairs(self, DIRECTION=None):
-        omnis_subset_names = self.loader.get_omnis_lexicon_subset_names()
-        omnis_subset_names.remove("all_eng")
-        omnis_subset_names.remove("eng_all")
-        if DIRECTION is None:
-            return omnis_subset_names
-        elif DIRECTION=="X_to_eng":
-            return [c for c in omnis_subset_names if c.endswith('eng')]
-        elif DIRECTION=="eng_to_X":
-            return [c for c in omnis_subset_names if c.startswith('eng')]
-        else:
-            raise Exception("An invalid directon was specified. It should be None, \"X_to_eng\", or \"eng_to_X\"")
+        if DIRECTION is not None and DIRECTION not in DIRECTIONS:
+            raise ValueError(f"DIRECTION must be None or one of {DIRECTIONS}, got '{DIRECTION}'")
+        directions = list(DIRECTIONS) if DIRECTION is None else [DIRECTION]
+        card = DatasetCard.load(self.loader.chikhapo_lexicons_hf_path, repo_type="dataset")
+        return [
+            get_language_pair(cfg["config_name"], d)
+            for d in directions
+            for cfg in card.data.configs
+            if cfg["config_name"] != "all"
+            and any(f["split"] == d for f in cfg["data_files"])
+        ]
 
     def get_data_for_lang_pair(self, lang_pair, lite=True):
-        words_tanslations = {}
-        lexicon = self.loader.get_omnis_lexicon_subset(lang_pair)
+        words_translations = {}
+        iso = get_language_from_pair(lang_pair)
+        DIRECTION = get_direction_of_lang_pair(lang_pair)
+        lexicon = self.loader.get_chikhapo_lexicon_subset(iso, DIRECTION)
         for entry in lexicon:
-            k = entry["source_word"]
-            v = entry["target_translations"]
-            words_tanslations[k] = v
-        if lite:
-            words_tanslations = self.get_random_sample(words_tanslations)
-        return words_tanslations
+            source_word = entry["source_word"]
+            target_translations = entry["target_translations"]
+            lite_entry = entry["lite"]
+            if lite and not lite_entry: # lite is turned on and lite_entry is false
+                continue
+            words_translations[source_word] = target_translations
+        return words_translations
 
     def get_prompts_for_lang_pair(self, lang_pair, lite=True):
         words = self.get_data_for_lang_pair(lang_pair, lite)
@@ -42,6 +48,8 @@ class WordTranslationFeeder(BaseTaskFeeder):
                 prompt = f"Translate the following word from {lang_name} to English. Respond with a single word.\nWord: {word}\nTranslation: "
             elif DIRECTION == "eng_to_X":
                 prompt = f"Translate the following word from English to {lang_name}. Respond with a single word.\nWord: {word}\nTranslation: "
+            else:
+                raise Exception(f"No prompt available for DIRECTION {DIRECTION}")
             prompts.append(prompt)
         return prompts
     

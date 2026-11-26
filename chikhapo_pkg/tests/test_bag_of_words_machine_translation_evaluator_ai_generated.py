@@ -8,7 +8,11 @@ import pprint
 from .base_evaluator_test import BaseEvaluatorTest
 from chikhapo import Evaluator
 
-class TestTranslationConditionedLanguageModelingEvaluator(BaseEvaluatorTest):
+real_data_path = "/share/data/speech-lang/users/echang/chikhapo/chikhapo_pkg/tests/raw_test_data/bag_of_words_machine_translation/appendix/parsed_responses/"
+x_to_eng_tolerance = 6 # due to changes in how fast_align is trained and the fact that you evaluate all sentences (not just 300)
+eng_to_x_tolerance = 8 # due to the fact that you evaluate all sentences not just 300
+
+class TestBagOfWordsMachineTranslationEvaluator(BaseEvaluatorTest):
     def setUp(self):
         super().setUp()
         self.evaluator = Evaluator("bag_of_words_machine_translation")
@@ -114,7 +118,7 @@ class TestTranslationConditionedLanguageModelingEvaluator(BaseEvaluatorTest):
                 "manzanas": {"apples": 1}
             }
         }
-        with patch.object(self.evaluator.loader, "get_omnis_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
+        with patch.object(self.evaluator.loader, "get_chikhapo_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
             self.evaluator.evaluate(path)
         self.assertEqual(3, len(self.evaluator.xword_class_pred))
         self.assertEqual(1, len(self.evaluator.xword_class_pred["hermano"]))
@@ -157,7 +161,7 @@ class TestTranslationConditionedLanguageModelingEvaluator(BaseEvaluatorTest):
                 "sofá.":{"couch.":1}
             }
         }
-        with patch.object(self.evaluator.loader, "get_omnis_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
+        with patch.object(self.evaluator.loader, "get_chikhapo_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
             self.evaluator.evaluate(path)
         self.assertEqual(1, len(self.evaluator.xword_class_pred["el"]))
         self.assertEqual(2, len(self.evaluator.xword_class_pred["el"]["exact_match"]))
@@ -205,7 +209,7 @@ class TestTranslationConditionedLanguageModelingEvaluator(BaseEvaluatorTest):
                 "calma.":{"calmly.":1}
             }
         }
-        with patch.object(self.evaluator.loader, "get_omnis_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
+        with patch.object(self.evaluator.loader, "get_chikhapo_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
             self.evaluator.evaluate(path)
         self.assertEqual(6, len(self.evaluator.xword_class_pred))
         self.assertEqual(6, len(self.evaluator.word_scores))
@@ -263,7 +267,7 @@ class TestTranslationConditionedLanguageModelingEvaluator(BaseEvaluatorTest):
                 "preguntas.": {"questions.": 1}
             }
         }
-        with patch.object(self.evaluator.loader, "get_omnis_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
+        with patch.object(self.evaluator.loader, "get_chikhapo_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
             self.evaluator.evaluate(path)
         self.assertEqual(9, len(self.evaluator.xword_class_pred))
         self.assertEqual(9, len(self.evaluator.word_scores))
@@ -321,7 +325,7 @@ class TestTranslationConditionedLanguageModelingEvaluator(BaseEvaluatorTest):
                 "arroz.": {"rice.": 1}
             }
         }
-        with patch.object(self.evaluator.loader, "get_omnis_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
+        with patch.object(self.evaluator.loader, "get_chikhapo_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
             self.evaluator.evaluate(path)
         self.assertEqual(3, len(self.evaluator.xword_class_pred))
         self.assertEqual(3, len(self.evaluator.word_scores))
@@ -404,7 +408,7 @@ class TestTranslationConditionedLanguageModelingEvaluator(BaseEvaluatorTest):
                 "arroz.": {"rice.": 1}
             }
         }
-        with patch.object(self.evaluator.loader, "get_omnis_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
+        with patch.object(self.evaluator.loader, "get_chikhapo_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
             self.evaluator.evaluate(path)
         self.assertEqual(22, len(self.evaluator.xword_class_pred))
         self.assertEqual(22, len(self.evaluator.word_scores))
@@ -542,7 +546,7 @@ class TestTranslationConditionedLanguageModelingEvaluator(BaseEvaluatorTest):
                 "espeso.": {"thick": 1}
             }
         }
-        with patch.object(self.evaluator.loader, "get_omnis_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
+        with patch.object(self.evaluator.loader, "get_chikhapo_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
             self.evaluator.evaluate(path)
         self.assertEqual(1, len(self.evaluator.xword_class_pred["el"]))
         self.assertEqual(2, len(self.evaluator.xword_class_pred["el"]["exact_match"]))
@@ -591,7 +595,7 @@ class TestTranslationConditionedLanguageModelingEvaluator(BaseEvaluatorTest):
                 "El":{"car":1},
             }
         }
-        with patch.object(self.evaluator.loader, "get_omnis_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
+        with patch.object(self.evaluator.loader, "get_chikhapo_lexicon_subset", return_value=fake_lexicon), patch.object(self.evaluator, "get_statistical_alignments", return_value=fake_word_to_word_alignments):
             self.evaluator.evaluate(path)
         self.assertEqual(50, self.evaluator.lang_score)
 

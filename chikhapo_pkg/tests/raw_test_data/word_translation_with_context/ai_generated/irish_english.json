@@ -1,0 +1,27 @@
+{
+  "src_lang": "gle",
+  "tgt_lang": "eng",
+  "data": [
+    {"word": "uisce", "source_sentence": "Tabhair dom uisce, le do thoil.", "prediction": "water."},
+    {"word": "leabhar", "source_sentence": "Tá leabhar nua agam.", "prediction": "book."},
+    {"word": "cat", "source_sentence": "Tá cat dubh ag mo dheirfiúr.", "prediction": "cat."},
+    {"word": "teach", "source_sentence": "Cheannaigh siad teach mór.", "prediction": "house."},
+    {"word": "fear", "source_sentence": "Bhí fear ag an doras.", "prediction": "man."},
+    {"word": "bean", "source_sentence": "Tá bean ag siúl sa pháirc.", "prediction": "woman."},
+    {"word": "oíche", "source_sentence": "Bhí an oíche an-fhuar.", "prediction": "night."},
+    {"word": "lá", "source_sentence": "Is lá breá é inniu.", "prediction": "day."},
+
+    {"word": "uisce", "source_sentence": "Níl uisce sa tobar.", "prediction": "glass."},
+    {"word": "leabhar", "source_sentence": "Léigh sé leabhar faoin stair.", "prediction": "chair."},
+    {"word": "cat", "source_sentence": "Chonaic mé cat sa ghairdín.", "prediction": "engine."},
+    {"word": "teach", "source_sentence": "Is teach beag é.", "prediction": "forest."},
+    {"word": "fear", "source_sentence": "Is fear cneasta é.", "prediction": "river."},
+    {"word": "bean", "source_sentence": "Tháinig bean isteach sa siopa.", "prediction": "music."},
+    {"word": "oíche", "source_sentence": "D'fhan muid ann ar feadh oíche amháin.", "prediction": "blue."},
+    {"word": "lá", "source_sentence": "Bhí lá fada againn.", "prediction": "running."},
+    {"word": "bord", "source_sentence": "Tá bord nua sa chistin.", "prediction": "sleep."},
+    {"word": "páiste", "source_sentence": "Tá páiste ag súgradh sa pháirc.", "prediction": "computer."},
+    {"word": "amadán", "source_sentence": "Is amadán é.", "prediction": "mountain."},
+    {"word": "obair", "source_sentence": "Tá obair le déanamh agam.", "prediction": "banana."}
+  ]
+}

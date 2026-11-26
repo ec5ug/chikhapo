@@ -74,6 +74,7 @@ class BaseEvaluator:
             self.DIRECTION = "eng_to_X"
         else:
             raise Exception("The current implementation of ChiKhaPo's evaluation is English-centric. Model must either translate to or from English (i.e. either self.src_lang==\"eng\" OR self.tgt_lang==\"eng\")")
+        return self.DIRECTION
 
     def score_language(self):
         word_scores = list(self.word_scores.values())

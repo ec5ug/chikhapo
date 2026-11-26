@@ -1,0 +1,27 @@
+{
+  "src_lang": "yor",
+  "tgt_lang": "eng",
+  "data": [
+    {"word": "ọmọ", "source_sentence": "Ọmọ naa n ṣere ni ita.", "prediction": "child."},
+    {"word": "aja", "source_sentence": "Aja kan wa ni ẹnu ọna.", "prediction": "dog."},
+    {"word": "ile", "source_sentence": "A ra ile tuntun.", "prediction": "house."},
+    {"word": "omi", "source_sentence": "Jọwọ fun mi ni omi.", "prediction": "water."},
+    {"word": "iwe", "source_sentence": "O n ka iwe.", "prediction": "book."},
+    {"word": "ounjẹ", "source_sentence": "Iya mi ṣe ounjẹ to dun.", "prediction": "food."},
+    {"word": "oko", "source_sentence": "Baba mi n ṣiṣẹ ni oko.", "prediction": "farm."},
+    {"word": "ọkọ", "source_sentence": "Ọkọ rẹ jẹ dokita.", "prediction": "husband."},
+    {"word": "obinrin", "source_sentence": "Obinrin kan lọ si ọja.", "prediction": "woman."},
+    {"word": "okunrin", "source_sentence": "Okunrin naa ga pupọ.", "prediction": "man."},
+    {"word": "ojo", "source_sentence": "Ojo yii dara pupọ.", "prediction": "day."},
+    {"word": "alẹ", "source_sentence": "A rin irin-ajo ni alẹ.", "prediction": "night."},
+    {"word": "owo", "source_sentence": "Mi o ni owo.", "prediction": "money."},
+    {"word": "ori", "source_sentence": "Ori mi n dun mi.", "prediction": "head."},
+    {"word": "igi", "source_sentence": "Igi nla kan wa niwaju ile.", "prediction": "tree."},
+    {"word": "ọrẹ", "source_sentence": "O jẹ ọrẹ mi.", "prediction": "friend."},
+    {"word": "ile-iwe", "source_sentence": "Awọn ọmọde lọ si ile-iwe.", "prediction": "school."},
+
+    {"word": "ọmọ", "source_sentence": "Ọmọ kekere kan n sun.", "prediction": "computer."},
+    {"word": "omi", "source_sentence": "Omi inu odo yii mọ.", "prediction": "fire."},
+    {"word": "aja", "source_sentence": "Mo ni aja meji.", "prediction": "music."}
+  ]
+}
